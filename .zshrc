@@ -31,7 +31,10 @@ function _update_vcs_info_msg() {
 }
 #add-zsh-hook precmd _update_vcs_info_msg
 
-
+# デフォルトエディタをVimに設定
+export EDITOR='vim'
+export VISUAL='vim'
+export PAGER='less'
 
 # --------------------------------------------------
 #  PATHを通す
