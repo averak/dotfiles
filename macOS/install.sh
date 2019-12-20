@@ -34,41 +34,21 @@ fi
 pyenv shell --unset
 pyenv global 3.7.4
 
-# check python version
-python_version=$(python --version 2>&1)
-if [ "${python_version}" = "Python 3.7.4" ];then
-    echo Python 3 version check is OK.
-else
-    echo Python 3 version check is failed.
-    exit 1
-fi
-
 # install vim
 ROOTDIR=$PWD
 TMPDIR=$(mktemp -d /tmp/XXXXX)
-if [ ! -e ${HOME}/local/bin/vim ]; then
+if [ ! -e ${HOME}/usr/local/bin/vim ]; then
     echo "installing vim 8..."
     cd "$TMPDIR"
     git clone https://github.com/vim/vim.git
     cd vim
-    LDFLAGS="-Wl,-rpath=${HOME}/.pyenv/versions/3.7.4/lib" \
-        ./configure \
-        --enable-fail-if-missing \
-        --enable-pythoninterp=dynamic \
-        --enable-python3interp=dynamic \
-        --with-features=huge \
-        --enable-luainterp \
-        --enable-cscope \
-        --enable-fontset \
-        --enable-multibyte \
-        --prefix="${HOME}"/local
     make -j && make install
 fi
 
 # install nvim
-if [ ! -e ${HOME}/local/bin/nvim ]; then
+if [ ! -e ${HOME}/usr/local/bin/nvim ]; then
     echo "installing neovim..."
-    cd ${HOME}/local/bin
+    cd ${HOME}/usr/local/bin
     wget https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage
     chmod u+x nvim.appimage
     if ./nvim.appimage --version >& /dev/null; then

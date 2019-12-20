@@ -86,17 +86,6 @@ if [ ! -e ${HOME}/usr/local/bin/vim ]; then
     cd "$TMPDIR"
     git clone https://github.com/vim/vim.git
     cd vim
-    LDFLAGS="-Wl,-rpath=${HOME}/.pyenv/versions/3.7.4/lib" \
-        ./configure \
-        --enable-fail-if-missing \
-        --enable-pythoninterp=dynamic \
-        --enable-python3interp=dynamic \
-        --with-features=huge \
-        --enable-luainterp \
-        --enable-cscope \
-        --enable-fontset \
-        --enable-multibyte \
-        --prefix="${HOME}"/local
     make -j && make install
 fi
 
