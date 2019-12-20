@@ -1,6 +1,10 @@
 Dotfiles
 ========
 
+My dotfiles
+![](./img/terminal.png)
+
+
 ## Environments
 - CentOS 7
 - Ubuntu 16.04 and 18.04
