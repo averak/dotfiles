@@ -81,7 +81,7 @@ fi
 # install vim
 ROOTDIR=$PWD
 TMPDIR=$(mktemp -d /tmp/XXXXX)
-if [ ! -e ${HOME}/local/bin/vim ]; then
+if [ ! -e ${HOME}/usr/local/bin/vim ]; then
     echo "installing vim 8..."
     cd "$TMPDIR"
     git clone https://github.com/vim/vim.git
@@ -101,9 +101,9 @@ if [ ! -e ${HOME}/local/bin/vim ]; then
 fi
 
 # install nvim
-if [ ! -e ${HOME}/local/bin/nvim ]; then
+if [ ! -e ${HOME}/usr/local/bin/nvim ]; then
     echo "installing neovim..."
-    cd ${HOME}/local/bin
+    cd ${HOME}/usr/local/bin
     wget https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage
     chmod u+x nvim.appimage
     if ./nvim.appimage --version >& /dev/null; then
