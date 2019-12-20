@@ -69,7 +69,7 @@ fi
 
 # install enable-shared python using pyenv
 if [ ! -e "${HOME}"/.pyenv/versions/3.7.4 ];then
-    CONFIGURE_OPTS="--enable-shared" pyenv install 3.7.4
+    pyenv install 3.7.4
 else
     echo "Python 3.7.4 is already installed."
 fi
