@@ -78,15 +78,6 @@ fi
 ~/.pyenv/bin/pyenv shell --unset
 ~/.pyenv/bin/pyenv global 3.7.4
 
-# check python version
-python_version=$(python --version 2>&1)
-if [ "${python_version}" = "Python 3.7.4" ];then
-    echo Python 3 version check is OK.
-else
-    echo Python 3 version check is failed.
-    exit 1
-fi
-
 # install vim
 ROOTDIR=$PWD
 TMPDIR=$(mktemp -d /tmp/XXXXX)
