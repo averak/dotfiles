@@ -53,12 +53,6 @@ if [ ! -e ~/.zprezto ];then
     cp zsh/* ~/
 fi
 
-# install pyenv
-if [ ! -e ~/.pyenv ];then
-    echo "Installing pyenv..."
-    git clone https://github.com/yyuu/pyenv.git ~/.pyenv
-fi
-
 # install fzf
 if [ ! -e ~/.fzf ];then
     echo "Installing fzf..."
@@ -67,16 +61,22 @@ if [ ! -e ~/.fzf ];then
     cd ~/.fzf && ./install --key-bindings --no-completion --no-update-rc && cd ${workdir}
 fi
 
+# install pyenv
+if [ ! -e ~/.pyenv ];then
+    echo "Installing pyenv..."
+    git clone https://github.com/yyuu/pyenv.git ~/.pyenv
+fi
+
 # install enable-shared python using pyenv
 if [ ! -e "${HOME}"/.pyenv/versions/3.7.4 ];then
-    pyenv install 3.7.4
+    ~/.pyenv/bin/pyenv install 3.7.4
 else
     echo "Python 3.7.4 is already installed."
 fi
 
 # set python
-pyenv shell --unset
-pyenv global 3.7.4
+~/.pyenv/bin/pyenv shell --unset
+~/.pyenv/bin/pyenv global 3.7.4
 
 # check python version
 python_version=$(python --version 2>&1)
