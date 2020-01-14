@@ -41,23 +41,27 @@ export PAGER='less'
 # --------------------------------------------------
 
 # Python
-PATH=$PATH:$HOME/.pyenv/bin:$PATH
-PATH=$PATH:$HOME/.pyenv/shims:$PATH
+PATH=$HOME/.pyenv/bin:$PATH
+PATH=$HOME/.pyenv/shims:$PATH
 
 # Ruby
-PATH=$PATH:$HOME/.rbenv/bin:$PATH
-PATH=$PATH:$HOME/.rbenv/shims:$PATH
+PATH=$HOME/.rbenv/bin:$PATH
+PATH=$HOME/.rbenv/shims:$PATH
+
+# Node.js
+PATH=$HOME/.nodenv/bin:$PATH
 
 # Laravel
-PATH=$PATH:$HOME/.composer/vendor/bin
+PATH=$HOME/.composer/vendor/bin:$PATH
 
 # Brainfuck
-PATH=$PATH:$HOME/.bf/bin/
+PATH=$HOME/.bf/bin:$PATH
 
 export PATH
 
 eval "$(rbenv init -)"
 eval "$(pyenv init -)"
+eval "$(nodenv init -)"
 
 
 # --------------------------------------------------
