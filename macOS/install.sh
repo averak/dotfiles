@@ -78,17 +78,10 @@ fi
 # install nvim
 if [ ! -e ${HOME}/usr/local/bin/nvim ]; then
     echo "installing neovim..."
-    cd ${HOME}/usr/local/bin
-    wget https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage
-    chmod u+x nvim.appimage
-    if ./nvim.appimage --version >& /dev/null; then
-        ln -s ./nvim.appimage nvim
-    else
-        ./nvim.appimage --appimage-extract
-        mv -v squashfs-root ../nvim
-        ln -s ../nvim/AppRun nvim
-        rm nvim.appimage
-    fi
+    cd "$TMPDIR"
+    git clone https://github.com/neovim/neovim.git
+    cd neovim
+    make -j && make install
 fi
 
 # install my vim config
