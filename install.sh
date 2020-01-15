@@ -95,6 +95,8 @@ fi
 if [ ! -e ~/.nodenv ];then
     echo "Installing nodenv..."
     git clone git://github.com/nodenv/nodenv.git ~/.nodenv
+    echo "Installing node-build..."
+    git clone https://github.com/nodenv/node-build.git ~/.nodenv/plugins/node-build
 fi
 
 # install nodejs
