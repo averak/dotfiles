@@ -70,6 +70,7 @@ fi
 # install enable-shared python using pyenv
 if [ ! -e "${HOME}"/.pyenv/versions/3.7.4 ];then
     ~/.pyenv/bin/pyenv install 3.7.4
+    ~/.pyenv/bin/pyenv global 3.7.4
 else
     echo "Python 3.7.4 is already installed."
 fi
@@ -85,6 +86,7 @@ fi
 # install enable-shared ruby using rbenv
 if [ ! -e "${HOME}"/.rbyenv/versions/2.7.0 ];then
     ~/.rbenv/bin/rbenv install 2.7.0
+    ~/.rbenv/bin/rbenv global 2.7.0
 else
     echo "Ruby 2.7.0 is already installed."
 fi
@@ -98,13 +100,13 @@ fi
 # install nodejs
 if [ ! -e "${HOME}"/.nodenv/versions/13.6.0 ];then
     ~/.nodenv/bin/nodenv install 13.6.0
+    ~/.nodenv/bin/nodenv global 13.6.0
 else
     echo "Nodejs 13.6.0 is already installed."
 fi
 
-# set python
-~/.pyenv/bin/pyenv shell --unset
-~/.pyenv/bin/pyenv global 3.7.4
+# .gitconfig
+cp .gitconfig ~/
 
 # install vim
 ROOTDIR=$PWD
