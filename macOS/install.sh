@@ -101,17 +101,6 @@ git clone https://github.com/AtLab-jp/Karabiner-settings ~/.config/karabiner
 cd "$ROOTDIR"
 [ -e "$TMPDIR" ] && rm -fr "$TMPDIR"
 
-# install vim plugins
-echo "installing vim plugins..."
-export PATH=${HOME}/local/bin:$PATH
-[ ! -e ~/.vim/dein/repos/github.com/Shougo/dein.vim ] && \
-    git clone https://github.com/Shougo/dein.vim ~/.vim/dein/repos/github.com/Shougo/dein.vim
-[ ! -e ~/.config/nvim/dein/repos/github.com/Shougo/dein.vim ] && \
-    git clone https://github.com/Shougo/dein.vim ~/.config/nvim/dein/repos/github.com/Shougo/dein.vim
-vim -c "try | call dein#install() | finally | qall! | endtry" -N -u ${HOME}/.vimrc -V1 -es
-vim -c "try | call dein#update() | finally | qall! | endtry" -N -u ${HOME}/.vimrc -V1 -es
-nvim -c "try | call dein#install() | finally | qall! | endtry" -N -u ${HOME}/.vim/init.vim -V1 -es
-nvim -c "try | call dein#update() | finally | qall! | endtry" -N -u ${HOME}/.vim/init.vim -V1 -es
 
 echo ""
 echo "Sucessfully installed essential tools."
