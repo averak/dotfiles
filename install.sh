@@ -84,7 +84,7 @@ if [ ! -e ~/.rbenv ];then
 fi
 
 # install enable-shared ruby using rbenv
-if [ ! -e "${HOME}"/.rbyenv/versions/2.7.0 ];then
+if [ ! -e "${HOME}"/.rbenv/versions/2.7.0 ];then
     ~/.rbenv/bin/rbenv install 2.7.0
     ~/.rbenv/bin/rbenv global 2.7.0
 else
