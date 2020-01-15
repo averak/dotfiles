@@ -74,6 +74,21 @@ else
     echo "Python 3.7.4 is already installed."
 fi
 
+# install rbenv
+if [ ! -e ~/.rbenv ];then
+    echo "Installing rbenv..."
+    git clone https://github.com/sstephenson/rbenv.git ~/.rbenv
+    echo "Installing ruby-build..."
+    git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
+fi
+
+# install enable-shared ruby using rbenv
+if [ ! -e "${HOME}"/.rbyenv/versions/2.7.0 ];then
+    ~/.rbenv/bin/rbenv install 2.7.0
+else
+    echo "Ruby 2.7.0 is already installed."
+fi
+
 # install nodenv
 if [ ! -e ~/.nodenv ];then
     echo "Installing nodenv..."
