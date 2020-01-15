@@ -92,12 +92,12 @@ fi
 # install nodenv
 if [ ! -e ~/.nodenv ];then
     echo "Installing nodenv..."
-    git clone git://github.com/nodenv/nodenv.git ~/.nodenv ~/.nodenv
+    git clone git://github.com/nodenv/nodenv.git ~/.nodenv
 fi
 
 # install nodejs
 if [ ! -e "${HOME}"/.nodenv/versions/13.6.0 ];then
-    ~/.pyenv/bin/nodenv install 13.6.0
+    ~/.nodenv/bin/nodenv install 13.6.0
 else
     echo "Nodejs 13.6.0 is already installed."
 fi
