@@ -87,15 +87,15 @@ fi
 # install my vim config
 if [ ! -e ~/.vim ];then
     echo "Installing my vim config..."
-    git clone https://github.com/AtLab-jp/vim ~/.vim
+    git clone https://github.com/AjxLab/vim ~/.vim
 fi
 if [ ! -e ~/.config/nvim ];then
     echo "Installing my nvim config..."
-    git clone https://github.com/AtLab-jp/neovim ~/.config/nvim
+    git clone https://github.com/AjxLab/neovim ~/.config/nvim
 fi
 
 # install my karabiner config
-git clone https://github.com/AtLab-jp/Karabiner-settings ~/.config/karabiner
+git clone https://github.com/AjxLab/Karabiner-settings ~/.config/karabiner
 
 # clean up
 cd "$ROOTDIR"

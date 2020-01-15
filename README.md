@@ -15,7 +15,7 @@ My dotfiles
 2. Setup dotfiles and install software as follow
 ```sh
 # clone this repository
-$ git clone https://github.com/AtLab-jp/dotfiles
+$ git clone https://github.com/AjxLab/dotfiles
 $ cd dotfiles
 
 # install essential tools (required sudo)
