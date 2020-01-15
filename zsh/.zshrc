@@ -57,6 +57,9 @@ PATH=$HOME/.composer/vendor/bin:$PATH
 # Brainfuck
 PATH=$HOME/.bf/bin:$PATH
 
+# Clangd
+PATH=/usr/local/opt/llvm/bin:$PATH
+
 export PATH
 
 eval "$(rbenv init -)"

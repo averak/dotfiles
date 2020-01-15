@@ -6,7 +6,7 @@
 if [ ! -e ~/.zprezto ];then
     echo "Installing zprezto..."
     git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
-    cp zsh/* ~/
+    cp zsh/.* ~/
 fi
 
 # install pyenv
