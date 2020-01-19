@@ -1,7 +1,5 @@
 #!/bin/bash -e
 
-# Pyenv-pythons, Vim8, Neovim
-
 # install zprezto
 if [ ! -e ~/.zprezto ];then
     echo "Installing zprezto..."
@@ -89,7 +87,6 @@ if [ ! -e ${HOME}/usr/local/bin/nvim ]; then
     cd "$TMPDIR"
     git clone https://github.com/neovim/neovim.git
     cd neovim
-    sudo rm -rf ~/neovim/build
     sudo make CMAKE_BUILD_TYPE=Release
     sudo make install
 fi
