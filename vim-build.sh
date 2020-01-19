@@ -40,7 +40,7 @@ fi
 
 
 ## ========== Neovim ====================
-echo "Start Neoim..."
+echo "\n\nStart Neoim..."
 
 remote_path=https://github.com/neovim/neovim
 branch=master
