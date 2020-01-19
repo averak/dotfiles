@@ -118,7 +118,15 @@ if [ ! -e ${HOME}/usr/local/bin/vim ]; then
     cd "$TMPDIR"
     git clone https://github.com/vim/vim.git
     cd vim
-    make -j && make install
+    ./configure \
+        --with-features=huge \
+        --enable-perlinterp \
+        --enable-pythoninterp \
+        --enable-python3interp \
+        --enable-rubyinterp=yes \
+        --enable-fail-if-missing
+    sudo make
+    sudo make install
 fi
 
 # install nvim
@@ -127,7 +135,9 @@ if [ ! -e ${HOME}/usr/local/bin/nvim ]; then
     cd "$TMPDIR"
     git clone https://github.com/neovim/neovim.git
     cd neovim
-    make -j && make install
+    sudo rm -rf ~/neovim/build
+    sudo make CMAKE_BUILD_TYPE=Release
+    sudo make install
 fi
 
 # install my vim config
