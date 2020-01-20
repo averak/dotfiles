@@ -19,5 +19,5 @@ $ git clone https://github.com/AjxLab/dotfiles
 $ cd dotfiles
 
 # install essential tools (required sudo)
-$ ./install.sh
+$ bash install.sh
 ```

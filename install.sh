@@ -2,7 +2,7 @@
 
 
 # Versions
-PYTHON_VERRSION=3.7.4
+PYTHON_VERSION=3.7.4
 RUBY_VERSION=2.7.0
 NODE_VERSION=13.6.0
 
@@ -91,9 +91,9 @@ if [ ! -e ~/.pyenv ];then
     git clone https://github.com/yyuu/pyenv.git ~/.pyenv
 fi
 
-# install enable-shared python using pyenv
+# install python
 if [ ! -e "${HOME}"/.pyenv/versions/${PYTHON_VERSION} ];then
-    if ask_yes_no "start install python OK? "; then
+    if ask_yes_no "Start install Python ${PYTHON_VERSION} OK? "; then
         ~/.pyenv/bin/pyenv install ${PYTHON_VERSION}
         ~/.pyenv/bin/pyenv global ${PYTHON_VERSION}
     fi
@@ -109,9 +109,9 @@ if [ ! -e ~/.rbenv ];then
     git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
 fi
 
-# install enable-shared ruby using rbenv
+# install ruby
 if [ ! -e "${HOME}"/.rbenv/versions/${RUBY_VERSION} ];then
-    if ask_yes_no "start install python OK? "; then
+    if ask_yes_no "Start install Ruby ${RUBY_VERSION} OK? "; then
         ~/.rbenv/bin/rbenv install ${RUBY_VERSION}
         ~/.rbenv/bin/rbenv global ${RUBY_VERSION}
     fi
@@ -129,7 +129,7 @@ fi
 
 # install nodejs
 if [ ! -e "${HOME}"/.nodenv/versions/${NODE_VERSION} ];then
-    if ask_yes_no "start install python OK? "; then
+    if ask_yes_no "Start install Nodejs ${NODE_VERSION}  OK? "; then
         ~/.nodenv/bin/nodenv install ${NODE_VERSION}
         ~/.nodenv/bin/nodenv global ${NODE_VERSION}
     fi
@@ -143,8 +143,8 @@ cp .gitconfig ~/
 # install vim
 ROOTDIR=$PWD
 if [ ! -e /usr/local/bin/vim ]; then
-    if ask_yes_no "start install vim OK? "; then
-        echo "installing vim..."
+    if ask_yes_no "Start install vim OK? "; then
+        echo "Installing vim..."
         cd ${ROOTDIR}
         git clone https://github.com/vim/vim.git
         cd vim
@@ -162,8 +162,8 @@ fi
 
 # install nvim
 if [ ! -e /usr/local/bin/nvim ]; then
-    if ask_yes_no "start install neovim OK? "; then
-        echo "installing neovim..."
+    if ask_yes_no "Start install neovim OK? "; then
+        echo "Installing neovim..."
         cd ${ROOTDIR}
         git clone https://github.com/neovim/neovim.git
         cd neovim
