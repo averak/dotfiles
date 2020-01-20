@@ -11,7 +11,7 @@ if [ ! -e vim ]; then
     git clone ${remote_path} vim
     echo 'cloning success!'
 fi
-
+cd ${deploy_path}/vim
 result=`sudo git pull origin ${branch}`
 if [ "`echo $result | grep 'Already'`" ]; then
     echo 'Already up to date'
@@ -51,6 +51,7 @@ if [ ! -e neovim ]; then
     git clone ${remote_path} neovim
     echo 'cloning success!'
 fi
+cd ${deploy_path}/neovim
 result=`sudo git pull origin ${branch}`
 if [ "`echo $result | grep 'Already'`" ]; then
     echo 'Already up to date'
