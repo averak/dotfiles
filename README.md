@@ -11,13 +11,24 @@ My dotfiles
 
 
 ## Setup
-1. Get Nerd fonts from [nerd-fonts](https://github.com/ryanoasis/nerd-fonts)
+1. Install Nerd Fonts
+```sh
+$ bash fonts/install.sh
+```
 2. Setup dotfiles and install software as follow
 ```sh
 # clone this repository
 $ git clone https://github.com/AjxLab/dotfiles
 $ cd dotfiles
-
+```
+### Linux
+```sh
 # install essential tools (required sudo)
+$ bash install.sh
+```
+### MacOS
+```sh
+# install essential tools (required sudo)
+$ bash macos/install.sh
 $ bash install.sh
 ```
