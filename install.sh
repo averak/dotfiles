@@ -1,6 +1,11 @@
 #!/bin/bash -e
 
 
+# Versions
+PYTHON_VERRSION=3.7.4
+RUBY_VERSION=2.7.0
+NODE_VERSION=13.6.0
+
 # Input [y/n]
 function ask_yes_no {
     while true; do
@@ -20,7 +25,6 @@ function ask_yes_no {
     done
 }
 
-
 # check and install dependencies
 if [ -e /etc/lsb-release ];then
     required_packages="build-essential libssl-dev zlib1g-dev libbz2-dev
@@ -38,6 +42,7 @@ if [ -e /etc/lsb-release ];then
             install_packages="${install_packages} ${package}"
         fi
     done
+
     if [ ! -z "${install_packages}" ]; then
         echo "following packages will be installed: ${install_packages}"
         sudo apt install -y ${install_packages}
@@ -87,13 +92,13 @@ if [ ! -e ~/.pyenv ];then
 fi
 
 # install enable-shared python using pyenv
-if [ ! -e "${HOME}"/.pyenv/versions/3.7.4 ];then
+if [ ! -e "${HOME}"/.pyenv/versions/${PYTHON_VERSION} ];then
     if ask_yes_no "start install python OK? "; then
-        ~/.pyenv/bin/pyenv install 3.7.4
-        ~/.pyenv/bin/pyenv global 3.7.4
+        ~/.pyenv/bin/pyenv install ${PYTHON_VERSION}
+        ~/.pyenv/bin/pyenv global ${PYTHON_VERSION}
     fi
 else
-    echo "Python 3.7.4 is already installed."
+    echo "Python ${PYTHON_VERSION} is already installed."
 fi
 
 # install rbenv
@@ -105,13 +110,13 @@ if [ ! -e ~/.rbenv ];then
 fi
 
 # install enable-shared ruby using rbenv
-if [ ! -e "${HOME}"/.rbenv/versions/2.7.0 ];then
+if [ ! -e "${HOME}"/.rbenv/versions/${RUBY_VERSION} ];then
     if ask_yes_no "start install python OK? "; then
-        ~/.rbenv/bin/rbenv install 2.7.0
-        ~/.rbenv/bin/rbenv global 2.7.0
+        ~/.rbenv/bin/rbenv install ${RUBY_VERSION}
+        ~/.rbenv/bin/rbenv global ${RUBY_VERSION}
     fi
 else
-    echo "Ruby 2.7.0 is already installed."
+    echo "Ruby ${RUBY_VERSION} is already installed."
 fi
 
 # install nodenv
@@ -123,13 +128,13 @@ if [ ! -e ~/.nodenv ];then
 fi
 
 # install nodejs
-if [ ! -e "${HOME}"/.nodenv/versions/13.6.0 ];then
+if [ ! -e "${HOME}"/.nodenv/versions/${NODE_VERSION} ];then
     if ask_yes_no "start install python OK? "; then
-        ~/.nodenv/bin/nodenv install 13.6.0
-        ~/.nodenv/bin/nodenv global 13.6.0
+        ~/.nodenv/bin/nodenv install ${NODE_VERSION}
+        ~/.nodenv/bin/nodenv global ${NODE_VERSION}
     fi
 else
-    echo "Nodejs 13.6.0 is already installed."
+    echo "Nodejs ${NODE_VERSION} is already installed."
 fi
 
 # .gitconfig
@@ -137,7 +142,7 @@ cp .gitconfig ~/
 
 # install vim
 ROOTDIR=$PWD
-if [ ! -e ${HOME}/usr/local/bin/vim ]; then
+if [ ! -e /usr/local/bin/vim ]; then
     if ask_yes_no "start install vim OK? "; then
         echo "installing vim..."
         cd ${ROOTDIR}
@@ -156,7 +161,7 @@ if [ ! -e ${HOME}/usr/local/bin/vim ]; then
 fi
 
 # install nvim
-if [ ! -e ${HOME}/usr/local/bin/nvim ]; then
+if [ ! -e /usr/local/bin/nvim ]; then
     if ask_yes_no "start install neovim OK? "; then
         echo "installing neovim..."
         cd ${ROOTDIR}
