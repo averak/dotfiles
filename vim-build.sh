@@ -1,3 +1,5 @@
+#!/bin/bash -e
+
 ## ========== Vim =======================
 echo "Start Vim..."
 deploy_path=`pwd`
