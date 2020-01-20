@@ -50,7 +50,7 @@ if [ -e /etc/lsb-release ];then
 elif [ -e /etc/redhat-release ]; then
     required_packages="gcc zlib-devel bzip2 bzip2-devel readline-devel sqlite sqlite-devel
         openssl-devel xz xz-devel findutils lua-devel luajit-devel ncurses-devel perl-ExtUtils-Embed
-        ncurses-devel libevent-devel make git zsh wget curl xclip xsel"
+        ncurses-devel libevent-devel make git zsh wget curl xclip xsel cmake"
     install_packages=""
     installed_packages=$(yum list installed | awk '{print $1}' | sed -e "s/\..*$//g")
     for package in ${required_packages}; do
