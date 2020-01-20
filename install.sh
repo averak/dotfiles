@@ -1,6 +1,25 @@
 #!/bin/bash -e
 
-# Pyenv-pythons, Vim8, Neovim
+
+# Input [y/n]
+function ask_yes_no {
+    while true; do
+    echo "$* [y/n]: "
+    read ANS
+    case $ANS in
+      [Yy]*)
+        return 0
+        ;;
+      [Nn]*)
+        return 1
+        ;;
+    *)
+        echo "please press [y/n]"
+        ;;
+      esac
+    done
+}
+
 
 # check and install dependencies
 if [ -e /etc/lsb-release ];then
@@ -69,8 +88,10 @@ fi
 
 # install enable-shared python using pyenv
 if [ ! -e "${HOME}"/.pyenv/versions/3.7.4 ];then
-    ~/.pyenv/bin/pyenv install 3.7.4
-    ~/.pyenv/bin/pyenv global 3.7.4
+    if ask_yes_no "start install python OK? "; then
+        ~/.pyenv/bin/pyenv install 3.7.4
+        ~/.pyenv/bin/pyenv global 3.7.4
+    fi
 else
     echo "Python 3.7.4 is already installed."
 fi
@@ -85,8 +106,10 @@ fi
 
 # install enable-shared ruby using rbenv
 if [ ! -e "${HOME}"/.rbenv/versions/2.7.0 ];then
-    ~/.rbenv/bin/rbenv install 2.7.0
-    ~/.rbenv/bin/rbenv global 2.7.0
+    if ask_yes_no "start install python OK? "; then
+        ~/.rbenv/bin/rbenv install 2.7.0
+        ~/.rbenv/bin/rbenv global 2.7.0
+    fi
 else
     echo "Ruby 2.7.0 is already installed."
 fi
@@ -101,8 +124,10 @@ fi
 
 # install nodejs
 if [ ! -e "${HOME}"/.nodenv/versions/13.6.0 ];then
-    ~/.nodenv/bin/nodenv install 13.6.0
-    ~/.nodenv/bin/nodenv global 13.6.0
+    if ask_yes_no "start install python OK? "; then
+        ~/.nodenv/bin/nodenv install 13.6.0
+        ~/.nodenv/bin/nodenv global 13.6.0
+    fi
 else
     echo "Nodejs 13.6.0 is already installed."
 fi
@@ -112,31 +137,34 @@ cp .gitconfig ~/
 
 # install vim
 ROOTDIR=$PWD
-TMPDIR=$(mktemp -d /tmp/XXXXX)
 if [ ! -e ${HOME}/usr/local/bin/vim ]; then
-    echo "installing vim 8..."
-    cd "$TMPDIR"
-    git clone https://github.com/vim/vim.git
-    cd vim
-    ./configure \
-        --with-features=huge \
-        --enable-perlinterp \
-        --enable-pythoninterp \
-        --enable-python3interp \
-        --enable-rubyinterp=yes \
-        --enable-fail-if-missing
-    sudo make
-    sudo make install
+    if ask_yes_no "start install vim OK? "; then
+        echo "installing vim..."
+        cd ${ROOTDIR}
+        git clone https://github.com/vim/vim.git
+        cd vim
+        ./configure \
+            --with-features=huge \
+            --enable-perlinterp \
+            --enable-pythoninterp \
+            --enable-python3interp \
+            --enable-rubyinterp=yes \
+            --enable-fail-if-missing
+        sudo make
+        sudo make install
+    fi
 fi
 
 # install nvim
 if [ ! -e ${HOME}/usr/local/bin/nvim ]; then
-    echo "installing neovim..."
-    cd "$TMPDIR"
-    git clone https://github.com/neovim/neovim.git
-    cd neovim
-    sudo make CMAKE_BUILD_TYPE=Release
-    sudo make install
+    if ask_yes_no "start install neovim OK? "; then
+        echo "installing neovim..."
+        cd ${ROOTDIR}
+        git clone https://github.com/neovim/neovim.git
+        cd neovim
+        sudo make CMAKE_BUILD_TYPE=Release
+        sudo make install
+    fi
 fi
 
 # install my vim config
@@ -149,9 +177,7 @@ if [ ! -e ~/.config/nvim ];then
     git clone https://github.com/AtLab-jp/neovim ~/.config/nvim
 fi
 
-# clean up
-cd "$ROOTDIR"
-[ -e "$TMPDIR" ] && rm -fr "$TMPDIR"
+cd $ROOTDIR
 
 
 echo ""

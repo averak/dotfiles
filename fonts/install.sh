@@ -1,5 +1,7 @@
 #!/bin/bash -e
 
+ROOTDIR=$PWD
+
 # install Source Code Pro
 wget https://github.com/adobe-fonts/source-code-pro/archive/2.010R-ro/1.030R-it.zip
 unzip 1.030R-it.zip
@@ -11,6 +13,12 @@ fc-cache -f -v
 git clone --branch=master --depth 1 https://github.com/ryanoasis/nerd-fonts.git
 cd ./nerd-fonts
 ./install.sh SourceCodePro
+
+# cleanup
+cd {$ROOTDIR}
+rm -rf 1.030R-it.zip
+rm -rf source-code-pro-2.010R-ro-1.030R-it
+rm -rf ./nerd-fonts
 
 echo ""
 echo "Sucessfully installed fonts."
