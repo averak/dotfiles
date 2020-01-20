@@ -7,6 +7,25 @@ branch=master
 
 cd ${deploy_path}
 
+function ask_yes_no {
+    while true; do
+    echo "$* [y/n]: "
+    read ANS
+    case $ANS in
+      [Yy]*)
+        return 0
+        ;;
+      [Nn]*)
+        return 1
+        ;;
+    *)
+        echo "please press [y/n]"
+        ;;
+      esac
+    done
+}
+
+
 if [ ! -e vim ]; then
     git clone ${remote_path} vim
     echo 'cloning success!'
@@ -19,9 +38,7 @@ if [ "`echo $result | grep 'Already'`" ]; then
 else
     echo 'git pull is success!'
     # build
-    echo 'start build Vim OK? [yes/no]'
-    read answer
-    if [ "$answer" == "yes" ]; then
+    if ask_yes_no "start build Vim OK? "; then
         cd ${deploy_path}/vim
         ./configure \
             --with-features=huge \
@@ -59,9 +76,7 @@ if [ "`echo $result | grep 'Already'`" ]; then
 else
     echo 'git pull is success!'
     # build
-    echo 'start build Neovim OK? [yes/no]'
-    read answer
-    if [ "$answer" == "yes" ]; then
+    if ask_yes_no "start build Neovim OK? "; then
         cd ${deploy_path}/neovim
         sudo rm -rf build
         sudo make CMAKE_BUILD_TYPE=Release
