@@ -1,8 +1,16 @@
+[user]
+	name = AjxLab
+    email = abe12@mccc.jp
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
-[user]
-	name = AjxLab
-	email = abe12@mccc.jp
+[color]
+  ui = auto
+[gui]
+    encoding = utf-8
+[receive]
+    denyNonFastforwards = false
+[core]
+    quotepath = false
