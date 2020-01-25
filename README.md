@@ -13,7 +13,7 @@ My dotfiles
 ## Setup
 1. Install Nerd Fonts
 ```sh
-$ bash fonts/install.sh
+$ sh fonts/install.sh
 ```
 2. Setup dotfiles and install software as follow
 ```sh
@@ -24,11 +24,11 @@ $ cd dotfiles
 ### Linux
 ```sh
 # install essential tools (required sudo)
-$ bash install.sh
+$ sh install.sh
 ```
 ### MacOS
 ```sh
 # install essential tools (required sudo)
-$ bash macos/install.sh
-$ bash install.sh
+$ sh macos/install.sh
+$ sh install.sh
 ```
