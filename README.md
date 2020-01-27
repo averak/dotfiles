@@ -22,13 +22,11 @@ $ cd dotfiles
 $ sh fonts/install.sh
 ```
 3. Change Default Shell
-'''sh
-### add zsh to the list of available shells (required sudo)
-'''sh
+```sh
+# add zsh to the list of available shells (required sudo)
 $ echo /usr/local/bin/zsh >> /etc/shells
 $ chsh -s /usr/local/bin/zsh
-'''
-'''
+```
 ### Linux
 ```sh
 # install essential tools (required sudo)
