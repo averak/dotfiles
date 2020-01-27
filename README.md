@@ -23,9 +23,11 @@ $ sh fonts/install.sh
 ```
 3. Change Default Shell
 '''sh
-# add zsh to the list of available shells (required sudo)
+### add zsh to the list of available shells (required sudo)
+'''sh
 $ echo /usr/local/bin/zsh >> /etc/shells
 $ chsh -s /usr/local/bin/zsh
+'''
 '''
 ### Linux
 ```sh
