@@ -24,17 +24,21 @@ $ sh fonts/install.sh
 3. Change Default Shell
 ```sh
 # add zsh to the list of available shells (required sudo)
-$ echo /usr/local/bin/zsh >> /etc/shells
-$ chsh -s /usr/local/bin/zsh
+$ echo $(which zsh) >> /etc/shells
+$ chsh -s $(which zsh)
 ```
 ### Linux
 ```sh
 # install essential tools (required sudo)
-$ sh install.sh
+$ ./install.sh
 ```
 ### MacOS
 ```sh
 # install essential tools (required sudo)
-$ sh macos/install.sh
-$ sh install.sh
+$ ./macos/install.sh
+$ ./install.sh
+```
+### Build Latest Vim/Neovim
+```sh
+$ ./vim-build.sh
 ```
