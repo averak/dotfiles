@@ -88,7 +88,7 @@ fi
 # install pyenv
 if [ ! -e ~/.pyenv ];then
     echo "Installing pyenv..."
-    git clone https://github.com/yyuu/pyenv.git ~/.pyenv
+    git clone https://github.com/pyenv/pyenv.git ~/.pyenv
 fi
 
 # install python
