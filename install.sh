@@ -2,7 +2,8 @@
 
 
 # Versions
-PYTHON_VERSION=3.7.4
+ZSH_VERSUIONS=5.7.1
+PYTHON_VERSION=3.7.5
 RUBY_VERSION=2.7.0
 NODE_VERSION=13.6.0
 
@@ -30,7 +31,7 @@ if [ -e /etc/lsb-release ];then
     required_packages="build-essential libssl-dev zlib1g-dev libbz2-dev
         libreadline-dev libsqlite3-dev llvm libncurses5-dev libncursesw5-dev
         xz-utils tk-dev liblzma-dev python-openssl lua5.2 liblua5.2-dev luajit libevent-dev
-        make git zsh wget curl xclip xsel gawk cmake libtool m4 automake"
+        make git wget curl xclip xsel gawk cmake libtool m4 automake"
     install_packages=""
     installed_packages=$(COLUMNS=200 dpkg -l | awk '{print $2}' | sed -e "s/\:.*$//g")
     for package in ${required_packages}; do
@@ -50,7 +51,7 @@ if [ -e /etc/lsb-release ];then
 elif [ -e /etc/redhat-release ]; then
     required_packages="gcc zlib-devel bzip2 bzip2-devel readline-devel sqlite sqlite-devel
         openssl-devel xz xz-devel findutils lua-devel luajit-devel ncurses-devel perl-ExtUtils-Embed
-        ncurses-devel libevent-devel make git zsh wget curl xclip xsel cmake"
+        ncurses-devel libevent-devel make git wget curl xclip xsel cmake"
     install_packages=""
     installed_packages=$(yum list installed | awk '{print $1}' | sed -e "s/\..*$//g")
     for package in ${required_packages}; do
@@ -68,6 +69,21 @@ elif [ -e /etc/redhat-release ]; then
     fi
 else
     echo "WARNING: It seems that your environment is not tested."
+fi
+
+# install zsh
+if [ ! -e /usr/local/bin/zsh ]; then
+    if ask_yes_no "Start install zsh OK? "; then
+        echo "Installing zsh..."
+        wget https://sourceforge.net/projects/zsh/files/zsh/${ZSH_VERSUIONS}/zsh-${ZSH_VERSUIONS}.tar.xz/download -O zsh-${ZSH_VERSUIONS}.tar.xz
+        tar xvf zsh-${ZSH_VERSUIONS}.tar.xz
+        cd zsh-${ZSH_VERSUIONS}
+        ./configure --enable-multibyte
+        sudo make
+        sudo make install
+        cd -
+        rm -rf zsh-${ZSH_VERSUIONS}*
+    fi
 fi
 
 # install zprezto
@@ -96,6 +112,7 @@ if [ ! -e "${HOME}"/.pyenv/versions/${PYTHON_VERSION} ];then
     if ask_yes_no "Start install Python ${PYTHON_VERSION} OK? "; then
         ~/.pyenv/bin/pyenv install ${PYTHON_VERSION}
         ~/.pyenv/bin/pyenv global ${PYTHON_VERSION}
+        pip install -r lib/requirements.txt
     fi
 else
     echo "Python ${PYTHON_VERSION} is already installed."
