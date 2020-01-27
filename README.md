@@ -11,15 +11,15 @@ My dotfiles
 
 
 ## Setup
-1. Install Nerd Fonts
-```sh
-$ sh fonts/install.sh
-```
-2. Setup dotfiles and install software as follow
+1. Setup dotfiles and install software as follow
 ```sh
 # clone this repository
 $ git clone https://github.com/AjxLab/dotfiles
 $ cd dotfiles
+```
+2. Install Nerd Fonts
+```sh
+$ sh fonts/install.sh
 ```
 ### Linux
 ```sh
