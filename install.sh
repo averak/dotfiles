@@ -137,6 +137,24 @@ else
     echo "Ruby ${RUBY_VERSION} is already installed."
 fi
 
+# install plenv
+if [ ! -e ~/.plenv ];then
+    echo "Installing plenv..."
+    git clone https://github.com/tokuhirom/plenv ~/.plenv
+    echo "Installing perl-build..."
+    git clone https://github.com/tokuhirom/Perl-Build ~/.plenv/plugins/perl-build/
+fi
+
+# install perl
+if [ ! -e "${HOME}"/.plenv/versions/${PERL_VERSION} ];then
+    if ask_yes_no "Start install Perl ${PERL_VERSION} OK? "; then
+        ~/.plenv/bin/plenv install ${PERL_VERSION}
+        ~/.plenv/bin/plenv global ${PERL_VERSION}
+    fi
+else
+    echo "Perl ${PERL_VERSION} is already installed."
+fi
+
 # install nodenv
 if [ ! -e ~/.nodenv ];then
     echo "Installing nodenv..."
