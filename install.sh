@@ -5,6 +5,7 @@
 ZSH_VERSUIONS=5.7.1
 PYTHON_VERSION=3.7.5
 RUBY_VERSION=2.7.0
+PHP_VERSION=7.4.2
 PERL_VERSION=5.6.0
 NODE_VERSION=13.6.0
 
@@ -137,12 +138,30 @@ else
     echo "Ruby ${RUBY_VERSION} is already installed."
 fi
 
+# install phpenv
+if [ ! -e ~/.phpenv ];then
+    echo "Installing phpenv..."
+    git clone https://github.com/phpenv/phpenv ~/.phpenv
+    echo "Installing php-build..."
+    git clone https://github.com/php-build/php-build ~/.phpenv//plugins/php-build
+fi
+
+# install php
+if [ ! -e "${HOME}"/.phpenv/versions/${PHP_VERSION} ];then
+    if ask_yes_no "Start install PHP ${PHP_VERSION} OK? "; then
+        ~/.phpenv/bin/phpenv install ${PHP_VERSION}
+        ~/.phpenv/bin/phpenv global ${PHP_VERSION}
+    fi
+else
+    echo "PHP ${PHP_VERSION} is already installed."
+fi
+
 # install plenv
 if [ ! -e ~/.plenv ];then
     echo "Installing plenv..."
     git clone https://github.com/tokuhirom/plenv ~/.plenv
     echo "Installing perl-build..."
-    git clone https://github.com/tokuhirom/Perl-Build ~/.plenv/plugins/perl-build/
+    git clone https://github.com/tokuhirom/Perl-Build ~/.plenv/plugins/perl-build
 fi
 
 # install perl
