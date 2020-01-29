@@ -48,6 +48,10 @@ PATH=$HOME/.pyenv/shims:$PATH
 PATH=$HOME/.rbenv/bin:$PATH
 PATH=$HOME/.rbenv/shims:$PATH
 
+# Perl
+PATH=$HOME/.plenv/bin:$PATH
+PATH=$HOME/.plenv/shims:$PATH
+
 # Node.js
 PATH=$HOME/.nodenv/bin:$PATH
 
@@ -62,8 +66,9 @@ PATH=/usr/local/opt/llvm/bin:$PATH
 
 export PATH
 
-eval "$(rbenv init -)"
 eval "$(pyenv init -)"
+eval "$(rbenv init -)"
+eval "$(plenv init -)"
 eval "$(nodenv init -)"
 
 
