@@ -28,15 +28,9 @@ $ sh fonts/install.sh
 $ echo $(which zsh) >> /etc/shells
 $ chsh -s $(which zsh)
 ```
-### Linux
+### Install
 ```sh
 # install essential tools (required sudo)
-$ ./install.sh
-```
-### MacOS
-```sh
-# install essential tools (required sudo)
-$ ./macos/install.sh
 $ ./install.sh
 ```
 ### Build Latest Vim/Neovim
