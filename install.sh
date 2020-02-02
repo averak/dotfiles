@@ -9,6 +9,7 @@ PHP_VERSION=7.4.2
 PERL_VERSION=5.6.0
 NODE_VERSION=13.6.0
 
+
 # Input [y/n]
 function ask_yes_no {
     while true; do
@@ -28,50 +29,61 @@ function ask_yes_no {
     done
 }
 
+# ========== processing for each OS ====================
 # check and install dependencies
-if [ -e /etc/lsb-release ];then
-    required_packages="build-essential libssl-dev zlib1g-dev libbz2-dev
-        libreadline-dev libsqlite3-dev llvm libncurses5-dev libncursesw5-dev
-        xz-utils tk-dev liblzma-dev python-openssl lua5.2 liblua5.2-dev luajit libevent-dev
-        make git wget curl xclip xsel gawk cmake libtool m4 automake"
-    install_packages=""
-    installed_packages=$(COLUMNS=200 dpkg -l | awk '{print $2}' | sed -e "s/\:.*$//g")
-    for package in ${required_packages}; do
-        echo -n "check ${package}..."
-        if echo "${installed_packages}" | grep -xq ${package}; then
-            echo "OK."
-        else
-           echo "Not installed."
-            install_packages="${install_packages} ${package}"
-        fi
-    done
+# MacOS
+if [ "$(uname)" == "Darwin" ]; then
+    echo hello
+# Linux
+elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
+    if [ -e /etc/lsb-release ];then
+        required_packages="build-essential libssl-dev zlib1g-dev libbz2-dev
+            libreadline-dev libsqlite3-dev llvm libncurses5-dev libncursesw5-dev
+            xz-utils tk-dev liblzma-dev python-openssl lua5.2 liblua5.2-dev luajit libevent-dev
+            make git wget curl xclip xsel gawk cmake libtool m4 automake"
+        install_packages=""
+        installed_packages=$(COLUMNS=200 dpkg -l | awk '{print $2}' | sed -e "s/\:.*$//g")
+        for package in ${required_packages}; do
+            echo -n "check ${package}..."
+            if echo "${installed_packages}" | grep -xq ${package}; then
+                echo "OK."
+            else
+               echo "Not installed."
+                install_packages="${install_packages} ${package}"
+            fi
+        done
 
-    if [ ! -z "${install_packages}" ]; then
-        echo "following packages will be installed: ${install_packages}"
-        sudo apt install -y ${install_packages}
-    fi
-elif [ -e /etc/redhat-release ]; then
-    required_packages="gcc zlib-devel bzip2 bzip2-devel readline-devel sqlite sqlite-devel
-        openssl-devel xz xz-devel findutils lua-devel luajit-devel ncurses-devel perl-ExtUtils-Embed
-        ncurses-devel libevent-devel make git wget curl xclip xsel cmake"
-    install_packages=""
-    installed_packages=$(yum list installed | awk '{print $1}' | sed -e "s/\..*$//g")
-    for package in ${required_packages}; do
-        echo -n "check ${package}..."
-        if echo "${installed_packages}" | grep -xq ${package}; then
-            echo "OK."
-        else
-            echo "Not installed."
-            install_packages="${install_packages} ${package}"
+        if [ ! -z "${install_packages}" ]; then
+            echo "following packages will be installed: ${install_packages}"
+            sudo apt install -y ${install_packages}
         fi
-    done
-    if [ ! -z "${install_packages}" ]; then
-        echo "following packages will be installed: ${install_packages}"
-        sudo yum install -y ${install_packages}
+    elif [ -e /etc/redhat-release ]; then
+        required_packages="gcc zlib-devel bzip2 bzip2-devel readline-devel sqlite sqlite-devel
+            openssl-devel xz xz-devel findutils lua-devel luajit-devel ncurses-devel perl-ExtUtils-Embed
+            ncurses-devel libevent-devel make git wget curl xclip xsel cmake"
+        install_packages=""
+        installed_packages=$(yum list installed | awk '{print $1}' | sed -e "s/\..*$//g")
+        for package in ${required_packages}; do
+            echo -n "check ${package}..."
+            if echo "${installed_packages}" | grep -xq ${package}; then
+                echo "OK."
+            else
+                echo "Not installed."
+                install_packages="${install_packages} ${package}"
+            fi
+        done
+        if [ ! -z "${install_packages}" ]; then
+            echo "following packages will be installed: ${install_packages}"
+            sudo yum install -y ${install_packages}
+        fi
+    else
+        echo "WARNING: It seems that your environment is not tested."
     fi
+# Unknown OS
 else
-    echo "WARNING: It seems that your environment is not tested."
+  echo Unknown OS...
 fi
+
 
 # install zsh
 if [ ! -e /usr/local/bin/zsh ]; then
