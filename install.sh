@@ -33,7 +33,13 @@ function ask_yes_no {
 # check and install dependencies
 # MacOS
 if [ "$(uname)" == "Darwin" ]; then
-    echo hello
+    if [ ! -e /usr/local/bin/brew ]; then
+        echo "Installing Homebrew..."
+        /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    fi
+    install_packages="git openssl autoconf automake"
+    brew install ${installed_packages}
+
 # Linux
 elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
     if [ -e /etc/lsb-release ];then
@@ -79,6 +85,7 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
     else
         echo "WARNING: It seems that your environment is not tested."
     fi
+
 # Unknown OS
 else
   echo Unknown OS...
