@@ -1,14 +1,14 @@
 #!/bin/bash -e
 
 
-# Versions
+# ===== Versions ==========
 ZSH_VERSUIONS=5.7.1
 PYTHON_VERSION=3.7.5
 RUBY_VERSION=2.7.0
 PHP_VERSION=7.4.2
 PERL_VERSION=5.6.0
 NODE_VERSION=13.6.0
-
+# =========================
 
 # Input [y/n]
 function ask_yes_no {
