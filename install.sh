@@ -38,7 +38,7 @@ if [ "$(uname)" == "Darwin" ]; then
         /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     fi
     install_packages="git openssl autoconf automake"
-    brew install ${installed_packages}
+    brew install ${install_packages}
 
 # Linux
 elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
