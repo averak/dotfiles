@@ -76,6 +76,12 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
             echo "following packages will be installed: ${install_packages}"
             sudo apt install -y ${install_packages}
         fi
+
+        # install lsd
+        wget https://github.com/Peltoche/lsd/releases/download/0.16.0/lsd_0.16.0_amd64.deb
+        sudo dpkg -i lsd_0.16.0_amd64.deb
+        rm -rf lsd_0.16.0_amd64.deb
+
     elif [ -e /etc/redhat-release ]; then
         required_packages="gcc zlib-devel bzip2 bzip2-devel readline-devel sqlite sqlite-devel
             openssl-devel xz xz-devel findutils lua-devel luajit-devel ncurses-devel perl-ExtUtils-Embed
