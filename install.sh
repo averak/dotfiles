@@ -78,9 +78,13 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
         fi
 
         # install lsd
-        wget https://github.com/Peltoche/lsd/releases/download/0.16.0/lsd_0.16.0_amd64.deb
-        sudo dpkg -i lsd_0.16.0_amd64.deb
-        rm -rf lsd_0.16.0_amd64.deb
+        if [ ! -e /usr/bin/lsd ];then
+            if ask_yes_no "Start install lsd OK? "; then
+                wget https://github.com/Peltoche/lsd/releases/download/0.16.0/lsd_0.16.0_amd64.deb
+                sudo dpkg -i lsd_0.16.0_amd64.deb
+                rm -rf lsd_0.16.0_amd64.deb
+            fi
+        fi
 
     elif [ -e /etc/redhat-release ]; then
         required_packages="gcc zlib-devel bzip2 bzip2-devel readline-devel sqlite sqlite-devel
