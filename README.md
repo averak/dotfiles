@@ -20,7 +20,7 @@ $ cd dotfiles
 ```
 2. Install Nerd Fonts
 ```sh
-$ sh fonts/install.sh
+$ ./fonts/install.sh
 ```
 3. Change Default Shell
 ```sh
