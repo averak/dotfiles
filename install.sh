@@ -10,7 +10,7 @@ PERL_VERSION=5.6.0
 NODE_VERSION=13.6.0
 # =========================
 
-# Input [y/n]
+# Function to input [y/n]
 function ask_yes_no {
     while true; do
     echo "$* [y/n]: "
