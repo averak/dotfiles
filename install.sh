@@ -13,6 +13,7 @@ NODE_VERSION=13.6.0
 # Function to input [y/n]
 function ask_yes_no {
     while true; do
+    echo
     echo "$* [y/n]: "
     read ANS
     case $ANS in
