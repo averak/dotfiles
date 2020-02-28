@@ -56,6 +56,9 @@ PATH=$HOME/.phpenv/shims:$PATH
 PATH=$HOME/.plenv/bin:$PATH
 PATH=$HOME/.plenv/shims:$PATH
 
+# Rust
+PATH=$HOME/.cargo/bin:$PATH
+
 # Node.js
 PATH=$HOME/.nodenv/bin:$PATH
 
