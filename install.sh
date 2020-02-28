@@ -78,7 +78,7 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
         fi
 
         # install bat
-        if [ ! -e /usr/bin/lsd ];then
+        if [ ! -e /usr/bin/bat ];then
             curl -LJO https://github.com/sharkdp/bat/releases/download/v0.9.0/bat_0.9.0_amd64.deb
             sudo dpkg -i bat_0.9.0_amd64.deb
             rm -rf bat_0.9.0_amd64.deb
@@ -133,7 +133,9 @@ if [ ! -e ~/.zprezto ];then
     echo "Installing zprezto..."
     git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
 fi
-cp zsh/.z* ~/
+if ask_yes_no "Copy zsh config files to your environment OK? "; then
+    cp zsh/.z* ~/
+fi
 
 # install fzf
 if [ ! -e ~/.fzf ];then

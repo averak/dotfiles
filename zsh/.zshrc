@@ -136,11 +136,11 @@ bindkey '^R' history-incremental-pattern-search-backward
 # --------------------------------------------------
 
 # ls
-alias l='lsd'
-alias ls='lsd'
-alias la='lsd -a'
-alias ll='lsd -l'
-alias l1='lsd -1'
+alias l='exa --icons'
+alias ls='l'
+alias la='l -a'
+alias ll='l -l'
+alias l1='l -1'
 alias sl='/usr/local/bin/sl'
 
 # vi to vim
