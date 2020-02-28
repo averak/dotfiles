@@ -166,6 +166,7 @@ if [ ! -e "${HOME}"/.pyenv/versions/${PYTHON_VERSION} ];then
     if ask_yes_no "Start install Python ${PYTHON_VERSION} OK? "; then
         ~/.pyenv/bin/pyenv install ${PYTHON_VERSION}
         ~/.pyenv/bin/pyenv global ${PYTHON_VERSION}
+        ~/.pyenv/shims/pip install -U pip
         ~/.pyenv/shims/pip install -r lib/requirements.txt
     fi
 else
