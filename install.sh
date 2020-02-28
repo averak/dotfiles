@@ -153,6 +153,7 @@ fi
 
 # install exa
 if [ ! -e ~/.cargo/bin/exa ];then
+    echo "Installing exa..."
     ~/.cargo/bin/cargo install exa
 fi
 
