@@ -145,6 +145,12 @@ if [ ! -e ~/.fzf ];then
     cd ~/.fzf && ./install --key-bindings --no-completion --no-update-rc && cd ${workdir}
 fi
 
+# install rust
+if [ ! -e ~/.cargo ];then
+    echo "Installing Rust..."
+    curl https://sh.rustup.rs -sSf | sh
+fi
+
 # install pyenv
 if [ ! -e ~/.pyenv ];then
     echo "Installing pyenv..."
