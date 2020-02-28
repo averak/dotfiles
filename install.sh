@@ -38,7 +38,7 @@ if [ "$(uname)" == "Darwin" ]; then
         echo "Installing Homebrew..."
         /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     fi
-    required_packages="git wget openssl autoconf automake cmake bat"
+    required_packages="git wget openssl autoconf automake cmake"
     install_packages=""
     installed_packages=$(brew list)
     for package in ${required_packages}; do
@@ -73,19 +73,12 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
             fi
         done
 
-        sudo apt-get update -y
-        sudo apt-get update
 
         if [ ! -z "${install_packages}" ]; then
+            sudo apt-get update -y
+            sudo apt-get update
             echo "following packages will be installed: ${install_packages}"
             sudo apt install -y ${install_packages}
-        fi
-
-        # install bat
-        if [ ! -e /usr/bin/bat ];then
-            curl -LJO https://github.com/sharkdp/bat/releases/download/v0.9.0/bat_0.9.0_amd64.deb
-            sudo dpkg -i bat_0.9.0_amd64.deb
-            rm -rf bat_0.9.0_amd64.deb
         fi
 
     elif [ -e /etc/redhat-release ]; then
@@ -145,8 +138,7 @@ fi
 if [ ! -e ~/.fzf ];then
     echo "Installing fzf..."
     git clone https://github.com/junegunn/fzf.git ~/.fzf
-    workdir=${PWD}
-    cd ~/.fzf && ./install --key-bindings --no-completion --no-update-rc && cd ${workdir}
+    cd ~/.fzf && ./install --key-bindings --no-completion --no-update-rc && cd -
 fi
 
 # install rust
@@ -155,11 +147,14 @@ if [ ! -e ~/.cargo ];then
     curl https://sh.rustup.rs -sSf | sh
 fi
 
-# install exa
-if [ ! -e ~/.cargo/bin/exa ];then
-    echo "Installing exa..."
-    ~/.cargo/bin/cargo install exa
-fi
+# install rust packages
+required_packages="exa bat hexyl fd-find procs ripgrep"
+for package in ${required_packages}; do
+    if [ ! -e ~/.cargo/bin/${package} ];then
+        echo "Installing ${package}..."
+        ~/.cargo/bin/cargo install ${package}
+    fi
+done
 
 # install pyenv
 if [ ! -e ~/.pyenv ];then
