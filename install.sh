@@ -37,7 +37,7 @@ if [ "$(uname)" == "Darwin" ]; then
         echo "Installing Homebrew..."
         /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     fi
-    required_packages="git wget openssl autoconf automake cmake lsd bat"
+    required_packages="git wget openssl autoconf automake cmake bat"
     install_packages=""
     installed_packages=$(brew list)
     for package in ${required_packages}; do
@@ -77,14 +77,6 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
             sudo apt install -y ${install_packages}
         fi
 
-        # install lsd
-        if [ ! -e /usr/bin/lsd ];then
-            if ask_yes_no "Start install lsd OK? "; then
-                wget https://github.com/Peltoche/lsd/releases/download/0.16.0/lsd_0.16.0_amd64.deb
-                sudo dpkg -i lsd_0.16.0_amd64.deb
-                rm -rf lsd_0.16.0_amd64.deb
-            fi
-        fi
         # install bat
         if [ ! -e /usr/bin/lsd ];then
             curl -LJO https://github.com/sharkdp/bat/releases/download/v0.9.0/bat_0.9.0_amd64.deb
