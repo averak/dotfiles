@@ -244,8 +244,10 @@ else
     echo "Nodejs ${NODE_VERSION} is already installed."
 fi
 
-# .gitconfig
-cp .gitconfig ~/
+# overwrite .gitconfig
+if ask_yes_no "Overwrite .gitconfig OK? "; then
+    cp .gitconfig ~/
+fi
 
 # install vim
 ROOTDIR=$PWD
