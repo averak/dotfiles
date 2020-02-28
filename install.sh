@@ -73,6 +73,9 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
             fi
         done
 
+        sudo apt-get update -y
+        sudo apt-get update
+
         if [ ! -z "${install_packages}" ]; then
             echo "following packages will be installed: ${install_packages}"
             sudo apt install -y ${install_packages}
