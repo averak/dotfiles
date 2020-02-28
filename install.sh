@@ -135,7 +135,7 @@ if [ ! -e ~/.zprezto ];then
     echo "Installing zprezto..."
     git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
 fi
-cp zsh/.* ~/
+cp zsh/.z* ~/
 
 # install fzf
 if [ ! -e ~/.fzf ];then
