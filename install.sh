@@ -37,7 +37,7 @@ if [ "$(uname)" == "Darwin" ]; then
         echo "Installing Homebrew..."
         /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     fi
-    required_packages="git wget openssl autoconf automake cmake lsd exa"
+    required_packages="git wget openssl autoconf automake cmake lsd bat"
     install_packages=""
     installed_packages=$(brew list)
     for package in ${required_packages}; do
@@ -84,6 +84,12 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
                 sudo dpkg -i lsd_0.16.0_amd64.deb
                 rm -rf lsd_0.16.0_amd64.deb
             fi
+        fi
+        # install bat
+        if [ ! -e /usr/bin/lsd ];then
+            curl -LJO https://github.com/sharkdp/bat/releases/download/v0.9.0/bat_0.9.0_amd64.deb
+            sudo dpkg -i bat_0.9.0_amd64.deb
+            rm -rf bat_0.9.0_amd64.deb
         fi
 
     elif [ -e /etc/redhat-release ]; then
@@ -149,6 +155,11 @@ fi
 if [ ! -e ~/.cargo ];then
     echo "Installing Rust..."
     curl https://sh.rustup.rs -sSf | sh
+fi
+
+# install exa
+if [ ! -e ~/.cargo/bin/exa ];then
+    ~/.cargo/bin/cargo install exa
 fi
 
 # install pyenv
