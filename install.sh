@@ -50,7 +50,7 @@ if [ "$(uname)" == "Darwin" ]; then
             install_packages="${install_packages} ${package}"
         fi
     done
-    if [ ! ${install_packages} = "" ]; then
+    if [ ! -z "${install_packages}" ]; then
         brew install ${install_packages}
     fi
 
@@ -72,7 +72,6 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
                 install_packages="${install_packages} ${package}"
             fi
         done
-
 
         if [ ! -z "${install_packages}" ]; then
             sudo apt-get update -y
