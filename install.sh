@@ -154,8 +154,10 @@ fi
 
 # install rust
 if [ ! -e ~/.cargo ];then
-  echo "Installing Rust..."
-  curl https://sh.rustup.rs -sSf | sh
+  if ask_yes_no "Start install Rust OK? "; then
+    echo "Installing Rust..."
+    curl https://sh.rustup.rs -sSf | sh
+  fi
 fi
 
 # install rust packages
