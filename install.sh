@@ -15,17 +15,13 @@ NODE_VERSION=13.6.0
 function ask_yes_no {
   while true; do
     echo
-    read -t 60 -p "$* [y/n]: " ANS
+    read -t 60 -p "$* [y/n]: " ANS || return 1
 
     case $ANS in
       [Yy]*)
         return 0
         ;;
       [Nn]*)
-        return 1
-        ;;
-      "")
-        echo
         return 1
         ;;
       *)
