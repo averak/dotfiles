@@ -10,6 +10,7 @@ PERL_VERSION=5.6.0
 NODE_VERSION=13.6.0
 # =========================
 
+
 # Function to input [y/n]
 function ask_yes_no {
   while true; do
@@ -49,9 +50,9 @@ if [ "$(uname)" == "Darwin" ]; then
   for package in ${required_packages}; do
     echo -n "check ${package}..."
     if echo "${installed_packages}" | grep -xq ${package}; then
-      echo "OK."
+      printf "\e[32mOK\e[0m.\n"
     else
-      echo "Not installed."
+      printf "\e[31mNot installed\e[0m.\n"
       install_packages="${install_packages} ${package}"
     fi
   done
@@ -71,9 +72,9 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
     for package in ${required_packages}; do
       echo -n "check ${package}..."
       if echo "${installed_packages}" | grep -xq ${package}; then
-        echo "OK."
+        printf "\e[32mOK\e[0m.\n"
       else
-        echo "Not installed."
+        printf "\e[31mNot installed\e[0m.\n"
         install_packages="${install_packages} ${package}"
       fi
     done
@@ -93,9 +94,9 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
     for package in ${required_packages}; do
       echo -n "check ${package}..."
       if echo "${installed_packages}" | grep -xq ${package}; then
-        echo "OK."
+        printf "\e[32mOK\e[0m.\n"
       else
-        echo "Not installed."
+        printf "\e[31mNot installed\e[0m.\n"
         install_packages="${install_packages} ${package}"
       fi
     done
@@ -110,8 +111,8 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
 # Unknown OS
 else
   echo Unknown OS...
+  exit
 fi
-
 
 # install zsh
 if [ ! -e /usr/local/bin/zsh ]; then
@@ -306,5 +307,8 @@ cd $ROOTDIR
 
 
 echo ""
+echo "----------------------------------------------------------------------"
 echo "Sucessfully installed essential tools."
-echo "Please run following command \"exec zsh -l\" to run zsh."
+#echo "Please run following command \"exec zsh -l\" to run zsh."
+
+printf "\nOK\n"
