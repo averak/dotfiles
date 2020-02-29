@@ -8,7 +8,7 @@ action                   | Description
 Cmd + e                  | escape
 Cmd + u                  | 全画面表示
 Cmd + Shift + l          | 画面をロック
-Ctrl + Shift + D         | ゴミ箱を空にする
+Ctrl + Shift + d         | ゴミ箱を空にする
 Cmd + Opt + k            | 音量アップ
 Cmd + Opt + t            | 音量ダウン
 Cmd + Opt + Shift + k    | 明るさアップ
