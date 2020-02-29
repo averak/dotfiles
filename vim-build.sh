@@ -10,10 +10,12 @@ is_clone=false
 
 cd ${deploy_path}
 
+# Function to input [y/n]
 function ask_yes_no {
-    while true; do
-    echo "$* [y/n]: "
-    read ANS
+  while true; do
+    echo
+    read -t 60 -p "$* [y/n]: " ANS
+
     case $ANS in
       [Yy]*)
         return 0
@@ -21,11 +23,15 @@ function ask_yes_no {
       [Nn]*)
         return 1
         ;;
-    *)
-        echo "please press [y/n]"
+      "")
+        echo
+        return 1
         ;;
-      esac
-    done
+      *)
+        echo "yまたはnを入力してください"
+        ;;
+    esac
+  done
 }
 
 
