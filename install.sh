@@ -66,6 +66,7 @@ if [ "$(uname)" == "Darwin" ]; then
       install_packages="${install_packages} ${package}"
     fi
   done
+
   echo ""
   install_packages 'brew install' "${install_packages}"
 
@@ -107,7 +108,7 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
         install_packages="${install_packages} ${package}"
       fi
     done
-    sudo apt-get update -y
+
     echo ""
     install_packages 'sudo yum install -y' "${install_packages}"
   else
