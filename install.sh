@@ -91,7 +91,7 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
 
     sudo apt-get update -y
     echo ""
-    install_packages 'sudo apu-get install -y' "${install_packages}"
+    install_packages 'sudo apt-get install -y' "${install_packages}"
 
   elif [ -e /etc/redhat-release ]; then
     required_packages="gcc zlib-devel bzip2 bzip2-devel readline-devel sqlite sqlite-devel
