@@ -53,7 +53,7 @@ if [ "$(uname)" == "Darwin" ]; then
     echo "Installing Homebrew..."
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
   fi
-  required_packages="git aa wget openssl autoconf automake cmake"
+  required_packages="git wget openssl autoconf automake cmake"
   install_packages=""
   installed_packages=$(brew list)
   for package in ${required_packages}; do
