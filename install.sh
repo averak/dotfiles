@@ -67,7 +67,6 @@ if [ "$(uname)" == "Darwin" ]; then
   done
 
   echo ""
-  install_packages 'brew install' "${required_packages}"
   install_packages 'brew install' "${install_packages}"
 
 # Linux
