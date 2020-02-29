@@ -129,8 +129,15 @@ if [ ! -e ~/.zprezto ];then
     echo "Installing zprezto..."
     git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
 fi
-if ask_yes_no "Copy zsh config files to your environment OK? "; then
+
+# overwrite zsh config files
+if ask_yes_no "Overwrite zsh config files OK? "; then
     cp zsh/.z* ~/
+fi
+
+# overwrite .gitconfig
+if ask_yes_no "Overwrite .gitconfig OK? "; then
+    cp .gitconfig ~/
 fi
 
 # install fzf
@@ -243,11 +250,6 @@ if [ ! -e "${HOME}"/.nodenv/versions/${NODE_VERSION} ];then
     fi
 else
     echo "Nodejs ${NODE_VERSION} is already installed."
-fi
-
-# overwrite .gitconfig
-if ask_yes_no "Overwrite .gitconfig OK? "; then
-    cp .gitconfig ~/
 fi
 
 # install vim
