@@ -36,6 +36,16 @@ function ask_yes_no {
 }
 
 
+# Function to install packages
+function install_packages {
+  for package in $2; do
+    printf "Installing ${package}..."
+    $1 ${package} >  /dev/null 2>&1
+    printf "\e[32mdone\e[0m\n"
+  done
+}
+
+
 # ========== processing for each OS ====================
 # check and install dependencies
 # MacOS
@@ -56,9 +66,8 @@ if [ "$(uname)" == "Darwin" ]; then
       install_packages="${install_packages} ${package}"
     fi
   done
-  if [ ! -z "${install_packages}" ]; then
-    brew install ${install_packages}
-  fi
+  echo ""
+  install_packages 'brew install' "${install_packages}"
 
 # Linux
 elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
@@ -79,11 +88,9 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
       fi
     done
 
-    if [ ! -z "${install_packages}" ]; then
-      sudo apt-get update -y
-      echo "following packages will be installed: ${install_packages}"
-      sudo apt install -y ${install_packages}
-    fi
+    sudo apt-get update -y
+    echo ""
+    install_packages 'sudo apu-get install -y' "${install_packages}"
 
   elif [ -e /etc/redhat-release ]; then
     required_packages="gcc zlib-devel bzip2 bzip2-devel readline-devel sqlite sqlite-devel
@@ -100,10 +107,9 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
         install_packages="${install_packages} ${package}"
       fi
     done
-    if [ ! -z "${install_packages}" ]; then
-      echo "following packages will be installed: ${install_packages}"
-      sudo yum install -y ${install_packages}
-    fi
+    sudo apt-get update -y
+    echo ""
+    install_packages 'sudo yum install -y' "${install_packages}"
   else
     echo "WARNING: It seems that your environment is not tested."
   fi
