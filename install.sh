@@ -40,8 +40,10 @@ function ask_yes_no {
 function install_packages {
   for package in $2; do
     printf "Installing ${package}..."
-    $1 ${package} >  /dev/null 2>&1
-    printf "\e[32mdone\e[0m\n"
+    $1 ${package} 2>/dev/null
+    if [ 0 -eq $? ]; then
+      printf "\e[32mdone\e[0m\n"
+    fi
   done
 }
 
@@ -91,7 +93,7 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
 
     sudo apt-get update -y
     echo ""
-    install_packages 'sudo apu-get install -y' "${install_packages}"
+    install_packages 'sudo apt-get install -y' "${install_packages}"
 
   elif [ -e /etc/redhat-release ]; then
     required_packages="gcc zlib-devel bzip2 bzip2-devel readline-devel sqlite sqlite-devel
