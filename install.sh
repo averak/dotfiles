@@ -40,12 +40,7 @@ function ask_yes_no {
 function install_packages {
   for package in $2; do
     printf "Installing ${package}..."
-    $1 ${package} 2>/dev/null
-    if [ 0 -eq $? ]; then
-      printf "\e[32mdone\e[0m\n"
-    else
-      printf "\e[31mcould not install ${package}\e[0m\n"
-    fi
+    $1 ${package} &> /dev/null && printf "\e[32mdone\e[0m\n" || printf "\e[31merror\e[0m\n"
   done
 }
 
@@ -58,7 +53,7 @@ if [ "$(uname)" == "Darwin" ]; then
     echo "Installing Homebrew..."
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
   fi
-  required_packages="git wget openssl autoconf automake cmake"
+  required_packages="git aa wget openssl autoconf automake cmake"
   install_packages=""
   installed_packages=$(brew list)
   for package in ${required_packages}; do
@@ -72,6 +67,7 @@ if [ "$(uname)" == "Darwin" ]; then
   done
 
   echo ""
+  install_packages 'brew install' "${required_packages}"
   install_packages 'brew install' "${install_packages}"
 
 # Linux
