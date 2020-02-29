@@ -43,6 +43,8 @@ function install_packages {
     $1 ${package} 2>/dev/null
     if [ 0 -eq $? ]; then
       printf "\e[32mdone\e[0m\n"
+    else
+      printf "\e[31mcould not install ${package}\e[0m\n"
     fi
   done
 }
