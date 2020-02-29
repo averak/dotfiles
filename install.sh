@@ -50,9 +50,9 @@ if [ "$(uname)" == "Darwin" ]; then
   for package in ${required_packages}; do
     echo -n "check ${package}..."
     if echo "${installed_packages}" | grep -xq ${package}; then
-      printf "\e[32mOK\e[0m.\n"
+      printf "\e[32mOK\e[0m\n"
     else
-      printf "\e[31mNot installed\e[0m.\n"
+      printf "\e[31mNot installed\e[0m\n"
       install_packages="${install_packages} ${package}"
     fi
   done
@@ -72,9 +72,9 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
     for package in ${required_packages}; do
       echo -n "check ${package}..."
       if echo "${installed_packages}" | grep -xq ${package}; then
-        printf "\e[32mOK\e[0m.\n"
+        printf "\e[32mOK\e[0m\n"
       else
-        printf "\e[31mNot installed\e[0m.\n"
+        printf "\e[31mNot installed\e[0m\n"
         install_packages="${install_packages} ${package}"
       fi
     done
@@ -94,9 +94,9 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
     for package in ${required_packages}; do
       echo -n "check ${package}..."
       if echo "${installed_packages}" | grep -xq ${package}; then
-        printf "\e[32mOK\e[0m.\n"
+        printf "\e[32mOK\e[0m\n"
       else
-        printf "\e[31mNot installed\e[0m.\n"
+        printf "\e[31mNot installed\e[0m\n"
         install_packages="${install_packages} ${package}"
       fi
     done
