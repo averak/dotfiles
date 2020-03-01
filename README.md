@@ -21,7 +21,7 @@ $ cd dotfiles
 ```
 2. Install Nerd Fonts
 ```sh
-$ ./fonts/install.sh
+$ ./scripts/fonts-install.sh
 ```
 3. Change Default Shell
 ```sh
@@ -32,9 +32,9 @@ $ chsh -s $(which zsh)
 ### Install
 ```sh
 # install essential tools (required sudo)
-$ ./install.sh
+$ ./scripts/install.sh
 ```
 ### Build Latest Vim/Neovim
 ```sh
-$ ./vim-build.sh
+$ ./scripts/vim-build.sh
 ```
