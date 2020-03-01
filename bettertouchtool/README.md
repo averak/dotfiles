@@ -15,9 +15,10 @@ Cmd + Opt + Shift + k    | 明るさアップ
 Cmd + Opt + Shift + t    | 明るさダウン
 Ctrl + h                 | デスクトップ移動（左）
 Ctrl + n                 | デスクトップ移動（右）
-Ctrl + Shift + g         | ひらがなに変換
-Ctrl + Shift + r         | カタカナに変換
-Ctrl + Shift + l         | ローマ字に変換
+Ctrl + Shift + m         | ひらがなに変換
+Ctrl + Shift + y         | カタカナに変換
+Ctrl + Shift + p         | 全角ローマ字に変換
+Ctrl + Shift + z         | 半角ローマ字に変換
 Ctrl + Shift + k         | ↑
 Ctrl + Shift + t         | ↓
 Ctrl + Shift + h         | ←
