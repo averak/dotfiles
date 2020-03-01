@@ -25,7 +25,7 @@ function ask_yes_no {
         return 1
         ;;
       *)
-        echo "yまたはnを入力してください"
+        printf "\e[31mPlease enter y or n\e[0m\n"
         ;;
     esac
   done
