@@ -3,7 +3,7 @@ language: bash
 sudo: required
 
 script:
-  - ./install.sh
+  - ./scripts/install.sh
 
 os:
   - linux
