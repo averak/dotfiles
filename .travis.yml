@@ -5,6 +5,10 @@ sudo: required
 script:
   - ./install.sh
 
+os:
+  - linux
+  - osx
+
 branches:
   only:
     - master
