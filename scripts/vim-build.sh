@@ -14,7 +14,7 @@ cd ${deploy_path}
 function ask_yes_no {
   while true; do
     echo
-    read -t 60 -p "$* [y/n]: " ANS
+    read -t 60 -p "$* [y/n]: " ANS || return 1
 
     case $ANS in
       [Yy]*)
@@ -23,12 +23,8 @@ function ask_yes_no {
       [Nn]*)
         return 1
         ;;
-      "")
-        echo
-        return 1
-        ;;
       *)
-        echo "yまたはnを入力してください"
+        printf "\e[31mPlease enter y or n\e[0m\n"
         ;;
     esac
   done
@@ -99,3 +95,10 @@ else
         echo 'finish'
     fi
 fi
+
+
+echo ""
+echo "----------------------------------------------------------------------"
+echo "Successfully builded Vim and Neovim."
+
+printf "\nOK\n"

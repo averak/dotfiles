@@ -310,7 +310,7 @@ cd $ROOTDIR
 
 echo ""
 echo "----------------------------------------------------------------------"
-echo "Sucessfully installed essential tools."
+echo "Successfully installed essential tools."
 #echo "Please run following command \"exec zsh -l\" to run zsh."
 
 printf "\nOK\n"
