@@ -69,7 +69,7 @@ if [ "$(uname)" == "Darwin" ]; then
 elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
   if [ -e /etc/lsb-release ];then
     required_packages="build-essential libssl-dev zlib1g-dev libbz2-dev
-    libreadline-dev libsqlite3-dev llvm libncurses5-dev libncursesw5-dev
+    libreadline-dev libsqlite3-dev llvm libncurses5-dev libncursesw5-dev libffi-dev
     xz-utils tk-dev liblzma-dev python-openssl lua5.2 liblua5.2-dev luajit libevent-dev
     libclang-dev make git wget curl xclip xsel gawk cmake libtool m4 automake"
     install_packages=""
