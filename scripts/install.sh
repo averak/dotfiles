@@ -273,8 +273,6 @@ if [ ! -e /usr/local/bin/vim ]; then
     cd vim
     ./configure \
       --with-features=huge \
-      --enable-perlinterp \
-      --enable-pythoninterp \
       --enable-python3interp \
       --enable-rubyinterp=yes \
       --enable-fail-if-missing

@@ -48,8 +48,6 @@ else
         cd ${deploy_path}/vim
         ./configure \
             --with-features=huge \
-            --enable-perlinterp \
-            --enable-pythoninterp \
             --enable-python3interp \
             --enable-rubyinterp=yes \
             --enable-fail-if-missing
