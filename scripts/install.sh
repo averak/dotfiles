@@ -71,7 +71,7 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
     required_packages="build-essential libssl-dev zlib1g-dev libbz2-dev
     libreadline-dev libsqlite3-dev llvm libncurses5-dev libncursesw5-dev libffi-dev
     xz-utils tk-dev liblzma-dev python-openssl lua5.2 liblua5.2-dev luajit libevent-dev
-    libclang-dev make git wget curl xclip xsel gawk cmake libtool m4 automake"
+    libclang-dev make git wget curl xclip xsel gawk cmake libtool m4 automake unzip"
     install_packages=""
     installed_packages=$(COLUMNS=200 dpkg -l | awk '{print $2}' | sed -e "s/\:.*$//g")
     for package in ${required_packages}; do
@@ -288,7 +288,7 @@ if [ ! -e /usr/local/bin/nvim ]; then
     cd ${ROOTDIR}
     git clone https://github.com/neovim/neovim.git
     cd neovim
-    sudo make CMAKE_BUILD_TYPE=Release
+    sudo make
     sudo make install
   fi
 fi

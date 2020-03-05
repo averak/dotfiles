@@ -86,7 +86,7 @@ else
     if ask_yes_no "start build Neovim OK?"; then
         cd ${deploy_path}/neovim
         sudo rm -rf build
-        sudo make CMAKE_BUILD_TYPE=Release
+        sudo make
         sudo make install
         echo 'neovim build done!'
     else
