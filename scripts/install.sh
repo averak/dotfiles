@@ -164,13 +164,15 @@ fi
 
 # install rust packages
 if [ -e ~/.cargo/bin/cargo ];then
-  required_packages="exa bat hexyl fd-find procs ripgrep"
-  for package in ${required_packages}; do
-    if [ ! -e ~/.cargo/bin/${package} ];then
-      echo "Installing ${package}..."
-      ~/.cargo/bin/cargo install ${package}
-    fi
-  done
+  if ask_yes_no "Start install Rust packages OK? "; then
+    required_packages="exa bat hexyl fd-find procs ripgrep"
+    for package in ${required_packages}; do
+      if [ ! -e ~/.cargo/bin/${package} ];then
+        echo "Installing ${package}..."
+        ~/.cargo/bin/cargo install ${package}
+      fi
+    done
+  fi
 fi
 
 # install pyenv
