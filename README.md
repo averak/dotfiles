@@ -1,7 +1,7 @@
 Dotfiles
 ========
 
-[![Build Status](https://api.travis-ci.org/AjxLab/dotfiles.svg?branch=master)](https://travis-ci.org/AjxLab/dotfiles)
+[![build](https://github.com/AjxLab/dotfiles/workflows/build/badge.svg)](https://github.com/AjxLab/dotfiles/actions)
 
 ![](./img/terminal.png)
 
