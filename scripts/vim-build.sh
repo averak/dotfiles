@@ -14,8 +14,7 @@ cd ${deploy_path}
 function ask_yes_no {
   while true; do
     echo
-    #read -t 60 -p "$* [y/n]: " ANS || return 1
-    read -p "$* [y/n]: "
+    read -t 60 -p "$* [y/n]: " ANS || return 1
 
     case $ANS in
       [Yy]*)
