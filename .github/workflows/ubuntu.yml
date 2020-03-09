@@ -13,10 +13,9 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    strategy:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Install packages
+    - name: Build
       run: |
         ./scripts/install.sh
