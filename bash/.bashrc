@@ -36,7 +36,7 @@ PATH=$HOME/.rbenv/bin:$PATH
 PATH=$HOME/.rbenv/shims:$PATH
 
 # PHP
-PATH=$OME/.phpenv/bin:$PATH
+PATH=$HOME/.phpenv/bin:$PATH
 PATH=$HOME/.phpenv/shims:$PATH
 
 # Perl
@@ -51,9 +51,6 @@ PATH=$HOME/.nodenv/bin:$PATH
 
 # Laravel
 PATH=$HOME/.composer/vendor/bin:$PATH
-
-# Brainfuck
-PATH=$HOME/.bf/bin:$PATH
 
 # Clangd
 PATH=/usr/local/opt/llvm/bin:$PATH
