@@ -1,6 +1,8 @@
-# --------------------------------------------------
-#  Setting of zsh
-# --------------------------------------------------
+#               __
+#   ____  _____/ /_  __________
+#  /_  / / ___/ __ \/ ___/ ___/
+#   / /_(__  ) / / / /  / /__
+#  /___/____/_/ /_/_/   \___/
 
 
 # --------------------------------------------------
@@ -11,33 +13,21 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
+[[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
 
 
 # --------------------------------------------------
 #  vcs_info
 # --------------------------------------------------
 
-autoload -Uz vcs_info
-autoload -Uz add-zsh-hook
-
-zstyle ':vcs_info:*' formats '%F{green}(%s)-[%b]%f'
-zstyle ':vcs_info:*' actionformats '%F{red}(%s)-[%b|%a]%f'
-
-function _update_vcs_info_msg() {
-    LANG=en_US.UTF-8 vcs_info
-    RPROMPT="${vcs_info_msg_0_}"
-}
-#add-zsh-hook precmd _update_vcs_info_msg
-
 # デフォルトエディタをVimに設定
 export EDITOR='vim'
 export VISUAL='vim'
 export PAGER='less'
 
+
 # --------------------------------------------------
-#  PATHを通す
+#  PATH
 # --------------------------------------------------
 
 # Python
@@ -155,6 +145,8 @@ alias mv='mv -i'
 
 alias mkdir='mkdir -p'
 
+alias c='clear'
+
 alias :q="exit"
 
 # ファイルを開く
@@ -182,37 +174,12 @@ elif which putclip >/dev/null 2>&1 ; then
 fi
 
 
-
-# --------------------------------------------------
-#  OS別の設定
-# --------------------------------------------------
-case ${OSTYPE} in
-    darwin*)
-        #Mac用の設定
-        export CLICOLOR=1
-        #alias ls='ls -G -F'
-        ;;
-    linux*)
-        #Linux用の設定
-        #alias ls='ls -F --color=auto'
-        ;;
-esac
-
-# vim:set ft=zsh:
-
-
-autoload -Uz compinit
-compinit
-
-
-
 # --------------------------------------------------
 #  gitコマンド補完機能セット
 # --------------------------------------------------
 
 # autoloadの文より前に記述
 fpath=(~/.zsh/completion $fpath)
-
 
 
 # --------------------------------------------------
@@ -242,18 +209,6 @@ setopt list_packed
 # コマンドの打ち間違いを指摘してくれる
 setopt correct
 SPROMPT="correct: $RED%R$DEFAULT -> $GREEN%r$DEFAULT ? [Yes/No/Abort/Edit] => "
-
-
-
-# --------------------------------------------------
-#  $ cd 機能拡張
-# --------------------------------------------------
-
-# cdを使わずにディレクトリを移動できる
-setopt auto_cd
-# $ cd - でTabを押すと、ディレクトリの履歴が見れる
-setopt auto_pushd
-
 
 
 # --------------------------------------------------
@@ -297,55 +252,3 @@ alias gbr='git branch -r'
 alias gm='git merge'
 alias gr='git reset'
 
-
-
-# --------------------------------------------------
-#  その他のエイリアス
-# --------------------------------------------------
-
-alias B='php ./build'
-alias CB='cd ./build_company'
-
-alias cw='compass watch --time'
-
-alias c='clear'
-
-
-
-# --------------------------------------------------
-#  bindkey
-# --------------------------------------------------
-
-# bindkeyを任意のキー（commandとかoption）にする設定方法
-# 1. iTerm2の環境設定>Keys>追加（＋）
-# 2. keyboard shortcut → 任意のキー　｜　action → Send Escape Sequence　｜　Esc+ → ●●●●●
-# 3. bindekeyの設定で「bindkey '^[●●●●●' 関数名」にする
-
-# コミット 3行用
-function git_commit() {
-	BUFFER='git commit -m "#'
-	CURSOR=$#BUFFER
-	BUFFER=$BUFFER'" -m "" -m ""'
-}
-zle -N git_commit
-bindkey '^[git_commit' git_commit
-
-# タブに名前を付ける
-function tab_rename() {
-	BUFFER="echo -ne \"\e]1;"
-	CURSOR=$#BUFFER
-	BUFFER=$BUFFER\\a\"
-}
-zle -N tab_rename
-bindkey '^[tab_rename' tab_rename
-
-# 単語単位で削除（前後）
-# 前：option ,
-# 後：option .
-bindkey '^[word-remove-right' kill-word
-bindkey '^[word-remove-left' backward-kill-word
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
-
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
