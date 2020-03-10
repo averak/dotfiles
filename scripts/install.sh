@@ -144,9 +144,9 @@ fi
 
 # overwrite zsh config files
 if ask_yes_no "Overwrite bash config files OK? "; then
-  cp .bashrc ~/.bashrc
   mkdir -p ~/.config
-  cp starship.toml ~/.config/starship.toml
+  cp .bash/bashrc ~/.bashrc
+  cp bash/starship.toml ~/.config/starship.toml
 fi
 
 # overwrite .gitconfig

@@ -1,0 +1,87 @@
+# Disable the newline at the start of the prompt
+add_newline = false
+
+# Wait 10 milliseconds for starship to check files under the current directory.
+scan_timeout = 10
+
+[battery]
+full_symbol = "🔋"
+charging_symbol = "⚡️"
+discharging_symbol = "💀"
+
+[character]
+style_success = "#ff69b4"
+symbol = "➜"
+error_symbol = "✗"
+use_symbol_for_status = true
+
+[directory]
+style = "#ba55d3"
+truncation_length = 0
+truncate_to_repo = false
+
+[dotnet]
+symbol = "🥅 "
+style = "green"
+heuristic = false
+
+[env_var]
+disabled = false
+
+[git_branch]
+style = "#dda0dd"
+symbol = "♥:"
+truncation_length = 4
+truncation_symbol = ""
+
+[git_commit]
+disabled = false
+commit_hash_length = 4
+
+[git_state]
+progress_divider = " of "
+cherry_pick = "🍒 PICKING"
+
+[git_status]
+conflicted = "🏳 "
+ahea = "🏎 💨"
+behind = "😰"
+diverged = "😵"
+untracked = "🤷<200d>"
+modified = "📝"
+staged.value = "++"
+staged.style = "green"
+staged_count.enabled = true
+staged_count.style = "green"
+renamed = "👅"
+deleted = "🗑 "
+
+[hostname]
+ssh_only = false
+prefix = "⟪"
+suffix = "⟫"
+trim_at = ".companyname.com"
+disabled = true
+
+[jobs]
+symbol = "+ "
+threshold = 4
+
+[memory_usage]
+show_percentage = true
+show_swap = true
+threshold = -1
+symbol = " "
+separator = "/"
+style = "bold dimmed green"
+
+[nodejs]
+style = "#ffc0cb"
+
+[ruby]
+symbol = " "
+style = "#ffc0cb"
+
+[package]
+style = "#ffc0cb"
+symbol = " "d
