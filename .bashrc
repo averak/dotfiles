@@ -1,19 +1,16 @@
-#               __
-#   ____  _____/ /_  __________
-#  /_  / / ___/ __ \/ ___/ ___/
-#   / /_(__  ) / / / /  / /__
-#  /___/____/_/ /_/_/   \___/
+#      __               __
+#     / /_  ____ ______/ /_
+#    / __ \/ __ `/ ___/ __ \
+#   / /_/ / /_/ (__  ) / / /
+#  /_.___/\__,_/____/_/ /_/
 
 
 # --------------------------------------------------
-#  Source Prezto
+#  Source Starship
 # --------------------------------------------------
 
-if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
-source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
-fi
-
-[[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
+eval "$(starship init bash)"
+export BASH_SILENCE_DEPRECATION_WARNING=1
 
 
 # --------------------------------------------------
@@ -39,7 +36,7 @@ PATH=$HOME/.rbenv/bin:$PATH
 PATH=$HOME/.rbenv/shims:$PATH
 
 # PHP
-PATH=$HOME/.phpenv/bin:$PATH
+PATH=$OME/.phpenv/bin:$PATH
 PATH=$HOME/.phpenv/shims:$PATH
 
 # Perl
@@ -70,34 +67,25 @@ eval "$(plenv init -)"
 eval "$(nodenv init -)"
 
 
-# --------------------------------------------------
-#  オプション
-# --------------------------------------------------
 
-# 日本語ファイル名を表示可能にする
-setopt print_eight_bit
-# beep を無効にする
-setopt no_beep
-# フローコントロールを無効にする
-setopt no_flow_control
-# Ctrl+Dでzshを終了しない
-setopt ignore_eof
-# '#' 以降をコメントとして扱う
-setopt interactive_comments
-# ディレクトリ名だけでcdする
-setopt auto_cd
-# cd したら自動的にpushdする
-setopt auto_pushd
-# 重複したディレクトリを追加しない
-setopt pushd_ignore_dups
-# 同じコマンドをヒストリに残さない
-setopt hist_ignore_all_dups
-# スペースから始まるコマンド行はヒストリに残さない
-setopt hist_ignore_space
-# ヒストリに保存するときに余分なスペースを削除する
-setopt hist_reduce_blanks
-# 高機能なワイルドカード展開を使用する
-setopt extended_glob
+# Setting PATH for Python 3.6
+# The original version is saved in .bash_profile.pysave
+PATH="/Library/Frameworks/Python.framework/Versions/3.6/bin:${PATH}"
+export PATH
+
+# Setting PATH for Python 3.6
+# The original version is saved in .bash_profile.pysave
+PATH="/Library/Frameworks/Python.framework/Versions/3.6/bin:${PATH}"
+export PATH
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+export PATH=$PATH:$HOME/.nodebrew/current/bin
+
+export PATH="$HOME/.cargo/bin:$PATH"
+
 
 
 # --------------------------------------------------
@@ -128,8 +116,6 @@ alias c='clear'
 
 alias :q="exit"
 
-alias tree="pwd;find . | sort | sed '1d;s/^\.//;s/\/\([^/]*\)$/|--\1/;s/\/[^/|]*/| /g'"
-
 # ファイルを開く
 alias cot="open -a CotEditor"
 alias edit="open -a textedit"
@@ -137,44 +123,18 @@ alias edit="open -a textedit"
 # sudo の後のコマンドでエイリアスを有効にする
 alias sudo='sudo '
 
-# グローバルエイリアス
-alias -g L='| less'
-alias -g G='| grep'
-
 # C で標準出力をクリップボードにコピーする
 # mollifier delta blog : http://mollifier.hatenablog.com/entry/20100317/p1
 if which pbcopy >/dev/null 2>&1 ; then
     # Mac
-    alias -g C='| pbcopy'
+    alias C='| pbcopy'
 elif which xsel >/dev/null 2>&1 ; then
     # Linux
-    alias -g C='| xsel --input --clipboard'
+    alias C='| xsel --input --clipboard'
 elif which putclip >/dev/null 2>&1 ; then
     # Cygwin
-     alias -g C='| putclip'
+     alias C='| putclip'
 fi
-
-
-# --------------------------------------------------
-#  コマンド入力補完
-# --------------------------------------------------
-
-# 補完機能有効にする
-autoload -U compinit
-compinit -u
-
-# 補完候補に色つける
-autoload -U colors
-colors
-
-# 単語の入力途中でもTab補完を有効化
-setopt complete_in_word
-# 補完リストの表示間隔を狭くする
-setopt list_packed
-
-# コマンドの打ち間違いを指摘してくれる
-setopt correct
-SPROMPT="correct: $RED%R$DEFAULT -> $GREEN%r$DEFAULT ? [Yes/No/Abort/Edit] => "
 
 
 # --------------------------------------------------
@@ -182,7 +142,6 @@ SPROMPT="correct: $RED%R$DEFAULT -> $GREEN%r$DEFAULT ? [Yes/No/Abort/Edit] => "
 # --------------------------------------------------
 
 alias g="git"
-compdef g=git
 
 alias gs='git status --short --branch'
 alias ga='git add -A'
