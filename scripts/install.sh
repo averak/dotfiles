@@ -142,6 +142,11 @@ if ask_yes_no "Overwrite zsh config files OK? "; then
   cp zsh/.z* ~/
 fi
 
+# overwrite zsh config files
+if ask_yes_no "Overwrite bash config files OK? "; then
+  cp .bashrc ~/.bashrc
+fi
+
 # overwrite .gitconfig
 if ask_yes_no "Overwrite .gitconfig OK? "; then
   cp .gitconfig ~/
