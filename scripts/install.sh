@@ -47,7 +47,7 @@ function install_packages {
 if [ "$(uname)" == "Darwin" ]; then
   if [ ! -e /usr/local/bin/brew ]; then
     echo "Installing Homebrew..."
-    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
   fi
   required_packages="git wget openssl autoconf automake cmake ninja libtool pkg-config gettext"
   install_packages=""
