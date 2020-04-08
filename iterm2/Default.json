@@ -25,7 +25,7 @@
     "Green Component" : 0.88235294818878174
   },
   "Right Option Key Sends" : 0,
-  "Show Status Bar" : false,
+  "Show Status Bar" : true,
   "Character Encoding" : 4,
   "Selection Color" : {
     "Red Component" : 0.3333333432674408,
@@ -34,7 +34,7 @@
     "Alpha Component" : 1,
     "Green Component" : 0.3490196168422699
   },
-  "Blend" : 0.76028108891752577,
+  "Blend" : 0.50854945231958759,
   "Mouse Reporting" : true,
   "Cursor Boost" : 0,
   "Ansi 4 Color" : {
@@ -86,14 +86,14 @@
         "configuration" : {
           "knobs" : {
             "base: priority" : 5,
+            "base: compression resistance" : 1,
             "shared text color" : {
               "Red Component" : 0.90000000000000002,
               "Color Space" : "sRGB",
               "Blue Component" : 0.63,
               "Alpha Component" : 1,
-              "Green Component" : 0.83250000000000002
-            },
-            "base: compression resistance" : 1
+              "Green Component" : 0.86142857142857143
+            }
           },
           "layout advanced configuration dictionary value" : {
             "font" : ".AppleSystemUIFont 12",
@@ -106,17 +106,17 @@
         "configuration" : {
           "knobs" : {
             "path" : "path",
+            "maxwidth" : 1.7976931348623157e+308,
+            "base: priority" : 5,
+            "base: compression resistance" : 1,
             "shared text color" : {
-              "Red Component" : 0.76500000000000001,
+              "Red Component" : 0.7071428571428573,
               "Color Space" : "sRGB",
               "Blue Component" : 0.63,
               "Alpha Component" : 1,
               "Green Component" : 0.90000000000000002
             },
-            "base: compression resistance" : 1,
-            "base: priority" : 5,
-            "minwidth" : 0,
-            "maxwidth" : 1.7976931348623157e+308
+            "minwidth" : 0
           },
           "layout advanced configuration dictionary value" : {
             "font" : ".AppleSystemUIFont 12",
@@ -128,18 +128,18 @@
         "class" : "iTermStatusBarGitComponent",
         "configuration" : {
           "knobs" : {
+            "maxwidth" : 1.7976931348623157e+308,
+            "iTermStatusBarGitComponentPollingIntervalKey" : 2,
+            "base: priority" : 5,
+            "base: compression resistance" : 1,
             "shared text color" : {
               "Red Component" : 0.63,
               "Color Space" : "sRGB",
-              "Blue Component" : 0.69750000000000001,
+              "Blue Component" : 0.78428571428571425,
               "Alpha Component" : 1,
               "Green Component" : 0.90000000000000002
             },
-            "iTermStatusBarGitComponentPollingIntervalKey" : 2,
-            "base: compression resistance" : 1,
-            "base: priority" : 5,
-            "minwidth" : 0,
-            "maxwidth" : 1.7976931348623157e+308
+            "minwidth" : 0
           },
           "layout advanced configuration dictionary value" : {
             "font" : ".AppleSystemUIFont 12",
@@ -152,14 +152,14 @@
         "configuration" : {
           "knobs" : {
             "base: priority" : 5,
+            "base: compression resistance" : 1,
             "shared text color" : {
               "Red Component" : 0.63,
               "Color Space" : "sRGB",
               "Blue Component" : 0.90000000000000002,
               "Alpha Component" : 1,
-              "Green Component" : 0.90000000000000002
-            },
-            "base: compression resistance" : 1
+              "Green Component" : 0.78428571428571436
+            }
           },
           "layout advanced configuration dictionary value" : {
             "font" : ".AppleSystemUIFont 12",
@@ -172,14 +172,14 @@
         "configuration" : {
           "knobs" : {
             "base: priority" : 5,
+            "base: compression resistance" : 1,
             "shared text color" : {
-              "Red Component" : 0.63,
+              "Red Component" : 0.70714285714285685,
               "Color Space" : "sRGB",
               "Blue Component" : 0.90000000000000002,
               "Alpha Component" : 1,
-              "Green Component" : 0.69750000000000001
-            },
-            "base: compression resistance" : 1
+              "Green Component" : 0.63
+            }
           },
           "layout advanced configuration dictionary value" : {
             "font" : ".AppleSystemUIFont 12",
@@ -192,14 +192,14 @@
         "configuration" : {
           "knobs" : {
             "base: priority" : 5,
+            "base: compression resistance" : 1,
             "shared text color" : {
-              "Red Component" : 0.76500000000000001,
+              "Red Component" : 0.90000000000000002,
               "Color Space" : "sRGB",
-              "Blue Component" : 0.90000000000000002,
+              "Blue Component" : 0.86142857142857154,
               "Alpha Component" : 1,
               "Green Component" : 0.63
-            },
-            "base: compression resistance" : 1
+            }
           },
           "layout advanced configuration dictionary value" : {
             "font" : ".AppleSystemUIFont 12",
@@ -241,7 +241,7 @@
     "Green Component" : 0.35916060209274292
   },
   "Shortcut" : "",
-  "Background Image Location" : "\/Users\/abetatsuya\/Pictures\/ターミナル背景\/デフォルト背景.png",
+  "Background Image Location" : "\/Users\/abelab\/Pictures\/ターミナル背景\/現在.png",
   "Bold Color" : {
     "Red Component" : 0.99999600648880005,
     "Color Space" : "sRGB",
@@ -477,7 +477,7 @@
   },
   "Name" : "Default",
   "Blinking Cursor" : false,
-  "Guid" : "BAB0A0D3-6E1C-4559-89AD-2D470ECA5C20",
+  "Guid" : "B6DB4320-27AC-49F9-B47C-6D95D7651671",
   "Idle Code" : 0,
   "Ansi 10 Color" : {
     "Red Component" : 0.51372551918029785,
@@ -500,7 +500,7 @@
     "Alpha Component" : 0.5,
     "Green Component" : 0.1491314172744751
   },
-  "Automatically Log" : true,
+  "Automatically Log" : false,
   "Smart Cursor Color" : false,
   "Ambiguous Double Width" : false,
   "Blur Radius" : 2.1513562817258882,
@@ -514,7 +514,7 @@
   },
   "Blur" : true,
   "Vertical Spacing" : 1,
-  "Normal Font" : "HackNerdFontComplete-Bold 13",
+  "Normal Font" : "HackNerdFontComplete-Bold 14",
   "Use Underline Color" : false,
   "Ansi 7 Color" : {
     "Red Component" : 0.81960785388946533,
@@ -538,6 +538,7 @@
     "Green Component" : 1
   },
   "Open Toolbelt" : false,
+  "Unicode Version" : 9,
   "Ansi 6 Color" : {
     "Red Component" : 0,
     "Color Space" : "sRGB",
@@ -545,16 +546,19 @@
     "Alpha Component" : 1,
     "Green Component" : 0.61176472902297974
   },
-  "Transparency" : 0.1066822652284264,
+  "Transparency" : 0.11630115799492387,
   "Background Color" : {
-    "Red Component" : 0.20000000298023224,
+    "Red Component" : 0.031372550874948502,
     "Color Space" : "sRGB",
-    "Blue Component" : 0.20000000298023224,
+    "Blue Component" : 0.031372550874948502,
     "Alpha Component" : 1,
-    "Green Component" : 0.20000000298023224
+    "Green Component" : 0.031372550874948502
   },
   "Screen" : -1,
-  "Non Ascii Font" : "HackNerdFontComplete-Bold-Italic 12",
+  "Bound Hosts" : [
+
+  ],
+  "Non Ascii Font" : "Menlo-Regular 11",
   "Ansi 13 Color" : {
     "Red Component" : 0.78823530673980713,
     "Color Space" : "sRGB",
