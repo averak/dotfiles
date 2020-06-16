@@ -187,7 +187,6 @@ if [ ! -e "${HOME}"/.pyenv/versions/${PYTHON_VERSION} ];then
     ~/.pyenv/bin/pyenv install ${PYTHON_VERSION}
     ~/.pyenv/bin/pyenv global ${PYTHON_VERSION}
     ~/.pyenv/shims/pip install -U pip
-    ~/.pyenv/shims/pip install -r lib/requirements.txt
   fi
 else
   echo "Python ${PYTHON_VERSION} is already installed."
