@@ -46,6 +46,10 @@ PATH=$HOME/.phpenv/shims:$PATH
 PATH=$HOME/.plenv/bin:$PATH
 PATH=$HOME/.plenv/shims:$PATH
 
+# Go
+PATH=$HOME/.goenv/bin:$PATH
+PATH=$HOME/.goenv/shims:$PATH
+
 # Rust
 PATH=$HOME/.cargo/bin:$PATH
 
@@ -64,6 +68,7 @@ eval "$(pyenv init -)"
 eval "$(rbenv init -)"
 eval "$(phpenv init -)"
 eval "$(plenv init -)"
+eval "$(goenv init -)"
 eval "$(nodenv init -)"
 
 
@@ -206,4 +211,7 @@ alias gbr='git branch -r'
 
 alias gm='git merge'
 alias gr='git reset'
+
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh" || true
 

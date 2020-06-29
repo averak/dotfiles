@@ -7,6 +7,7 @@ PYTHON_VERSION=3.8.2
 RUBY_VERSION=2.7.0
 PHP_VERSION=7.4.2
 PERL_VERSION=5.6.0
+GO_VERSION=1.14.4
 NODE_VERSION=13.6.0
 # =========================
 
@@ -244,6 +245,22 @@ if [ ! -e "${HOME}"/.plenv/versions/${PERL_VERSION} ];then
   fi
 else
   echo "Perl ${PERL_VERSION} is already installed."
+fi
+
+# install goenv
+if [ ! -e ~/.goenv ];then
+  echo "Installing goenv..."
+  git clone https://github.com/syndbg/goenv ~/.goenv
+fi
+
+# install perl
+if [ ! -e "${HOME}"/.goenv/versions/${GO_VERSION} ];then
+  if ask_yes_no "Start install Go ${GO_VERSION} OK? "; then
+    ~/.goenv/bin/goenv install ${GO_VERSION}
+    ~/.goenv/bin/goenv global ${GO_VERSION}
+  fi
+else
+  echo "GO ${GO_VERSION} is already installed."
 fi
 
 # install nodenv
