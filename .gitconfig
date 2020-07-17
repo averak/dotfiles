@@ -1,5 +1,5 @@
 [user]
-    name = AjxLab
+    name = abexlab
     email = abe12@mccc.jp
 [filter "lfs"]
     clean = git-lfs clean -- %f
