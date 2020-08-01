@@ -187,6 +187,7 @@ alias g="git"
 compdef g=git
 
 alias gs='git status --short --branch'
+alias gg='git graph'
 alias ga='git add -A'
 alias gc='git commit -m'
 alias gps='git push'
