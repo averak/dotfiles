@@ -14,3 +14,5 @@
     denyNonFastforwards = false
 [core]
     quotepath = false
+[alias]
+    tree = log --graph --all --pretty=format:'%C(bold blue)%h%Creset -%C(magenta)%d%Creset %s %C(yellow)(%cd) %C(cyan)<%an>%Creset' --abbrev-commit --date=iso-local
