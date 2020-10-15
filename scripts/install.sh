@@ -92,7 +92,7 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
   elif [ -e /etc/redhat-release ]; then
     required_packages="gcc zlib-devel bzip2 bzip2-devel readline-devel sqlite sqlite-devel
     openssl-devel xz xz-devel findutils lua-devel luajit-devel ncurses-devel perl-ExtUtils-Embed
-    ncurses-devel libevent-devel make git wget curl xclip xsel cmake libffi-devel"
+    ncurses-devel libevent-devel make git wget curl xclip xsel cmake libffi-devel libtoo gcc-c++"
     install_packages=""
     installed_packages=$(yum list installed | awk '{print $1}' | sed -e "s/\..*$//g")
     for package in ${required_packages}; do
