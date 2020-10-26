@@ -9,7 +9,7 @@ Dotfiles
 ## Environments
 - MacOS
 - CentOS 7
-- Ubuntu 16.04 and 18.04
+- Ubuntu
 
 
 ## Setup
