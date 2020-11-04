@@ -1,4 +1,4 @@
-#!/bin/bash -e
+#!/usr/bin/env bash
 
 
 # ===== Versions ==========
@@ -52,7 +52,7 @@ if [ "$(uname)" == "Darwin" ]; then
   fi
   required_packages="git wget openssl autoconf automake cmake ninja libtool pkg-config gettext fontconfig"
   install_packages=""
-  installed_packages=$(brew list)
+  installed_packages=$(brew list --formula)
   for package in ${required_packages}; do
     echo -n "check ${package}..."
     if echo "${installed_packages}" | grep -xq ${package}; then
