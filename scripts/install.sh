@@ -2,13 +2,6 @@
 
 # ===== Versions ==========
 ZSH_VERSUIONS=5.7.1
-PYTHON_VERSION=3.8.2
-RUBY_VERSION=2.7.0
-PHP_VERSION=7.4.2
-PERL_VERSION=5.6.0
-GO_VERSION=1.14.4
-NODE_VERSION=13.12.0
-# =========================
 
 
 # Function to input [y/n]
@@ -175,111 +168,6 @@ if [ -e ~/.cargo/bin/cargo ];then
   fi
 fi
 
-# install pyenv
-if [ ! -e ~/.pyenv ];then
-  echo "Installing pyenv..."
-  git clone https://github.com/pyenv/pyenv.git ~/.pyenv
-fi
-
-# install python
-if [ ! -e "${HOME}"/.pyenv/versions/${PYTHON_VERSION} ];then
-  if ask_yes_no "Start install Python ${PYTHON_VERSION} OK? "; then
-    ~/.pyenv/bin/pyenv install ${PYTHON_VERSION}
-    ~/.pyenv/bin/pyenv global ${PYTHON_VERSION}
-    ~/.pyenv/shims/pip install -U pip
-  fi
-else
-  echo "Python ${PYTHON_VERSION} is already installed."
-fi
-
-# install rbenv
-if [ ! -e ~/.rbenv ];then
-  echo "Installing rbenv..."
-  git clone https://github.com/sstephenson/rbenv.git ~/.rbenv
-  echo "Installing ruby-build..."
-  git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
-fi
-
-# install ruby
-if [ ! -e "${HOME}"/.rbenv/versions/${RUBY_VERSION} ];then
-  if ask_yes_no "Start install Ruby ${RUBY_VERSION} OK? "; then
-    ~/.rbenv/bin/rbenv install ${RUBY_VERSION}
-    ~/.rbenv/bin/rbenv global ${RUBY_VERSION}
-  fi
-else
-  echo "Ruby ${RUBY_VERSION} is already installed."
-fi
-
-# install phpenv
-if [ ! -e ~/.phpenv ];then
-  echo "Installing phpenv..."
-  git clone https://github.com/phpenv/phpenv ~/.phpenv
-  echo "Installing php-build..."
-  git clone https://github.com/php-build/php-build ~/.phpenv//plugins/php-build
-fi
-
-# install php
-if [ ! -e "${HOME}"/.phpenv/versions/${PHP_VERSION} ];then
-  if ask_yes_no "Start install PHP ${PHP_VERSION} OK? "; then
-    ~/.phpenv/bin/phpenv install ${PHP_VERSION}
-    ~/.phpenv/bin/phpenv global ${PHP_VERSION}
-  fi
-else
-  echo "PHP ${PHP_VERSION} is already installed."
-fi
-
-# install plenv
-if [ ! -e ~/.plenv ];then
-  echo "Installing plenv..."
-  git clone https://github.com/tokuhirom/plenv ~/.plenv
-  echo "Installing perl-build..."
-  git clone https://github.com/tokuhirom/Perl-Build ~/.plenv/plugins/perl-build
-fi
-
-# install perl
-if [ ! -e "${HOME}"/.plenv/versions/${PERL_VERSION} ];then
-  if ask_yes_no "Start install Perl ${PERL_VERSION} OK? "; then
-    ~/.plenv/bin/plenv install ${PERL_VERSION}
-    ~/.plenv/bin/plenv global ${PERL_VERSION}
-  fi
-else
-  echo "Perl ${PERL_VERSION} is already installed."
-fi
-
-# install goenv
-if [ ! -e ~/.goenv ];then
-  echo "Installing goenv..."
-  git clone https://github.com/syndbg/goenv ~/.goenv
-fi
-
-# install perl
-if [ ! -e "${HOME}"/.goenv/versions/${GO_VERSION} ];then
-  if ask_yes_no "Start install Go ${GO_VERSION} OK? "; then
-    ~/.goenv/bin/goenv install ${GO_VERSION}
-    ~/.goenv/bin/goenv global ${GO_VERSION}
-  fi
-else
-  echo "GO ${GO_VERSION} is already installed."
-fi
-
-# install nodenv
-if [ ! -e ~/.nodenv ];then
-  echo "Installing nodenv..."
-  git clone https://github.com/nodenv/nodenv ~/.nodenv
-  echo "Installing node-build..."
-  git clone https://github.com/nodenv/node-build ~/.nodenv/plugins/node-build
-fi
-
-# install nodejs
-if [ ! -e "${HOME}"/.nodenv/versions/${NODE_VERSION} ];then
-  if ask_yes_no "Start install Nodejs ${NODE_VERSION}  OK? "; then
-    ~/.nodenv/bin/nodenv install ${NODE_VERSION}
-    ~/.nodenv/bin/nodenv global ${NODE_VERSION}
-  fi
-else
-  echo "Nodejs ${NODE_VERSION} is already installed."
-fi
-
 # install vim
 ROOTDIR=$PWD
 if [ ! -e /usr/local/bin/vim ]; then
@@ -324,6 +212,6 @@ cd $ROOTDIR
 echo ""
 echo "----------------------------------------------------------------------"
 echo "Successfully installed essential tools."
-#echo "Please run following command \"exec zsh -l\" to run zsh."
+echo "Please run following command \"exec $SHELL -l\" to run zsh."
 
 printf "\nOK\n"
