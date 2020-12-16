@@ -14,4 +14,6 @@ export PAGER='less'
 #--------------------------------------------------------------#
 ##        PATH                                                ##
 #--------------------------------------------------------------#
+export PATH="$HOME/.anyenv/bin:$PATH"
+eval "$(anyenv init -)"
 export PATH=~/.local/bin:$PATH
