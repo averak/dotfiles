@@ -15,6 +15,7 @@ cd ~/dotfiles
 ask_exec=~/dotfiles/scripts/ask_exec.sh
 installer=~/dotfiles/scripts/installer.sh
 vim_build=~/dotfiles/scripts/vim_build.sh
+font_install=~/dotfiles/scripts/font_install.sh
 
 echo "COMPLETE: git clone dotfiles"
 echo ""
@@ -152,6 +153,19 @@ fi
 
 echo "COMPLETE: install vim & neovim"
 echo ""
+
+#--------------------------------------------------------------#
+##        install nerd font                                   ##
+#--------------------------------------------------------------#
+echo "START: install nerd font"
+
+if ${ask_exec} "install nerd font?"; then
+  ${font_install}
+fi
+
+echo "COMPLETE: install nerd font"
+echo ""
+
 
 #--------------------------------------------------------------#
 ##        clean setting files                                 ##
