@@ -5,7 +5,7 @@ cd ~
 #--------------------------------------------------------------#
 ##        clone dotfiles                                      ##
 #--------------------------------------------------------------#
-echo "start: git clone dotfiles"
+echo "START: git clone dotfiles"
 
 if [ ! -e ~/dotfiles ]; then
   git clone https://github.com/averak/dotfiles ~/dotfiles
@@ -15,25 +15,59 @@ cd ~/dotfiles
 ask_exec=~/dotfiles/scripts/ask_exec.sh
 installer=~/dotfiles/scripts/installer.sh
 
-echo "complete: git clone dotfiles"
+echo "COMPLETE: git clone dotfiles"
 echo ""
 
 #--------------------------------------------------------------#
 ##        install packages                                    ##
 #--------------------------------------------------------------#
-echo "start: install packages"
+echo "START: install packages"
 
-packages="git wget openssl autoconf automake cmake ninja libtool pkg-config gettext fontconfig"
-installed_packages=$(brew list --formula)
-${installer} "brew install" "${packages}" "${installed_packages}"
+if [ "$(uname)" == "Darwin" ]; then
+  # macos
+  if [ ! -e /usr/local/bin/brew ]; then
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+  fi
+  packages="git wget openssl autoconf automake cmake ninja libtool pkg-config gettext fontconfig"
+  installed_packages=$(brew list --formula)
+  cmd="brew install"
 
-echo "complete: install packages"
+elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
+  if [ -e /etc/lsb-release ];then
+    # Ubuntu
+    packages="build-essential gettext libssl-dev zlib1g-dev libbz2-dev
+    libreadline-dev libsqlite3-dev llvm libncurses5-dev libncursesw5-dev libffi-dev
+    xz-utils tk-dev liblzma-dev python-openssl lua5.2 liblua5.2-dev luajit libevent-dev
+    libclang-dev make git wget curl xclip xsel gawk cmake libtool m4 automake unzip "
+    installed_packages=$(COLUMNS=200 dpkg -l | awk '{print $2}' | sed -e "s/\:.*$//g")
+    cmd="sudo apt-get install -y"
+
+  elif [ -e /etc/redhat-release ]; then
+    # Cent7
+    packages="gcc zlib-devel bzip2 bzip2-devel readline-devel sqlite sqlite-devel
+    openssl-devel xz xz-devel findutils lua-devel luajit-devel ncurses-devel perl-ExtUtils-Embed
+    ncurses-devel libevent-devel make git wget curl xclip xsel cmake libffi-devel libtoo gcc-c++"
+    installed_packages=$(yum list installed | awk '{print $1}' | sed -e "s/\..*$//g")
+    cmd="sudo yum install -y"
+
+  else
+    echo "WARNING: It seems that your environment is not tested."
+  fi
+
+else
+  echo Unknown OS...
+  exit 1
+fi
+
+${installer} "${cmd}" "${packages}" "${installed_packages}"
+
+echo "COMPLETE: install packages"
 echo ""
 
 #--------------------------------------------------------------#
 ##        install zsh                                         ##
 #--------------------------------------------------------------#
-echo "start: install zsh"
+echo "START: install zsh"
 
 if ${ask_exec} "install zsh OK?"; then
   ZSH_VERSION=5.8
@@ -52,13 +86,13 @@ if ${ask_exec} "install zsh OK?"; then
   fi
 fi
 
-echo "complete: install zsh"
+echo "COMPLETE: install zsh"
 echo ""
 
 #--------------------------------------------------------------#
 ##        install fzf                                         ##
 #--------------------------------------------------------------#
-echo "start: install fzf"
+echo "START: install fzf"
 
 if [ ! -e ~/.fzf ];then
   git clone https://github.com/junegunn/fzf ~/.fzf
@@ -66,13 +100,13 @@ if [ ! -e ~/.fzf ];then
   cd ~/dotfiles
 fi
 
-echo "complete: install fzf"
+echo "COMPLETE: install fzf"
 echo ""
 
 #--------------------------------------------------------------#
 ##        install rust packages                               ##
 #--------------------------------------------------------------#
-echo "start: install rust packages"
+echo "START: install rust packages"
 
 if ${ask_exec} "install rust packages OK?"; then
   # rust
@@ -91,25 +125,25 @@ if ${ask_exec} "install rust packages OK?"; then
   fi
 fi
 
-echo "complete: install rust packages"
+echo "COMPLETE: install rust packages"
 echo ""
 
 #--------------------------------------------------------------#
 ##        install anyenv                                      ##
 #--------------------------------------------------------------#
-echo "start: install anyenv"
+echo "START: install anyenv"
 
 git clone https://github.com/anyenv/anyenv ~/.anyenv
 mkdir -p ~/.anyenv/plugins
 git clone https://github.com/znz/anyenv-update.git ~/.anyenv/plugins/anyenv-update
 
-echo "complete: install anyenv"
+echo "COMPLETE: install anyenv"
 echo ""
 
 #--------------------------------------------------------------#
 ##        clean setting files                                 ##
 #--------------------------------------------------------------#
-echo "start: clean setting files"
+echo "START: clean setting files"
 
 if ${ask_exec} "clean setting files OK?"; then
   [ -e ~/.zshrc ] && rm ~/.zshrc
@@ -122,13 +156,13 @@ if ${ask_exec} "clean setting files OK?"; then
   [ -e ~/.config/git/ignore ] && rm ~/.config/git/ignore
 fi
 
-echo "complete: clean setting files"
+echo "COMPLETE: clean setting files"
 echo ""
 
 #--------------------------------------------------------------#
 ##        set symbolic links                                  ##
 #--------------------------------------------------------------#
-echo "start: setup symbolic links"
+echo "START: setup symbolic links"
 
 if ${ask_exec} "setup symbolic links OK?"; then
   ln -s ~/dotfiles/zsh/.zshrc ~/.zshrc
@@ -146,7 +180,7 @@ if ${ask_exec} "setup symbolic links OK?"; then
   ln -s ~/dotfiles/git/ignore ~/.config/git/ignore
 fi
 
-echo "complete: setup symbolic links"
+echo "COMPLETE: setup symbolic links"
 echo ""
 
 
