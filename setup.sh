@@ -14,6 +14,7 @@ cd ~/dotfiles
 
 ask_exec=~/dotfiles/scripts/ask_exec.sh
 installer=~/dotfiles/scripts/installer.sh
+vim_build=~/dotfiles/scripts/vim_build.sh
 
 echo "COMPLETE: git clone dotfiles"
 echo ""
@@ -138,6 +139,18 @@ mkdir -p ~/.anyenv/plugins
 git clone https://github.com/znz/anyenv-update.git ~/.anyenv/plugins/anyenv-update
 
 echo "COMPLETE: install anyenv"
+echo ""
+
+#--------------------------------------------------------------#
+##        install vim & neovim                                ##
+#--------------------------------------------------------------#
+echo "START: install vim & neovim"
+
+if ${ask_exec} "install vim & neovim?"; then
+  ${vim_build}
+fi
+
+echo "COMPLETE: install vim & neovim"
 echo ""
 
 #--------------------------------------------------------------#
