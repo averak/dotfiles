@@ -35,7 +35,7 @@ if uname | grep -xq "Darwin"; then
   installed_packages=$(brew list --formula)
 
 elif uname | grep -xq "Linux"; then
-  if [ -e /etc/lsb-release ];then
+  if [ -e /etc/lsb-release ]; then
     # Ubuntu
     cmd="sudo apt-get install -y"
     packages="build-essential gettext libssl-dev zlib1g-dev libbz2-dev
@@ -71,7 +71,7 @@ echo ""
 #--------------------------------------------------------------#
 echo "START: install zsh"
 
-if ${ask_exec} "install zsh OK?"; then
+if ${ask_exec} "ENTER: Do you want to install zsh OK?"; then
   ZSH_VERSION=5.8
   wget https://sourceforge.net/projects/zsh/files/zsh/${ZSH_VERSION}/zsh-${ZSH_VERSION}.tar.xz/download -O zsh-${ZSH_VERSION}.tar.xz
   tar xvf zsh-${ZSH_VERSION}.tar.xz
@@ -83,7 +83,7 @@ if ${ask_exec} "install zsh OK?"; then
   rm -rf zsh-${ZSH_VERSION}*
 
   # install zprezto
-  if [ ! -e ~/.zprezto ];then
+  if [ ! -e ~/.zprezto ]; then
     git clone https://github.com/sorin-ionescu/prezto ~/.zprezto
   fi
 fi
@@ -96,10 +96,9 @@ echo ""
 #--------------------------------------------------------------#
 echo "START: install fzf"
 
-if [ ! -e ~/.fzf ];then
+if [ ! -e ~/.fzf ]; then
   git clone https://github.com/junegunn/fzf ~/.fzf
-  cd ~/.fzf && ./install --key-bindings --no-completion --no-update-rc
-  cd ~/dotfiles
+  ~/.fzf/install
 fi
 
 echo "COMPLETE: install fzf"
@@ -110,17 +109,17 @@ echo ""
 #--------------------------------------------------------------#
 echo "START: install rust packages"
 
-if ${ask_exec} "install rust packages OK?"; then
+if ${ask_exec} "ENTER: Do you want to install rust packages OK?"; then
   # rust
-  if [ ! -e ~/.cargo ];then
+  if [ ! -e ~/.cargo ]; then
     curl https://sh.rustup.rs -sSf | sh
   fi
 
   # rust packages
-  if [ -e ~/.cargo/bin/cargo ];then
+  if [ -e ~/.cargo/bin/cargo ]; then
     packages="exa bat hexyl fd-find procs ripgrep"
     for pkg in ${packages}; do
-      if [ ! -e ~/.cargo/bin/${pkg} ];then
+      if [ ! -e ~/.cargo/bin/${pkg} ]; then
         ~/.cargo/bin/cargo install ${pkg}
       fi
     done
@@ -148,15 +147,15 @@ echo ""
 echo "START: install vim & neovim"
 
 # build vim & neovim
-if ${ask_exec} "install vim & neovim?"; then
+if ${ask_exec} "ENTER: Do you want to install vim & neovim?"; then
   ${vim_build}
 fi
 
 # set conf
-if [ ! -e ~/.vim ];then
+if [ ! -e ~/.vim ]; then
   git clone https://github.com/averak/vim ~/.vim
 fi
-if [ ! -e ~/.config/nvim ];then
+if [ ! -e ~/.config/nvim ]; then
   git clone https://github.com/averak/neovim ~/.config/nvim
 fi
 
@@ -168,7 +167,7 @@ echo ""
 #--------------------------------------------------------------#
 echo "START: install nerd font"
 
-if ${ask_exec} "install nerd font?"; then
+if ${ask_exec} "ENTER: Do you want to install nerd font?"; then
   ${font_install}
 fi
 
@@ -181,7 +180,7 @@ echo ""
 #--------------------------------------------------------------#
 echo "START: setup config files"
 
-if ${ask_exec} "setup config files OK?"; then
+if ${ask_exec} "ENTER: Do you want to setup config files OK?"; then
   [ -e ~/.zshrc ] && rm ~/.zshrc
   [ -e ~/.zprofile ] && rm ~/.zprofile
   [ -e ~/.bashrc ] && rm ~/.bashrc
