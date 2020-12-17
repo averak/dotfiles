@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 while true; do
-  read -t 60 -p "$1 [y/n]: " ANS || return 1
+  read -t 60 -p "$1 [y/n]: " ANS || exit 1
 
   case $ANS in
     [Yy]*)
