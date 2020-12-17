@@ -11,7 +11,7 @@ for pkg in $2; do
   if echo "$3" | grep -xq ${pkg}; then
     printf "\e[32mOK\e[0m\n"
   else
-    printf "\e[31mNot installed\e[0m\n"
+    printf "\e[31mnot installed\e[0m\n"
     packages="${packages} ${pkg}"
   fi
 done

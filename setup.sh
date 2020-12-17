@@ -10,10 +10,11 @@ echo "START: git clone dotfiles"
 if [ ! -e ~/dotfiles ]; then
   git clone https://github.com/averak/dotfiles ~/dotfiles
 fi
+
 cd ~/dotfiles
 
 ask_exec=~/dotfiles/scripts/ask_exec.sh
-installer=~/dotfiles/scripts/installer.sh
+pkg_install=~/dotfiles/scripts/pkg_install.sh
 vim_build=~/dotfiles/scripts/vim_build.sh
 font_install=~/dotfiles/scripts/font_install.sh
 
@@ -24,6 +25,10 @@ echo ""
 ##        install packages                                    ##
 #--------------------------------------------------------------#
 echo "START: install packages"
+
+cmd=""
+packages=""
+installed_packages=""
 
 if uname | grep -xq "Darwin"; then
   # macos
@@ -61,7 +66,7 @@ else
   exit 1
 fi
 
-${installer} "${cmd}" "${packages}" "${installed_packages}"
+${pkg_install} "${cmd}" "${packages}" "${installed_packages}"
 
 echo "COMPLETE: install packages"
 echo ""
@@ -134,9 +139,11 @@ echo ""
 #--------------------------------------------------------------#
 echo "START: install anyenv"
 
-git clone https://github.com/anyenv/anyenv ~/.anyenv
-mkdir -p ~/.anyenv/plugins
-git clone https://github.com/znz/anyenv-update.git ~/.anyenv/plugins/anyenv-update
+if [ ! -e ~/.anyenv ]; then
+  git clone https://github.com/anyenv/anyenv ~/.anyenv
+  mkdir -p ~/.anyenv/plugins
+  git clone https://github.com/znz/anyenv-update.git ~/.anyenv/plugins/anyenv-update
+fi
 
 echo "COMPLETE: install anyenv"
 echo ""
@@ -173,7 +180,6 @@ fi
 
 echo "COMPLETE: install nerd font"
 echo ""
-
 
 #--------------------------------------------------------------#
 ##        setup config files                                  ##
