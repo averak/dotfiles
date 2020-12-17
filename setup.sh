@@ -177,11 +177,11 @@ echo ""
 
 
 #--------------------------------------------------------------#
-##        clean setting files                                 ##
+##        setup config files                                  ##
 #--------------------------------------------------------------#
-echo "START: clean setting files"
+echo "START: setup config files"
 
-if ${ask_exec} "clean setting files OK?"; then
+if ${ask_exec} "setup config files OK?"; then
   [ -e ~/.zshrc ] && rm ~/.zshrc
   [ -e ~/.zprofile ] && rm ~/.zprofile
   [ -e ~/.bashrc ] && rm ~/.bashrc
@@ -190,17 +190,7 @@ if ${ask_exec} "clean setting files OK?"; then
   [ -e ~/.zpreztorc ] && rm ~/.zpreztorc
   [ -e ~/.gitconfig ] && rm ~/.gitconfig
   [ -e ~/.config/git/ignore ] && rm ~/.config/git/ignore
-fi
 
-echo "COMPLETE: clean setting files"
-echo ""
-
-#--------------------------------------------------------------#
-##        set symbolic links                                  ##
-#--------------------------------------------------------------#
-echo "START: setup symbolic links"
-
-if ${ask_exec} "setup symbolic links OK?"; then
   ln -s ~/dotfiles/zsh/.zshrc ~/.zshrc
   ln -s ~/dotfiles/zsh/.zprofile ~/.zprofile
 
@@ -216,7 +206,7 @@ if ${ask_exec} "setup symbolic links OK?"; then
   ln -s ~/dotfiles/git/ignore ~/.config/git/ignore
 fi
 
-echo "COMPLETE: setup symbolic links"
+echo "COMPLETE: setup config files"
 echo ""
 
 
