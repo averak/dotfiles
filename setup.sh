@@ -30,27 +30,27 @@ if [ "$(uname)" == "Darwin" ]; then
   if [ ! -e /usr/local/bin/brew ]; then
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
   fi
+  cmd="brew install"
   packages="git wget openssl autoconf automake cmake ninja libtool pkg-config gettext fontconfig"
   installed_packages=$(brew list --formula)
-  cmd="brew install"
 
 elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
   if [ -e /etc/lsb-release ];then
     # Ubuntu
+    cmd="sudo apt-get install -y"
     packages="build-essential gettext libssl-dev zlib1g-dev libbz2-dev
     libreadline-dev libsqlite3-dev llvm libncurses5-dev libncursesw5-dev libffi-dev
     xz-utils tk-dev liblzma-dev python-openssl lua5.2 liblua5.2-dev luajit libevent-dev
     libclang-dev make git wget curl xclip xsel gawk cmake libtool m4 automake unzip "
     installed_packages=$(COLUMNS=200 dpkg -l | awk '{print $2}' | sed -e "s/\:.*$//g")
-    cmd="sudo apt-get install -y"
 
   elif [ -e /etc/redhat-release ]; then
     # Cent7
+    cmd="sudo yum install -y"
     packages="gcc zlib-devel bzip2 bzip2-devel readline-devel sqlite sqlite-devel
     openssl-devel xz xz-devel findutils lua-devel luajit-devel ncurses-devel perl-ExtUtils-Embed
     ncurses-devel libevent-devel make git wget curl xclip xsel cmake libffi-devel libtoo gcc-c++"
     installed_packages=$(yum list installed | awk '{print $1}' | sed -e "s/\..*$//g")
-    cmd="sudo yum install -y"
 
   else
     echo "WARNING: It seems that your environment is not tested."
@@ -147,8 +147,17 @@ echo ""
 #--------------------------------------------------------------#
 echo "START: install vim & neovim"
 
+# build vim & neovim
 if ${ask_exec} "install vim & neovim?"; then
   ${vim_build}
+fi
+
+# set conf
+if [ ! -e ~/.vim ];then
+  git clone https://github.com/averak/vim ~/.vim
+fi
+if [ ! -e ~/.config/nvim ];then
+  git clone https://github.com/averak/neovim ~/.config/nvim
 fi
 
 echo "COMPLETE: install vim & neovim"
