@@ -95,6 +95,18 @@ echo "complete: install rust packages"
 echo ""
 
 #--------------------------------------------------------------#
+##        install anyenv                                      ##
+#--------------------------------------------------------------#
+echo "start: install anyenv"
+
+git clone https://github.com/anyenv/anyenv ~/.anyenv
+mkdir -p ~/.anyenv/plugins
+git clone https://github.com/znz/anyenv-update.git ~/.anyenv/plugins/anyenv-update
+
+echo "complete: install anyenv"
+echo ""
+
+#--------------------------------------------------------------#
 ##        clean setting files                                 ##
 #--------------------------------------------------------------#
 echo "start: clean setting files"
