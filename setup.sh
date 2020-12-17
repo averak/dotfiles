@@ -34,7 +34,7 @@ if [ "$(uname)" == "Darwin" ]; then
   packages="git wget openssl autoconf automake cmake ninja libtool pkg-config gettext fontconfig"
   installed_packages=$(brew list --formula)
 
-elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
+elif [ "$(uname)" == "Linux" ]; then
   if [ -e /etc/lsb-release ];then
     # Ubuntu
     cmd="sudo apt-get install -y"
