@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 
 while true; do
   read -p "$1 [y/n]: " ANS || exit 1

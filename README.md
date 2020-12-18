@@ -15,7 +15,7 @@
 
 ```sh
 # install essential tools (required sudo)
-$ sh -c "$(curl -sS https://raw.githubusercontent.com/averak/dotfiles/master/setup.sh)"
+$ /bin/bash -c "$(curl -sS https://raw.githubusercontent.com/averak/dotfiles/master/setup.sh)"
 ```
 
 ### Build Vim & Neovim

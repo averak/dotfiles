@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 
 cd ~
 
@@ -30,7 +30,7 @@ cmd=""
 packages=""
 installed_packages=""
 
-if uname | grep -xq "Darwin"; then
+if [ "$(uname)" == "Darwin" ]; then
   # macos
   if [ ! -e /usr/local/bin/brew ]; then
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
@@ -39,7 +39,7 @@ if uname | grep -xq "Darwin"; then
   packages="git wget openssl autoconf automake cmake ninja libtool pkg-config gettext fontconfig"
   installed_packages=$(brew list --formula)
 
-elif uname | grep -xq "Linux"; then
+elif [ "$(uname)" == "Linux" ]; then
   if [ -e /etc/lsb-release ]; then
     # Ubuntu
     cmd="sudo apt-get install -y"
