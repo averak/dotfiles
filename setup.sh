@@ -191,24 +191,27 @@ if ${ask_exec} "ENTER: Do you want to setup config files OK?"; then
   [ -e ~/.zprofile ] && rm ~/.zprofile
   [ -e ~/.bashrc ] && rm ~/.bashrc
   [ -e ~/.bash_profile ] && rm ~/.bash_profile
-  [ -e ~/.config/starship.toml ] && rm ~/.config/starship.toml
+  [ -e ~/.config/fish/config.fish ] && rm ~/.config/fish/config.fish
   [ -e ~/.zpreztorc ] && rm ~/.zpreztorc
+  [ -e ~/.config/starship.toml ] && rm ~/.config/starship.toml
   [ -e ~/.gitconfig ] && rm ~/.gitconfig
   [ -e ~/.config/git/ignore ] && rm ~/.config/git/ignore
 
-  ln -s ~/dotfiles/zsh/.zshrc ~/.zshrc
-  ln -s ~/dotfiles/zsh/.zprofile ~/.zprofile
+  ln -s ~/dotfiles/zsh/.zshrc ~/
+  ln -s ~/dotfiles/zsh/.zprofile ~/
 
-  ln -s ~/dotfiles/bash/.bashrc ~/.bashrc
-  ln -s ~/dotfiles/bash/.bash_profile ~/.bash_profile
+  ln -s ~/dotfiles/bash/.bashrc ~/
+  ln -s ~/dotfiles/bash/.bash_profile ~/
 
-  mkdir -p ~/.config
-  ln -s ~/dotfiles/prompt/.zpreztorc ~/.zpreztorc
-  ln -s ~/dotfiles/prompt/starship.toml ~/.config/starship.toml
+  mkdir -p ~/.config/fish
+  ln -s ~/dotfiles/fish/config.fish ~/.config/fish/
+
+  ln -s ~/dotfiles/prompt/.zpreztorc ~/
+  ln -s ~/dotfiles/prompt/starship.toml ~/.config/
 
   mkdir -p ~/.config/git
-  ln -s ~/dotfiles/git/.gitconfig ~/.gitconfig
-  ln -s ~/dotfiles/git/ignore ~/.config/git/ignore
+  ln -s ~/dotfiles/git/.gitconfig ~/
+  ln -s ~/dotfiles/git/ignore ~/.config/git/
 fi
 
 echo "COMPLETE: setup config files"
