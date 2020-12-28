@@ -143,6 +143,7 @@ if [ ! -e ~/.anyenv ]; then
   git clone https://github.com/anyenv/anyenv ~/.anyenv
   mkdir -p ~/.anyenv/plugins
   git clone https://github.com/znz/anyenv-update.git ~/.anyenv/plugins/anyenv-update
+  ~/.anyenv/bin/anyenv install --init
 fi
 
 echo "COMPLETE: install anyenv"
