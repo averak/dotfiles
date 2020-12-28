@@ -122,7 +122,7 @@ if ${ask_exec} "ENTER: Do you want to install rust packages OK?"; then
 
   # rust packages
   if [ -e ~/.cargo/bin/cargo ]; then
-    packages="exa bat hexyl fd-find procs ripgrep"
+    packages="exa bat fd-find procs"
     for pkg in ${packages}; do
       if [ ! -e ~/.cargo/bin/${pkg} ]; then
         ~/.cargo/bin/cargo install ${pkg}
