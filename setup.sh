@@ -90,6 +90,9 @@ if ${ask_exec} "ENTER: Do you want to install zsh OK?"; then
   # install zprezto
   if [ ! -e ~/.zprezto ]; then
     git clone https://github.com/sorin-ionescu/prezto ~/.zprezto
+    cd ~/.zprezto
+    git pull && git submodule update --init --recursive
+    cd ~/dotfiles
   fi
 fi
 
