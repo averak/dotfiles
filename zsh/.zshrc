@@ -90,6 +90,7 @@ alias gd='git diff'
 alias gco='git checkout'
 alias gsw='git switch'
 alias gb='git branch'
+alias lg='lazygit'
 # clipboard
 if which pbcopy >/dev/null 2>&1 ; then
     # Mac
