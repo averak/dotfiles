@@ -200,6 +200,7 @@ if ${ask_exec} "ENTER: Do you want to setup config files OK?"; then
   [ -e ~/.config/starship.toml ] && rm ~/.config/starship.toml
   [ -e ~/.gitconfig ] && rm ~/.gitconfig
   [ -e ~/.config/git/ignore ] && rm ~/.config/git/ignore
+  [ -e ~/.config/jesseduffield/lazygit/config.yml ] && rm ~/.config/jesseduffield/lazygit/config.yml
 
   ln -s ~/dotfiles/zsh/.zshrc ~/
   ln -s ~/dotfiles/zsh/.zprofile ~/
@@ -216,6 +217,9 @@ if ${ask_exec} "ENTER: Do you want to setup config files OK?"; then
   mkdir -p ~/.config/git
   ln -s ~/dotfiles/git/.gitconfig ~/
   ln -s ~/dotfiles/git/ignore ~/.config/git/
+
+  mkdir -p ~/.config/jesseduffield/lazygit
+  ln -s ~/dotfiles/git/lazygit/config.yml ~/.config/jesseduffield/lazygit/
 fi
 
 echo "COMPLETE: setup config files"
