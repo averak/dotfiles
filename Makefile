@@ -14,7 +14,7 @@ update: ## Fetch changes for this repo
 	git pull origin master
 
 install: update deploy init
-	@exec $$SHELL -l
+	@exec $$SHELL
 
 test:
 	@echo ${dotfiles}

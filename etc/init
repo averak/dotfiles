@@ -206,4 +206,4 @@ fi
 echo ""
 echo "  --------------------------------------------------------------------"
 info "Installation completed."
-info "Please run following command \"exec \$SHELL -l\" to run zsh."
+info "Please run following command \"exec \$SHELL\" to run zsh."
