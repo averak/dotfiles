@@ -65,6 +65,7 @@ echo ""
 info "tmux"
 
 symlink "$dotfiles/config/tmux/.tmux.conf" "$HOME/.tmux.conf"
+symlink "$dotfiles/config/tmux/.tmux.conf.local" "$HOME/.tmux.conf.local"
 symlink "$dotfiles/config/tmux/.tmux" "$HOME/.tmux"
 
 if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
