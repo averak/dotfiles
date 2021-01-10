@@ -16,13 +16,13 @@
 
 ```sh
 # install essential tools (required sudo)
-$ /bin/bash -c "$(curl -sS https://raw.githubusercontent.com/averak/dotfiles/master/setup.sh)"
+$ bash -c "`curl -fsSL https://raw.githubusercontent.com/averak/dotfiles/master/etc/init`"
 ```
 
 ### Build Vim & Neovim
 
 ```sh
-$ ./scripts/vim_build.sh
+$ ./bin/vim_build
 ```
 
 ### Change Default Shell
