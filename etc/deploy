@@ -1,0 +1,72 @@
+#!/usr/bin/env bash
+
+dotfiles=$HOME/dotfiles
+. $dotfiles/etc/header
+
+echo ""
+info "Creating symbolic link..."
+
+if [ ! -d "$HOME/.local/bin" ]; then
+  mkdir -p $HOME/.local/bin
+fi
+
+#--------------------------------------------------------------#
+##        bash                                                ##
+#--------------------------------------------------------------#
+echo ""
+info "bash"
+
+symlink "$dotfiles/config/bash/.bashrc" "$HOME/.bashrc"
+symlink "$dotfiles/config/bash/.bash_profile" "$HOME/.bash_profile"
+
+#--------------------------------------------------------------#
+##        zsh                                                 ##
+#--------------------------------------------------------------#
+echo ""
+info "zsh"
+
+symlink "$dotfiles/config/zsh/.zshrc" "$HOME/.zshrc"
+symlink "$dotfiles/config/zsh/.zprofile" "$HOME/.zprofile"
+
+#--------------------------------------------------------------#
+##        fish                                                ##
+#--------------------------------------------------------------#
+echo ""
+info "fish"
+
+mkdir -p $HOME/.config/fish
+symlink "$dotfiles/config/fish/config.fish" "$HOME/.config/fish/config.fish"
+
+#--------------------------------------------------------------#
+##        prompt                                              ##
+#--------------------------------------------------------------#
+echo ""
+info "prompt"
+
+symlink "$dotfiles/config/prompt/.zpreztorc" "$HOME/.zpreztorc"
+symlink "$dotfiles/config/prompt/starship.toml" "$HOME/.config/starship.toml"
+
+#--------------------------------------------------------------#
+##        git                                                 ##
+#--------------------------------------------------------------#
+echo ""
+info "git"
+
+mkdir -p $HOME/.config/git
+mkdir -p ~/.config/jesseduffield
+symlink "$dotfiles/config/git/.gitconfig" "$HOME/.gitconfig"
+symlink "$dotfiles/config/git/.ignore" "$HOME/.config/git/ignore"
+symlink "$dotfiles/config/git/lazygit" "$HOME/.config/jesseduffield/lazygit"
+
+#--------------------------------------------------------------#
+##        tmux                                                ##
+#--------------------------------------------------------------#
+echo ""
+info "tmux"
+
+symlink "$dotfiles/config/tmux/.tmux.conf" "$HOME/.tmux.conf"
+symlink "$dotfiles/config/tmux/.tmux" "$HOME/.tmux"
+
+if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
+  git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
+fi

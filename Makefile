@@ -1,22 +1,20 @@
-export dotfiles=${HOME}/.dotfiles
+export dotfiles=${HOME}/dotfiles
 
 deploy: ## Create symlink
 	@echo '==> Start to deploy dotfiles to home directory.'
 	@echo ''
+	bash ${dotfiles}/etc/deploy
 
 init: ## Setup environment settings
 	@echo '==> Start to install app using pkg manager.'
 	@echo ''
+	bash ${dotfiles}/etc/init
 
 update: ## Fetch changes for this repo
 	git pull origin master
 
 install: update deploy init
-	@exec $$SHELL
-
-clean: ## Remove the dot files
-	@echo 'Remove dot files in your home directory...'
-	bash ${dotfiles}/etc/clean/clean
+	@exec $$SHELL -l
 
 test:
 	@echo ${dotfiles}

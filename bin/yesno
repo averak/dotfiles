@@ -1,16 +1,19 @@
 #!/usr/bin/env bash
 
 while true; do
-  read -p "$1 [y/n]: " ANS || exit 1
+  read -p "$1 [y/n]: " -n 1 -r
 
-  case $ANS in
+  case $REPLY in
     [Yy]*)
+      echo ""
       exit 0
       ;;
     [Nn]*)
+      echo ""
       exit 1
       ;;
     *)
+      echo ""
       printf "\e[31mPlease enter y or n\e[0m\n"
       ;;
   esac

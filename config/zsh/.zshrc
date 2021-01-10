@@ -14,7 +14,7 @@
 #--------------------------------------------------------------#
 ##        source each PC settings                             ##
 #--------------------------------------------------------------#
-[ -f ~/dotfiles/local/main.sh ] && source ~/dotfiles/local/main.sh
+[ -f ~/dotfiles/local/local.conf ] && source ~/dotfiles/local/local.conf
 
 #--------------------------------------------------------------#
 ##        set 256color                                        ##
