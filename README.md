@@ -16,7 +16,7 @@
 
 ```sh
 # install essential tools (required sudo)
-$ bash -c "`curl -fsSL https://raw.githubusercontent.com/averak/dotfiles/master/etc/init`"
+$ make init
 ```
 
 ### Build Vim & Neovim

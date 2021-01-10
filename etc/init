@@ -39,17 +39,6 @@ if ! yesno "$(warn 'Are you sure you want to install?')"; then
 	exit 1
 fi
 
-echo ""
-info "Start install the dotfiles."
-
-if [ ! -d $dotfiles ]; then
-  info "Installing dotfiles for the first time..."
-	git clone $DOTFILES_GITHUB $dotfiles
-  info "The dofiles is installed!!"
-else
-	info "The dofiles is already installed!!"
-fi
-
 #--------------------------------------------------------------#
 ##        packages                                            ##
 #--------------------------------------------------------------#
