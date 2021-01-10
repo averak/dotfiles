@@ -16,7 +16,7 @@
 
 ```sh
 # install essential tools (required sudo)
-$ make init
+$ make install
 ```
 
 ### Build Vim & Neovim
