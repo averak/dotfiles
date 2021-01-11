@@ -48,7 +48,7 @@ info "Start install packages."
 OS=$($dotfiles/bin/os)
 
 if yesno "$(warn 'Are you sure you want to install packages?')"; then
-	if [ "$(echo $OS | grep 'macOS')" ] ; then
+	if [ "$(echo $OS | grep 'Darwin')" ] ; then
 		info "Start softwareupdate"
 		softwareupdate --install -a
 
