@@ -58,7 +58,7 @@ if yesno "$(warn 'Are you sure you want to install packages?')"; then
 		fi
 
 		info "Start install..."
-		PACKAGES="git wget curl tmux fish autoconf automake cmake ninja libtool pkg-config gettext fontconfig"
+		PACKAGES="git wget curl tmux fish coreutils autoconf automake cmake ninja libtool pkg-config gettext fontconfig"
 		brew install $PACKAGES
 
 	elif [ "$(echo $OS | grep 'Ubuntu')" ] ; then
@@ -66,7 +66,7 @@ if yesno "$(warn 'Are you sure you want to install packages?')"; then
 		sudo apt update
 
 		info "Start install..."
-		PACKAGES="git wget curl tmux fish make cmake unzip"
+		PACKAGES="git wget curl tmux fish coreutils make cmake unzip"
 		sudo apt install -y $PACKAGES
 
 	elif [ "$(echo $OS | grep 'RedHat')" ] ; then
@@ -74,7 +74,7 @@ if yesno "$(warn 'Are you sure you want to install packages?')"; then
 		sudo yum update
 
 		info "Start install..."
-		PACKAGES="git wget curl tmux fish make cmake unzip"
+		PACKAGES="git wget curl tmux fish coreutils make cmake unzip"
 		sudo yum install -y $PACKAGES
 
 	else
