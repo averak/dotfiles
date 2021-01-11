@@ -12,23 +12,42 @@
 
 ## Usage
 
-### Install
+First, clone this repository.
 
 ```sh
-# install essential tools (required sudo)
+$ git clone https://github.com/averak/dotiles ~/dotfiles
+$ cd ~/dotfiles
+```
+
+### Setup
+
+Install essential tools. (required sudo)
+
+```sh
 $ make install
 ```
 
-### Build Vim & Neovim
+Incidentally, `make install` will perform the following tasks.
+
+- `make update` - update dotfiles repo
+- `make deploy` - deploy dotfiles to your env
+- `make init` - init some settings
+
+If you want to know details, just execute `make help`.
+
+### Change default shell
+
+You need to add `zsh` to the list of available shells. (required sudo)
+
+```sh
+$ echo $(which zsh) >> /etc/shells
+$ chsh -s $(which zsh)
+```
+
+### Build vim & neovim
+
+You can install there with `make install`, but if you want to update to the latest version, execute the following.
 
 ```sh
 $ ./bin/vim_build
-```
-
-### Change Default Shell
-
-```sh
-# add zsh to the list of available shells (required sudo)
-$ echo $(which zsh) >> /etc/shells
-$ chsh -s $(which zsh)
 ```
