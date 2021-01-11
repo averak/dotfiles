@@ -49,8 +49,8 @@ OS=$($dotfiles/bin/os)
 
 if yesno "$(warn 'Are you sure you want to install packages?')"; then
 	if [ "$(echo $OS | grep 'Darwin')" ] ; then
-		info "Start softwareupdate"
-		softwareupdate --install -a
+		# info "Start softwareupdate"
+		# softwareupdate --install -a
 
 		if ! has brew; then
 			info "Homebrew is not installed!!"
