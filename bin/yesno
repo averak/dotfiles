@@ -4,11 +4,11 @@ while true; do
   read -p "$1 [y/n]: " -n 1 -r
 
   case $REPLY in
-    [Yy]*)
+    [Yy])
       echo ""
       exit 0
       ;;
-    [Nn]*)
+    [Nn])
       echo ""
       exit 1
       ;;
