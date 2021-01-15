@@ -30,7 +30,7 @@ tmux_conf_theme_24b_colour=true
 
 # window style
 tmux_conf_theme_window_fg='default'
-tmux_conf_theme_window_bg='#1C1C1C'
+tmux_conf_theme_window_bg='default'
 
 # highlight focused pane (tmux >= 2.1), possible values are:
 #   - true
@@ -39,7 +39,7 @@ tmux_conf_theme_highlight_focused_pane=false
 
 # focused pane colours:
 tmux_conf_theme_focused_pane_fg='default'
-tmux_conf_theme_focused_pane_bg='#1C1C1C'
+tmux_conf_theme_focused_pane_bg='default'
 
 # pane border style, possible values are:
 #   - thin (default)
@@ -48,7 +48,7 @@ tmux_conf_theme_pane_border_style=thin
 
 # pane borders colours:
 tmux_conf_theme_pane_border='#444444'                   # gray
-tmux_conf_theme_pane_active_border='#1C1C1C'            # light blue
+tmux_conf_theme_pane_active_border='default'            # light blue
 
 # pane indicator colours
 tmux_conf_theme_pane_indicator='#00afff'
