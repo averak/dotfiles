@@ -6,7 +6,7 @@ dotfiles=$HOME/dotfiles
 echo ""
 info "Creating symbolic link..."
 
-if [ ! -d "$HOME/.local/bin" ]; then
+if [ ! -e "$HOME/.local/bin" ]; then
   mkdir -p $HOME/.local/bin
 fi
 
@@ -68,7 +68,7 @@ symlink $dotfiles/config/tmux/.tmux.conf $HOME/.tmux.conf
 symlink $dotfiles/config/tmux/.tmux.conf.local $HOME/.tmux.conf.local
 symlink $dotfiles/config/tmux/.tmux $HOME/.tmux
 
-if [ ! -d $HOME/.tmux/plugins/tpm ]; then
+if [ ! -e $HOME/.tmux/plugins/tpm ]; then
   git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
   $HOME/.tmux/plugins/tpm/bin/install_plugins
 fi

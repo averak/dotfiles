@@ -12,13 +12,14 @@ if ! yesno "$(warn 'Are you sure you want to cleanup?')"; then
 fi
 
 backup=$dotfiles/backup
-if [ -d $backup ]; then
+if [ -e $backup ]; then
   rm -rf $backup
 fi
 mkdir -p $backup
 
 replace() {
-  if [ -d $1 ]; then
+  if [ -e $1 ]; then
+    log "mv $1 $backup"
     mv -f $1 $backup
   fi
 }

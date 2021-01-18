@@ -104,7 +104,7 @@ if yesno "$(warn 'Are you sure you want to install zsh?')"; then
 fi
 
 info "Start install zprezto."
-if [ ! -d $HOME/.zprezto ]; then
+if [ ! -e $HOME/.zprezto ]; then
   git clone https://github.com/sorin-ionescu/prezto $HOME/.zprezto
   cd $HOME/.zprezto
   git pull && git submodule update --init --recursive
@@ -120,7 +120,7 @@ echo ""
 info "Start install fzf."
 
 
-if [ ! -d $HOME/.fzf ]; then
+if [ ! -e $HOME/.fzf ]; then
   git clone https://github.com/junegunn/fzf $HOME/.fzf
   $HOME/.fzf/install
 else
@@ -133,7 +133,7 @@ fi
 echo ""
 info "Start install rust."
 
-if [ ! -d $HOME/.cargo ]; then
+if [ ! -e $HOME/.cargo ]; then
   curl https://sh.rustup.rs -sSf | sh
 else
 	info "The rust is already installed!!"
@@ -150,7 +150,7 @@ fi
 echo ""
 info "Start install anyenv."
 
-if [ ! -d $HOME/.anyenv ]; then
+if [ ! -e $HOME/.anyenv ]; then
   git clone https://github.com/anyenv/anyenv $HOME/.anyenv
   mkdir -p $HOME/.anyenv/plugins
   git clone https://github.com/znz/anyenv-update.git $HOME/.anyenv/plugins/anyenv-update
@@ -169,10 +169,10 @@ if yesno "$(warn 'Are you sure you want to install vim & neovim?')"; then
 	$dotfiles/bin/vim_build
 fi
 
-if [ ! -d $HOME/.vim ]; then
+if [ ! -e $HOME/.vim ]; then
   git clone https://github.com/averak/vim $HOME/.vim
 fi
-if [ ! -d $HOME/.config/nvim ]; then
+if [ ! -e $HOME/.config/nvim ]; then
   git clone https://github.com/averak/neovim $HOME/.config/nvim
 fi
 
@@ -191,7 +191,7 @@ if yesno "$(warn 'Are you sure you want to install nerd font?')"; then
 	fc-cache -f -v
 
 	# nerd font
-	git clone --branch=master --depth 1 https://github.com/ryanoasis/nerd-fonts.git
+	git clone --branch=master --eepth 1 https://github.com/ryanoasis/nerd-fonts.git
 	cd ./nerd-fonts
 	./install.sh SourceCodePro
 
