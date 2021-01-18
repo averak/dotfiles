@@ -203,7 +203,7 @@ if yesno "$(warn 'Are you sure you want to install nerd font?')"; then
 fi
 
 
-echo ""
-echo "  --------------------------------------------------------------------"
+log ""
+log "--------------------------------------------------------------------"
 info "Installation completed."
 info "Please run following command \"exec \$SHELL\" to run zsh."
