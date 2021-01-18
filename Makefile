@@ -1,5 +1,10 @@
 export dotfiles=${HOME}/dotfiles
 
+clean: ## Clean config files
+	@echo '==> Start to clean your config files.'
+	@echo ''
+	bash ${dotfiles}/etc/clean
+
 deploy: ## Create symlink
 	@echo '==> Start to deploy dotfiles to home directory.'
 	@echo ''
@@ -13,7 +18,7 @@ init: ## Setup environment settings
 update: ## Fetch changes for this repo
 	git pull origin master
 
-install: update deploy init
+install: update clean deploy init
 	@exec $$SHELL
 
 test:
