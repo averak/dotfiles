@@ -7,6 +7,9 @@ echo ""
 info "Clean config files..."
 
 backup=$dotfiles/backup
+if [ -d $backup ]; then
+  rm -rf $backup
+fi
 mkdir -p $backup
 
 #--------------------------------------------------------------#

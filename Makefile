@@ -5,7 +5,7 @@ clean: ## Clean config files
 	@echo ''
 	bash ${dotfiles}/etc/clean
 
-deploy: ## Create symlink
+deploy: clean ## Create symlink
 	@echo '==> Start to deploy dotfiles to home directory.'
 	@echo ''
 	bash ${dotfiles}/etc/deploy
