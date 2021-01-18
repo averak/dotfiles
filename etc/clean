@@ -11,16 +11,16 @@ if ! yesno "$(warn 'Are you sure you want to cleanup?')"; then
   exit 0
 fi
 
-backup=$dotfiles/backup
-if [ -e $backup ]; then
-  rm -rf $backup
+tmp=$dotfiles/tmp
+if [ -e $tmp ]; then
+  rm -rf $tmp
 fi
-mkdir -p $backup
+mkdir -p $tmp
 
-replace() {
+clean() {
   if [ -e $1 ]; then
-    log "mv $1 $backup"
-    mv -f $1 $backup
+    log "mv $1 $tmp"
+    mv -f $1 $tmp
   fi
 }
 
@@ -30,8 +30,8 @@ replace() {
 echo ""
 info "bash"
 
-replace $HOME/.bashrc
-replace $HOME/.bash_profile
+clean $HOME/.bashrc
+clean $HOME/.bash_profile
 
 #--------------------------------------------------------------#
 ##        zsh                                                 ##
@@ -39,8 +39,8 @@ replace $HOME/.bash_profile
 echo ""
 info "zsh"
 
-replace $HOME/.zshrc
-replace $HOME/.zprofile
+clean $HOME/.zshrc
+clean $HOME/.zprofile
 
 #--------------------------------------------------------------#
 ##        fish                                                ##
@@ -48,7 +48,7 @@ replace $HOME/.zprofile
 echo ""
 info "fish"
 
-replace $HOME/.config/fish
+clean $HOME/.config/fish
 
 #--------------------------------------------------------------#
 ##        prompt                                              ##
@@ -56,8 +56,8 @@ replace $HOME/.config/fish
 echo ""
 info "prompt"
 
-replace $HOME/.zpreztorc
-replace $HOME/.config/starship.toml
+clean $HOME/.zpreztorc
+clean $HOME/.config/starship.toml
 
 #--------------------------------------------------------------#
 ##        git                                                 ##
@@ -65,9 +65,9 @@ replace $HOME/.config/starship.toml
 echo ""
 info "git"
 
-replace $HOME/.gitconfig
-replace $HOME/.config/git
-replace $HOME/.config/jesseduffield/lazygit
+clean $HOME/.gitconfig
+clean $HOME/.config/git
+clean $HOME/.config/jesseduffield/lazygit
 
 #--------------------------------------------------------------#
 ##        tmux                                                ##
@@ -75,6 +75,6 @@ replace $HOME/.config/jesseduffield/lazygit
 echo ""
 info "tmux"
 
-replace $HOME/.tmux.conf
-replace $HOME/.tmux.conf.local
-replace $HOME/.tmux
+clean $HOME/.tmux.conf
+clean $HOME/.tmux.conf.local
+clean $HOME/.tmux
