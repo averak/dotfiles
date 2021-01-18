@@ -6,11 +6,22 @@ dotfiles=$HOME/dotfiles
 echo ""
 info "Clean config files..."
 
+if ! yesno "$(warn 'Are you sure you want to cleanup?')"; then
+  info "Skip cleanup"
+  exit 0
+fi
+
 backup=$dotfiles/backup
 if [ -d $backup ]; then
   rm -rf $backup
 fi
 mkdir -p $backup
+
+replace() {
+  if [ -d $1 ]; then
+    mv -f $1 $backup
+  fi
+}
 
 #--------------------------------------------------------------#
 ##        bash                                                ##
@@ -18,8 +29,8 @@ mkdir -p $backup
 echo ""
 info "bash"
 
-mv -f $HOME/.bashrc $backup
-mv -f $HOME/.bash_profile $backup
+replace $HOME/.bashrc
+replace $HOME/.bash_profile
 
 #--------------------------------------------------------------#
 ##        zsh                                                 ##
@@ -27,8 +38,8 @@ mv -f $HOME/.bash_profile $backup
 echo ""
 info "zsh"
 
-mv -f $HOME/.zshrc $backup
-mv -f $HOME/.zprofile $backup
+replace $HOME/.zshrc
+replace $HOME/.zprofile
 
 #--------------------------------------------------------------#
 ##        fish                                                ##
@@ -36,7 +47,7 @@ mv -f $HOME/.zprofile $backup
 echo ""
 info "fish"
 
-mv -f $HOME/.config/fish $backup
+replace $HOME/.config/fish
 
 #--------------------------------------------------------------#
 ##        prompt                                              ##
@@ -44,8 +55,8 @@ mv -f $HOME/.config/fish $backup
 echo ""
 info "prompt"
 
-mv -f $HOME/.zpreztorc $backup
-mv -f $HOME/.config/starship.toml $backup
+replace $HOME/.zpreztorc
+replace $HOME/.config/starship.toml
 
 #--------------------------------------------------------------#
 ##        git                                                 ##
@@ -53,9 +64,9 @@ mv -f $HOME/.config/starship.toml $backup
 echo ""
 info "git"
 
-mv -f $HOME/.gitconfig $backup
-mv -f $HOME/.config/git $backup
-mv -f $HOME/.config/jesseduffield/lazygit $backup
+replace $HOME/.gitconfig
+replace $HOME/.config/git
+replace $HOME/.config/jesseduffield/lazygit
 
 #--------------------------------------------------------------#
 ##        tmux                                                ##
@@ -63,6 +74,6 @@ mv -f $HOME/.config/jesseduffield/lazygit $backup
 echo ""
 info "tmux"
 
-mv -f $HOME/.tmux.conf $backup
-mv -f $HOME/.tmux.conf.local $backup
-mv -f $HOME/.tmux $backup
+replace $HOME/.tmux.conf
+replace $HOME/.tmux.conf.local
+replace $HOME/.tmux
