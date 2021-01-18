@@ -55,7 +55,7 @@ info "git"
 mkdir -p $HOME/.config/git
 mkdir -p ~/.config/jesseduffield
 symlink "$dotfiles/config/git/.gitconfig" "$HOME/.gitconfig"
-symlink "$dotfiles/config/git/.ignore" "$HOME/.config/git/ignore"
+symlink "$dotfiles/config/git/ignore" "$HOME/.config/git/ignore"
 symlink "$dotfiles/config/git/lazygit" "$HOME/.config/jesseduffield/lazygit"
 
 #--------------------------------------------------------------#
