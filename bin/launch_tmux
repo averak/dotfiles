@@ -1,0 +1,55 @@
+#!/usr/bin/env bash
+
+dotfiles=$HOME/dotfiles
+. $dotfiles/etc/header
+
+
+message=\
+"*** WHAT WANT TO DO? ***
+y: Launch tmux with a new session.
+n: Don't launch tmux."
+
+if [ ! -z $TMUX ]; then
+  return 0
+fi
+
+has_session=false
+if tmux has-session >/dev/null 2>&1; then
+  tmux list-sessions
+  echo ""
+
+  message="${message}0-9: Attach the specified session."
+  has_session=true
+fi
+
+echo $message
+echo ""
+
+while true; do
+  printf "tmux: launch OK? [y/n/0-9]: "
+  read -k 1
+
+  case "$REPLY" in
+    [Yy])
+      echo ""
+      tmux
+      return 0
+      ;;
+    [Nn])
+      echo ""
+      return 0
+      ;;
+    [0-9])
+      echo ""
+      if $has_session && tmux attach -t $REPLY >/dev/null 2>&1; then
+        return 0
+      else
+        printf "\e[31mCannot attach $REPLY session.\e[0m\n"
+      fi
+      ;;
+    *)
+      echo ""
+      printf "\e[31mPlease enter y/n/0-9\e[0m\n"
+      ;;
+  esac
+done
