@@ -5,6 +5,7 @@
 [._]s[a-w][a-z]
 *.un~
 Session.vim
+.nvimlog
 .netrwhist
 .\#*
 *.tmp
