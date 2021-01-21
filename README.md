@@ -43,10 +43,10 @@ $ echo $(which zsh) >> /etc/shells
 $ chsh -s $(which zsh)
 ```
 
-### Build vim & neovim
+### Install latest vim & neovim
 
 You can install there with `make install`, but if you want to update to the latest version, execute the following.
 
 ```sh
-$ ./bin/vim_build
+$ ./bin/install_vim
 ```
