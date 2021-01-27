@@ -55,30 +55,30 @@ tmux_conf_theme_pane_indicator='#00afff'
 tmux_conf_theme_pane_active_indicator='#00afff'
 
 # status line style
-tmux_conf_theme_message_fg='#C1C1C1'
-tmux_conf_theme_message_bg='#020d5f'
+tmux_conf_theme_message_fg='#FFD5EE'
+tmux_conf_theme_message_bg='#FE54BD'
 tmux_conf_theme_message_attr='bold'
 
 # status line command style (<prefix> : Escape)
-tmux_conf_theme_message_command_fg='#020d5f'
-tmux_conf_theme_message_command_bg='#C1C1C1'
+tmux_conf_theme_message_command_fg='#FFD5EE'
+tmux_conf_theme_message_command_bg='#FE54BD'
 tmux_conf_theme_message_command_attr='bold'
 
 # window modes style
-tmux_conf_theme_mode_fg='#E0E0E0'
+tmux_conf_theme_mode_fg='#CFCFCF'
 tmux_conf_theme_mode_bg='#55596d'
 tmux_conf_theme_mode_attr='bold'
 
 # status line style
-tmux_conf_theme_status_fg='#E0E0E0'
-tmux_conf_theme_status_bg='#005F5F'
+tmux_conf_theme_status_fg='#CFCFCF'
+tmux_conf_theme_status_bg='#28202F'
 tmux_conf_theme_status_attr='none'
 
 # window status style
 #   - built-in variables are:
 #     - #{circled_window_index}
-tmux_conf_theme_window_status_fg='#E0E0E0'
-tmux_conf_theme_window_status_bg='#005F5F'
+tmux_conf_theme_window_status_fg='#CFCFCF'
+tmux_conf_theme_window_status_bg='#28202F'
 tmux_conf_theme_window_status_attr='bold'
 tmux_conf_theme_window_status_format=' #W'
 #tmux_conf_theme_window_status_format='#I #W'
@@ -88,8 +88,8 @@ tmux_conf_theme_window_status_format=' #W'
 # window current status style
 #   - built-in variables are:
 #     - #{circled_window_index}
-tmux_conf_theme_window_status_current_fg='#E0E0E0'
-tmux_conf_theme_window_status_current_bg='#00AF87'
+tmux_conf_theme_window_status_current_fg='#CFCFCF'
+tmux_conf_theme_window_status_current_bg='#BC7CC9'
 tmux_conf_theme_window_status_current_attr='bold'
 tmux_conf_theme_window_status_current_format='#W'
 #tmux_conf_theme_window_status_current_format='#I #W'
@@ -97,18 +97,18 @@ tmux_conf_theme_window_status_current_format='#W'
 #tmux_conf_theme_window_status_current_format='#I #W#{?window_zoomed_flag,🔍,}'
 
 # window activity status style
-tmux_conf_theme_window_status_activity_fg='#E0E0E0'
-tmux_conf_theme_window_status_activity_bg='#005F5F'
+tmux_conf_theme_window_status_activity_fg='#CFCFCF'
+tmux_conf_theme_window_status_activity_bg='#28202F'
 tmux_conf_theme_window_status_activity_attr='bold'
 
 # window bell status style
-tmux_conf_theme_window_status_bell_fg='#E0E0E0'
+tmux_conf_theme_window_status_bell_fg='#CFCFCF'
 tmux_conf_theme_window_status_bell_bg='#ff5f00'
 tmux_conf_theme_window_status_bell_attr='blink,bold'
 
 # window last status style
-tmux_conf_theme_window_status_last_fg='#E0E0E0'
-tmux_conf_theme_window_status_last_bg='#005F5F'
+tmux_conf_theme_window_status_last_fg='#CFCFCF'
+tmux_conf_theme_window_status_last_bg='#28202F'
 tmux_conf_theme_window_status_last_attr='none'
 
 # status left/right sections separators
@@ -120,8 +120,8 @@ tmux_conf_theme_right_separator_sub=''
 # auto restore tmux
 #set -g @continuum-restore 'on'
 
-set -g @online_icon ""
-set -g @offline_icon "#[bold]  OFFLINE #[nobold]"
+set -g @online_icon "﬉"
+set -g @offline_icon "#[bold] 睊 OFFLINE #[nobold]"
 
 set -g @sidebar-tree-command 'tree -C'
 
@@ -183,21 +183,17 @@ set -g @sysstat_mem_view_tmpl '#{mem.pused}'
 #T (pane title)
 #W (currnet task like vim if editing a file in vim or zsh if running zsh)
 
-tmux_conf_theme_status_left='  #S | #{online_status} , #[bold]#(~/.tmux/bin/ip_lan)#[nobold] , #[bold]#(~/.tmux/bin/ip_wan)#[nobold] | #(~/.tmux/bin/wifi)'
-tmux_conf_theme_status_right='#{prefix}#{pairing}#{synchronized}  #{sysstat_cpu}  #{sysstat_mem} , #{?battery_status, #{battery_status},}#{?battery_bar, #{battery_bar},}#{?battery_percentage, #{battery_percentage},} ,  %F  %R | #(~/.tmux/bin/branch #{pane_current_path}) |  #{username}#{root}'
-
-# test color
-#008700 #d75f00
-#5fff00 #dfaf00
+tmux_conf_theme_status_left=' 缾#S | #{online_status} , #[bold]#(~/.tmux/bin/ip_lan)#[nobold] , #[bold]#(~/.tmux/bin/ip_wan)#[nobold] | #(~/.tmux/bin/wifi)'
+tmux_conf_theme_status_right='#{prefix}#{pairing}#{synchronized}  #{sysstat_cpu}  #{sysstat_mem} , #{?battery_status, #{battery_status},}#{?battery_bar, #{battery_bar},}#{?battery_percentage, #{battery_percentage},} ,  %F  %R | #(~/.tmux/bin/branch #{pane_current_path}) |  #{username}#{root}'
 
 # status left style
-tmux_conf_theme_status_left_fg='#444444,#E0E0E0,#E0E0E0'
-tmux_conf_theme_status_left_bg='#E0E0E0,#00875F,#005F5F'
+tmux_conf_theme_status_left_fg='#444444,#CFCFCF,#CFCFCF'
+tmux_conf_theme_status_left_bg='#E0E0E0,#A03E7F,#28202F'
 tmux_conf_theme_status_left_attr='none,none,none'
 
 # status right style
-tmux_conf_theme_status_right_fg='#E0E0E0,#E0E0E0,#444444'
-tmux_conf_theme_status_right_bg='#005F5F,#00AF87,#E0E0E0'
+tmux_conf_theme_status_right_fg='#CFCFCF,#CFCFCF,#444444'
+tmux_conf_theme_status_right_bg='#28202F,#A03E7F,#E0E0E0'
 tmux_conf_theme_status_right_attr='none,none,bold'
 
 # pairing indicator
