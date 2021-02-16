@@ -10,7 +10,7 @@ y: Launch tmux with a new session.
 n: Don't launch tmux."
 
 if [ ! -z $TMUX ]; then
-  return 0
+  exit 0
 fi
 
 has_session=false
@@ -22,27 +22,26 @@ if tmux has-session >/dev/null 2>&1; then
   has_session=true
 fi
 
-echo $message
+echo "$message"
 echo ""
 
 while true; do
-  printf "tmux: launch OK? [y/n/0-9]: "
-  read -k 1
+  read -p "tmux: launch OK? [y/n/0-9]: " -n 1 -r
 
   case "$REPLY" in
     [Yy])
       echo ""
       tmux
-      return 0
+      exit 0
       ;;
     [Nn])
       echo ""
-      return 0
+      exit 0
       ;;
     [0-9])
       echo ""
       if $has_session && tmux attach -t $REPLY >/dev/null 2>&1; then
-        return 0
+        exit 0
       else
         printf "\e[31mCannot attach $REPLY session.\e[0m\n"
       fi
