@@ -173,7 +173,7 @@ if [ ! -e $HOME/.vim ]; then
   git clone https://github.com/averak/vim $HOME/.vim
 fi
 if [ ! -e $HOME/.config/nvim ]; then
-  git clone https://github.com/averak/neovim $HOME/.config/nvim
+  git clone https://github.com/averak/nvim $HOME/.config/nvim
 fi
 
 #--------------------------------------------------------------#
