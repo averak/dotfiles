@@ -166,7 +166,7 @@ echo ""
 info "Start install vim & neovim."
 
 if yesno "$(warn 'Are you sure you want to install vim & neovim?')"; then
-	$dotfiles/bin/install_vim
+	$dotfiles/bin/install-vim
 fi
 
 if [ ! -e $HOME/.vim ]; then

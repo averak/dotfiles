@@ -48,5 +48,5 @@ $ chsh -s $(which zsh) ${USER}
 You can install there with `make install`, but if you want to update to the latest version, execute the following.
 
 ```sh
-$ ./bin/install_vim
+$ ./bin/install-vim
 ```
