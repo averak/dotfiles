@@ -18,7 +18,7 @@ init: ## Setup environment settings
 update: ## Fetch changes for this repo
 	git pull origin master
 
-install: update clean deploy init
+install: update init clean deploy
 	@exec $$SHELL
 
 test:
