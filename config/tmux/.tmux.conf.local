@@ -66,7 +66,7 @@ tmux_conf_theme_message_command_attr='bold'
 
 # window modes style
 tmux_conf_theme_mode_fg='#CFCFCF'
-tmux_conf_theme_mode_bg='#55596d'
+tmux_conf_theme_mode_bg='#39243a'
 tmux_conf_theme_mode_attr='bold'
 
 # status line style
