@@ -58,7 +58,7 @@ if yesno "$(warn 'Are you sure you want to install packages?')"; then
 		fi
 
 		info "Start install..."
-		PACKAGES="git wget curl tmux fish coreutils autoconf automake cmake ninja libtool pkg-config gettext fontconfig"
+		PACKAGES="git wget curl tmux fish coreutils autoconf automake cmake ninja libtool pkg-config gettext fontconfig jq"
 		brew install $PACKAGES
 
 	elif [ "$(echo $OS | grep 'Ubuntu')" ] ; then
