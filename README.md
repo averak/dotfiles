@@ -14,7 +14,7 @@
 First, clone this repository.
 
 ```sh
-$ git clone https://github.com/averak/dotiles ~/dotfiles
+$ git clone --recursive https://github.com/averak/dotfiles ~/dotfiles
 $ cd ~/dotfiles
 ```
 
@@ -28,7 +28,7 @@ $ make install
 
 Incidentally, `make install` will perform the following tasks.
 
-- `make update` - update dotfiles repo
+- `make update` - update dotfiles
 - `make deploy` - deploy dotfiles to your env
 - `make init` - init some settings
 
