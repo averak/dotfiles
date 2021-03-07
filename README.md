@@ -50,3 +50,11 @@ You can install there with `make install`, but if you want to update to the late
 ```sh
 $ ./bin/install-vim
 ```
+
+### tmux
+
+If you want to launch tmux when you start the shell, write the following in end of `zshrc`.
+
+```sh
+launch-tmux
+```
