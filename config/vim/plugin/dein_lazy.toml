@@ -1,0 +1,43 @@
+[[plugins]]
+repo = 'tpope/vim-endwise'
+on_ft = 'ruby'
+on_event = 'InsertEnter'
+
+[[plugins]]
+repo = 'previm/previm'
+on_ft = 'markdown'
+on_cmd = 'PrevimOpen'
+hook_post_source = '''
+nnoremap <silent> <C-p> :PrevimOpen<CR>
+let g:vim_markdown_folding_disabled = 1
+let g:previm_enable_realtime = 1
+'''
+
+[[plugins]]
+repo = 'tyru/open-browser.vim'
+on_source = ['previm']
+
+[[plugins]]
+repo = 'alvan/vim-closetag'
+on_ft = ['html', 'xhtml', 'phtml', 'erb', 'php', 'vue']
+hook_post_source = '''
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.erb,*.php,*.vue'
+'''
+
+[[plugins]]
+repo = 'hail2u/vim-css3-syntax'
+on_ft = ['html', 'xhtml', 'phtml', 'erb', 'php', 'vue', 'css', 'scss']
+
+[[plugins]]
+repo = 'gorodinskiy/vim-coloresque'
+on_ft = ['css', 'html', 'less', 'sass', 'scss', 'stylus', 'vim']
+
+[[plugins]]
+repo = 'lervag/vimtex'
+on_ft = ['tex']
+hook_post_source = '''
+let g:vimtex_compiler_latexmk_engines = {'_': '-pdfdvi'}
+let g:vimtex_view_method= 'skim'
+let g:vimtex_quickfix_latexlog = {'default': 0}
+let g:vimtex_mappings_enabled = 0
+'''

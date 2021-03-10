@@ -1,4 +1,5 @@
 vim
+!/config/vim
 neovim
 zsh-*
 tmp
