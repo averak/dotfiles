@@ -1,6 +1,6 @@
 # Dotfiles
 
-[![](https://github.com/averak/dotfiles/workflows/ubuntu/badge.svg)](https://github.com/averak/dotfiles/actions)
+[![](https://github.com/averak/dotfiles/workflows/build/badge.svg)](https://github.com/averak/dotfiles/actions)
 [![](https://github.com/averak/dotfiles/workflows/vint/badge.svg)](https://github.com/averak/dotfiles/actions)
 [![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](LICENSE.txt)
 
