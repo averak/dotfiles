@@ -16,7 +16,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Build
+    - name: Install dotfiles
       run: |
         git clone https://github.com/averak/dotfiles $HOME/dotfiles
         cd $HOME/dotfiles
