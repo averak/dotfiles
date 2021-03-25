@@ -1,6 +1,6 @@
 {
   "suggest.enablePreselect": true,
-  "python.jediEnabled": false,
+  "python.setLinter": "flake8",
   "solargraph.formatting": true,
   "solargraph.commandPath": "$HOME/.anyenv/envs/rbenv/shims/solargraph",
   "clangd.path": "/Users/abelab/.config/coc/extensions/coc-clangd-data/install/11.0.0/clangd_11.0.0/bin/clangd"
