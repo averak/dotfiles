@@ -59,6 +59,23 @@ symlink $dotfiles/config/git/ignore $HOME/.config/git/ignore
 symlink $dotfiles/config/git/lazygit $HOME/.config/jesseduffield/lazygit
 
 #--------------------------------------------------------------#
+##        python                                              ##
+#--------------------------------------------------------------#
+echo ""
+info "python"
+
+symlink $dotfiles/config/python/flake8 $HOME/.config/flake8
+
+#--------------------------------------------------------------#
+##        vim/neovim                                          ##
+#--------------------------------------------------------------#
+echo ""
+info "vim/neovim"
+
+symlink $dotfiles/config/vim $HOME/.vim
+symlink $dotfiles/config/nvim $HOME/.config/nvim
+
+#--------------------------------------------------------------#
 ##        tmux                                                ##
 #--------------------------------------------------------------#
 echo ""

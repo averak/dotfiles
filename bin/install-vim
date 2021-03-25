@@ -9,10 +9,6 @@ dotfiles=$HOME/dotfiles
 echo ""
 info "Start install vim."
 
-if [ ! -d $dotfiles/vim ]; then
-    git clone https://github.com/vim/vim $dotfiles/vim
-fi
-
 cd $dotfiles/vim
 git pull origin master
 
@@ -31,10 +27,6 @@ info "Complete install vim."
 #--------------------------------------------------------------#
 echo ""
 info "Start install neovim."
-
-if [ ! -d $dotfiles/neovim ]; then
-    git clone https://github.com/neovim/neovim $dotfiles/neovim
-fi
 
 cd $dotfiles/neovim
 git pull origin master
