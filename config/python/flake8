@@ -1,4 +1,5 @@
 [flake8]
-ignore = E501
-exclude = tests/*
+ignore = E402
+max-line-length = 150
+exclude = .venv,__pycache__,old,build,dist
 max-complexity = 10
