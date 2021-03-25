@@ -15,9 +15,9 @@ export PAGER='less'
 ##        PATH                                                ##
 #--------------------------------------------------------------#
 # anyenv
-export PATH="$HOME/.anyenv/bin:$PATH"
+export PATH=$PATH:$HOME/.anyenv/bin:$PATH
 eval "$(anyenv init -)"
 # rust
-export PATH="$HOME/.cargo/bin:$PATH"
+export PATH=$PATH:$HOME/.cargo/bin
 # local bin
-export PATH=~/.local/bin:$PATH
+export PATH=$PATH:$HOME/.local/bin
