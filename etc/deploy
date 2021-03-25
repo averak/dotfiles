@@ -65,6 +65,7 @@ echo ""
 info "python"
 
 symlink $dotfiles/config/python/flake8 $HOME/.config/flake8
+symlink $dotfiles/config/python/pep8 $HOME/.config/pep8
 
 #--------------------------------------------------------------#
 ##        vim/neovim                                          ##

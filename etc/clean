@@ -76,6 +76,7 @@ echo ""
 info "python"
 
 clean $HOME/.config/flake8
+clean $HOME/.config/pep8
 
 #--------------------------------------------------------------#
 ##        vim/neovim                                          ##
