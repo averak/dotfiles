@@ -56,7 +56,7 @@ setopt correct
 #--------------------------------------------------------------#
 ##        fzf settings                                        ##
 #--------------------------------------------------------------#
-export PATH="$PATH:$HOME/.fzf/bin"
+export PATH=$PATH:$HOME/.fzf/bin
 export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git"'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
