@@ -1,5 +1,6 @@
 {
   "suggest.enablePreselect": true,
+  "python.jediEnabled": false,
   "python.setLinter": "flake8",
   "solargraph.formatting": true,
   "solargraph.commandPath": "$HOME/.anyenv/envs/rbenv/shims/solargraph",
