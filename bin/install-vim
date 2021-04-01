@@ -12,9 +12,7 @@ info "Start install vim."
 cd $dotfiles/vim
 git pull origin master
 
-./configure \
-    --with-features=huge \
-    --enable-fail-if-missing
+./configure
 sudo make
 sudo make install
 
