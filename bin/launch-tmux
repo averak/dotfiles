@@ -7,7 +7,8 @@ dotfiles=$HOME/dotfiles
 message=\
 "*** WHAT WANT TO DO? ***
 y: Launch tmux with a new session.
-n: Don't launch tmux."
+n: Don't launch tmux.
+q: Kill server"
 
 if [ ! -z $TMUX ]; then
   exit 0
@@ -37,6 +38,15 @@ while true; do
     [Nn])
       echo ""
       exit 0
+      ;;
+    [Qq])
+      echo ""
+      if $has_session; then
+				tmux kill-server
+				exit 0
+			else
+        printf "\e[31mtmux server is not started.\e[0m\n"
+      fi
       ;;
     [0-9])
       echo ""
