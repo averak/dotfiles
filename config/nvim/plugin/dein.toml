@@ -194,7 +194,6 @@ let g:user_emmet_settings = {
 
 [[plugins]]
 repo = 'junegunn/fzf'
-build = './install'
 hook_add = '''
 " space + ff
 nmap <silent> <space>ff :<C-u>FZF<cr>
