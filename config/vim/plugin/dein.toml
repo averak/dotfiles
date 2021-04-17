@@ -242,6 +242,7 @@ nmap <Leader>k <Plug>(easymotion-overwin-f)
 
 [[plugins]]
 repo = 'Shougo/vimproc.vim'
+build = 'make'
 
 [[plugins]]
 repo = 'kamykn/spelunker.vim'
