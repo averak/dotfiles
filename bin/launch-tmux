@@ -27,7 +27,7 @@ echo "$message"
 echo ""
 
 while true; do
-  read -p "tmux: launch OK? [y/n/0-9]: " -n 1 -r
+  read -p "tmux: launch OK? [y/n/q/0-9]: " -n 1 -r
 
   case "$REPLY" in
     [Yy])
@@ -43,10 +43,10 @@ while true; do
       echo ""
       if $has_session; then
 				tmux kill-server
-				exit 0
 			else
         printf "\e[31mtmux server is not started.\e[0m\n"
       fi
+			exit 0
       ;;
     [0-9])
       echo ""
@@ -58,7 +58,7 @@ while true; do
       ;;
     *)
       echo ""
-      printf "\e[31mPlease enter y/n/0-9\e[0m\n"
+      printf "\e[31mPlease enter y/n/q/0-9\e[0m\n"
       ;;
   esac
 done
