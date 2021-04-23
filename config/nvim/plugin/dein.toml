@@ -107,6 +107,7 @@ command! -nargs=0 Format :call CocAction('format')
 let g:coc_global_extensions = [
       \  'coc-lists'
       \, 'coc-json'
+      \, 'coc-prettier'
       \, 'coc-marketplace'
       \, 'coc-java'
       \, 'coc-html'
