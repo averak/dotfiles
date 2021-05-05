@@ -85,6 +85,10 @@ vnoremap k k
 nnoremap n l
 vnoremap n l
 
+" go / return to word
+noremap w w
+noremap W b
+
 " scroll
 nnoremap ok <C-u>
 nnoremap ot <C-d>
