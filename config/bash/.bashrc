@@ -26,6 +26,7 @@ TERM=xterm-256color
 #--------------------------------------------------------------#
 export PATH="$PATH:$HOME/.fzf/bin"
 export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git"'
+export FZF_DEFAULT_OPTS='--height 40% --reverse --preview "bat --theme=TwoDark --style=numbers --color=always --line-range :200 {}"'
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 #--------------------------------------------------------------#

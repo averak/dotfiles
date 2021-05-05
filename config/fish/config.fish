@@ -26,6 +26,8 @@ set -x TERM xterm-256color
 #--------------------------------------------------------------#
 set -x PATH $PATH:$HOME/.fzf/bin
 set -x FZF_DEFAULT_COMMAND 'rg --files --hidden --glob "!.git"'
+set -x FZF_DEFAULT_OPTS '--preview "bat --theme=TwoDark --style=numbers --color=always --line-range :500 {}"'
+set -x FZF_DEFAULT_OPTS '--height 40% --reverse --preview "bat --theme=TwoDark --style=numbers --color=always --line-range :200 {}"'
 
 #--------------------------------------------------------------#
 ##        alias                                               ##
