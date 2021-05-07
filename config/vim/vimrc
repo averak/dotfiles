@@ -85,8 +85,10 @@ vnoremap k k
 nnoremap n l
 vnoremap n l
 
+" undo / redo
+nnoremap U <C-r>
+
 " go / return to word
-noremap w w
 noremap W b
 
 " scroll
