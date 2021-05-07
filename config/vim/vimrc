@@ -76,14 +76,10 @@ augroup END
 let mapleader="\<Space>"
 
 " htkn -> hjkl
-nnoremap h h
-vnoremap h h
-nnoremap t j
-vnoremap t j
-nnoremap k k
-vnoremap k k
-nnoremap n l
-vnoremap n l
+map h h
+map t j
+map k k
+map n l
 
 " undo / redo
 nnoremap U <C-r>
