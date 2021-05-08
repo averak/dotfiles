@@ -115,6 +115,3 @@ fabric.properties
 
 # Vim
 .vim
-
-# exported bin
-bin
