@@ -21,3 +21,5 @@ eval "$(anyenv init -)"
 export PATH=$PATH:$HOME/.cargo/bin
 # local bin
 export PATH=$PATH:$HOME/.local/bin
+# dotfiles bin
+export PATH=$PATH:$HOME/dotfiles/bin
