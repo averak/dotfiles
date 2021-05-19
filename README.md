@@ -15,7 +15,7 @@
 First, clone this repository.
 
 ```sh
-$ git clone --recursive https://github.com/averak/dotfiles ~/dotfiles
+$ git clone https://github.com/averak/dotfiles ~/dotfiles
 $ cd ~/dotfiles
 ```
 
