@@ -1,0 +1,40 @@
+keysym a = a A
+keysym n = b B
+keysym c = c C
+keysym h = d D
+keysym d = e E
+keysym y = f F
+keysym u = g G
+keysym j = h H
+keysym g = i I
+keysym t = j J
+keysym i = k K
+keysym p = l L
+keysym m = m M
+keysym l = n N
+keysym s = o O
+keysym period = p P
+keysym x = q Q
+keysym o = r R
+keysym semicolon = s S
+keysym k = t T
+keysym f = u U
+keysym v = v V
+keysym r = w W
+keysym b = x X
+keysym comma = y Y
+keysym slash = z Z
+
+keysym e = period greater
+keysym q = apostrophe quotedbl
+keysym w = comma less
+keysym z = semicolon colon
+keysym colon = slash question
+keysym at = minus underscore
+keysym bracketleft = equal plus
+
+remove lock = Eisu_toggle
+keysym Eisu_toggle = Tab
+
+keysym Muhenkan = BackSpace
+keysym Henkan_Mode = Return

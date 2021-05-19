@@ -78,6 +78,14 @@ symlink $dotfiles/config/vim $HOME/.vim
 symlink $dotfiles/config/nvim $HOME/.config/nvim
 
 #--------------------------------------------------------------#
+##        Xmodmap                                          ##
+#--------------------------------------------------------------#
+echo ""
+info "Xmodmap"
+
+symlink $dotfiles/config/Xmodmap/.Xmodmap $HOME/.Xmodmap
+
+#--------------------------------------------------------------#
 ##        tmux                                                ##
 #--------------------------------------------------------------#
 echo ""
