@@ -162,3 +162,12 @@ endif
 if dein#check_install()
   call dein#install()
 endif
+
+
+"--------------------------------------------------------------"
+"         local conf                                           "
+"--------------------------------------------------------------"
+let s:local_conf = fnamemodify(expand('<sfile>'), ':h').'/local.conf'
+if filereadable(s:local_conf)
+	exec 'source '. s:local_conf
+endif
