@@ -5,5 +5,6 @@
   "python.linting.mypyEnabled": true,
   "solargraph.formatting": true,
   "solargraph.commandPath": "$HOME/.anyenv/envs/rbenv/shims/solargraph",
+  "java.format.settings.url": "/Users/abelab/dotfiles/config/eclipse/formatter.xml",
   "clangd.path": "/Users/abelab/.config/coc/extensions/coc-clangd-data/install/11.0.0/clangd_11.0.0/bin/clangd"
 }
