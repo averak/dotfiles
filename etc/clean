@@ -40,6 +40,7 @@ echo ""
 info "zsh"
 
 clean $HOME/.zshrc
+clean $HOME/.zshenv
 clean $HOME/.zprofile
 
 #--------------------------------------------------------------#

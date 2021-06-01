@@ -26,6 +26,7 @@ echo ""
 info "zsh"
 
 symlink $dotfiles/config/zsh/.zshrc $HOME/.zshrc
+symlink $dotfiles/config/zsh/.zshenv $HOME/.zshenv
 symlink $dotfiles/config/zsh/.zprofile $HOME/.zprofile
 
 #--------------------------------------------------------------#
