@@ -184,7 +184,7 @@ if yesno "$(warn 'Are you sure you want to install nerd font?')"; then
 	fc-cache -f -v
 
 	# nerd font
-	git clone --branch=master --eepth 1 https://github.com/ryanoasis/nerd-fonts.git
+	git clone https://github.com/ryanoasis/nerd-fonts.git
 	cd ./nerd-fonts
 	./install.sh SourceCodePro
 
