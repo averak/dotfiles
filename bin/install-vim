@@ -9,16 +9,25 @@ dotfiles=$HOME/dotfiles
 echo ""
 info "Start install vim."
 
-cd $dotfiles/vim
-git pull origin master
+if yesno "$(warn 'Are you sure you want to install Vim?')"; then
+	# clone
+	if [ ! -e $dotfiles/vim ]; then
+		git clone https://github.com/vim/vim
+	fi
 
-./configure
-sudo make
-sudo make install
+	# update
+	cd $dotfiles/vim
+	git pull origin master
 
-cd $dotfiles
+	# install
+	./configure
+	sudo make
+	sudo make install
 
-info "Complete install vim."
+	cd $dotfiles
+
+	info "Complete install vim."
+fi
 
 #--------------------------------------------------------------#
 ##        neovim                                              ##
@@ -26,13 +35,22 @@ info "Complete install vim."
 echo ""
 info "Start install neovim."
 
-cd $dotfiles/neovim
-git pull origin master
+if yesno "$(warn 'Are you sure you want to install Neovim?')"; then
+	# clone
+	if [ ! -e $dotfiles/neovim ]; then
+		git clone https://github.com/neovim/neovim
+	fi
 
-sudo rm -rf build
-sudo make CMAKE_BUILD_TYPE=Release
-sudo make install
+	# update
+	cd $dotfiles/neovim
+	git pull origin master
 
-cd $dotfiles
+	# install
+	sudo rm -rf build
+	sudo make CMAKE_BUILD_TYPE=Release
+	sudo make install
 
-info "Complete install neovim."
+	cd $dotfiles
+
+	info "Complete install neovim."
+fi
