@@ -41,7 +41,7 @@ You need to add `zsh` to the list of available shells. (required sudo)
 
 ```sh
 $ echo $(which zsh) >> /etc/shells
-$ chsh -s $(which zsh) ${USER}
+$ chsh -s $(which zsh) $USER
 ```
 
 ### Install latest vim & neovim
