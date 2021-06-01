@@ -115,3 +115,4 @@ fabric.properties
 
 # Vim
 .vim
+.nvimlog
