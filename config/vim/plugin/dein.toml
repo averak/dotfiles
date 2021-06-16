@@ -242,6 +242,11 @@ nmap <Leader>k <Plug>(easymotion-overwin-f)
 '''
 
 [[plugins]]
+repo = "OmniSharp/omnisharp-vim"
+on_ft = ["cs"]
+build = "xbuild server/OmniSharp.sln"
+
+[[plugins]]
 repo = 'Shougo/vimproc.vim'
 build = 'make'
 
