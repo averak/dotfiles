@@ -116,3 +116,6 @@ fabric.properties
 # Vim
 .vim
 .nvimlog
+
+# output from nohup
+nohup.out
