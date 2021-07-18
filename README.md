@@ -57,5 +57,5 @@ $ ./bin/install-vim
 If you want to launch tmux when you start the shell, write the following in end of `zshrc`.
 
 ```sh
-launch-tmux
+$ launch-tmux
 ```
