@@ -100,8 +100,8 @@ nmap <silent> <space>cl :<C-u>CocList<cr>
 nmap <silent> <space>rf <Plug>(coc-references)
 "スペースrnでRename
 nmap <silent> <space>rn <Plug>(coc-rename)
-"スペースftでFormat
-nmap <silent> <space>ft <Plug>(coc-format)
+"QでFormat
+nmap <silent> Q <Plug>(coc-format)
 command! -nargs=0 Format :call CocAction('format')
 
 let g:coc_global_extensions = [
@@ -197,8 +197,7 @@ let g:user_emmet_settings = {
 [[plugins]]
 repo = 'junegunn/fzf'
 hook_add = '''
-" space + ff
-nmap <silent> <space>ff :<C-u>FZF<cr>
+nmap <silent> F :<C-u>FZF<cr>
 '''
 
 [[plugins]]
