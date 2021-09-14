@@ -122,3 +122,8 @@ nohup.out
 
 # class file
 *.class
+
+# anyenv
+.java-version
+.ruby-version
+.python-version
