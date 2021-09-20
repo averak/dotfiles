@@ -23,6 +23,8 @@ export PATH=$PATH:$HOME/.anyenv/bin:$PATH
 eval "$(anyenv init -)"
 # rust
 export PATH=$PATH:$HOME/.cargo/bin
+# java
+export JAVA_HOME="$HOME/.anyenv/envs/jenv/versions/`jenv version-name`"
 # local bin
 export PATH=$PATH:$HOME/.local/bin
 # dotfiles bin
