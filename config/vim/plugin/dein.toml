@@ -41,7 +41,7 @@ repo = 'jistr/vim-nerdtree-tabs'
 [[plugins]]
 repo = 'ryanoasis/vim-devicons'
 
-## -----*----- ariline -----*----- ##
+## -----*----- airline -----*----- ##
 [[plugins]]
 repo = 'vim-airline/vim-airline'
 hook_add = '''
