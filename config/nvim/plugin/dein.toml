@@ -116,8 +116,7 @@ let g:coc_global_extensions = [
       \, 'coc-tsserver'
       \, 'coc-clangd'
       \, 'coc-solargraph'
-      \, 'coc-python'
-      \, 'coc-solargraph'
+      \, 'coc-pyright'
       \, 'coc-snippets'
       \, 'coc-vetur'
       \ ]
