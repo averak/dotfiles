@@ -240,12 +240,6 @@ nmap <Leader>k <Plug>(easymotion-overwin-f)
 '''
 
 [[plugins]]
-repo = 'mattn/vim-sl'
-hook_add = '''
-command DeNA call sl#animate()
-'''
-
-[[plugins]]
 repo = "OmniSharp/omnisharp-vim"
 on_ft = ["cs"]
 build = "xbuild server/OmniSharp.sln"
