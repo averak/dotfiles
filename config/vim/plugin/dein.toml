@@ -94,6 +94,8 @@ highlight CocErrorSign ctermfg=15 ctermbg=196
 highlight CocWarningSign ctermfg=0 ctermbg=172
 ""以下ショートカット
 "ノーマルモードで
+"スペースbでDefinition
+nmap <silent> <space>b <Plug>(coc-definition)
 "スペースclでCocList
 nmap <silent> <space>cl :<C-u>CocList<cr>
 "スペースrfでReferences
@@ -103,6 +105,7 @@ nmap <silent> <space>rn <Plug>(coc-rename)
 "QでFormat
 nmap <silent> Q <Plug>(coc-format)
 command! -nargs=0 Format :call CocAction('format')
+command! -nargs=0 OrganizeImports :call CocAction('runCommand', 'java.action.organizeImports')
 
 let g:coc_global_extensions = [
       \  'coc-lists'
