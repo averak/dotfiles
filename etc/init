@@ -74,7 +74,7 @@ if yesno "$(warn 'Are you sure you want to install packages?')"; then
 		sudo yum update
 
 		info "Start install..."
-		PACKAGES="git wget curl tmux fish coreutils make cmake unzip"
+		PACKAGES="git wget curl tmux fish coreutils make cmake unzip ncurses-devel gcc"
 		sudo yum install -y $PACKAGES
 
 	else
