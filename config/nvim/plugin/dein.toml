@@ -12,11 +12,11 @@ repo='morhetz/gruvbox'
 repo = 'whatyouhide/vim-gotham'
 [[plugins]]
 repo = 'cocopon/iceberg.vim'
+hook_add = '''
+colorscheme iceberg
+'''
 [[plugins]]
 repo = 'averak/laserwave.vim'
-hook_add = '''
-colorscheme laserwave
-'''
 
 ## -----*----- NERDTree -----*----- ##
 [[plugins]]
