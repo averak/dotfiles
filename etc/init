@@ -155,6 +155,9 @@ if [ ! -e $HOME/.anyenv ]; then
   mkdir -p $HOME/.anyenv/plugins
   git clone https://github.com/znz/anyenv-update.git $HOME/.anyenv/plugins/anyenv-update
   $HOME/.anyenv/bin/anyenv install --init
+
+	$HOME/.anyenv/bin/anyenv install jenv
+	$HOME/.anyenv/envs/jenv/bin/jenv enable-plugin export
 else
 	info "The anyenv is already installed!!"
 fi
