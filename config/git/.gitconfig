@@ -1,6 +1,6 @@
 [user]
     name = averak
-    email = abe12@mccc.jp
+    email = averak.jp@gmail.com
 [filter "lfs"]
     clean = git-lfs clean -- %f
     smudge = git-lfs smudge -- %f
