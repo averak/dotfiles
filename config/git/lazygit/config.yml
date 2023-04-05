@@ -1,4 +1,5 @@
 gui:
+  language: 'en'
   scrollHeight: 2
   scrollPastBottom: true
   sidePanelWidth: 0.3333
