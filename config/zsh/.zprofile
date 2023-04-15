@@ -29,3 +29,5 @@ export JAVA_HOME="$HOME/.anyenv/envs/jenv/versions/`jenv version-name`"
 export PATH=$PATH:$HOME/.local/bin
 # dotfiles bin
 export PATH=$PATH:$HOME/dotfiles/bin
+# homebrew
+export PATH=$PATH:/opt/homebrew/bin
