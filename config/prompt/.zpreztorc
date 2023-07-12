@@ -37,13 +37,14 @@ zstyle ':prezto:load' pmodule \
   'completion' \
   'git' \
   'syntax-highlighting' \
-  'prompt'
+  'prompt' \
+  'autosuggestions'
 
 #
 # Autosuggestions
 #
 
-# Set the query found color.
+# zstyle ':prezto:module:autosuggestions' color 'yes'
 # zstyle ':prezto:module:autosuggestions:color' found ''
 
 #
@@ -59,7 +60,7 @@ zstyle ':prezto:load' pmodule \
 #
 
 # Set the key mapping style to 'emacs' or 'vi'.
-zstyle ':prezto:module:editor' key-bindings 'emacs'
+zstyle ':prezto:module:editor' key-bindings 'vi'
 
 # Auto convert .... to ../..
 # zstyle ':prezto:module:editor' dot-expansion 'yes'
