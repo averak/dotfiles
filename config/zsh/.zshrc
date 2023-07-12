@@ -24,6 +24,8 @@ autoload -U +X bashcompinit && bashcompinit
 [[ -f ~/.zprezto/init.zsh ]] && source ~/.zprezto/init.zsh
 [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
 
+bindkey '^s' autosuggest-accept
+
 #--------------------------------------------------------------#
 ##        source each PC settings                             ##
 #--------------------------------------------------------------#
