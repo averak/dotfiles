@@ -103,16 +103,6 @@ if yesno "$(warn 'Are you sure you want to install zsh?')"; then
   rm -rf zsh-${ZSH_VERSION}*
 fi
 
-info "Start install zprezto."
-if [ ! -e $HOME/.zprezto ]; then
-  git clone https://github.com/sorin-ionescu/prezto $HOME/.zprezto
-  cd $HOME/.zprezto
-  git pull && git submodule update --init --recursive
-  cd $dotfiles
-else
-	info "The zprezto is already installed!!"
-fi
-
 #--------------------------------------------------------------#
 ##        fzf                                                 ##
 #--------------------------------------------------------------#

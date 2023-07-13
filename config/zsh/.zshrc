@@ -19,17 +19,14 @@ autoload -Uz compinit && compinit
 autoload -U +X bashcompinit && bashcompinit
 
 #--------------------------------------------------------------#
-##        source zprezto                                      ##
-#--------------------------------------------------------------#
-[[ -f ~/.zprezto/init.zsh ]] && source ~/.zprezto/init.zsh
-[[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
-
-bindkey '^s' autosuggest-accept
-
-#--------------------------------------------------------------#
-##        source each PC settings                             ##
+##        source each environment settings                    ##
 #--------------------------------------------------------------#
 [ -f ~/dotfiles/local/local.conf ] && source ~/dotfiles/local/local.conf
+
+#--------------------------------------------------------------#
+##        source zinit                                        ##
+#--------------------------------------------------------------#
+source ~/dotfiles/config/zsh/.zinit.zsh
 
 #--------------------------------------------------------------#
 ##        set 256color                                        ##
@@ -116,3 +113,6 @@ elif which putclip >/dev/null 2>&1 ; then
     # Cygwin
      alias -g C='| putclip'
 fi
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

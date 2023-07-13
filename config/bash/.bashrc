@@ -12,7 +12,7 @@ eval "$(starship init bash)"
 export BASH_SILENCE_DEPRECATION_WARNING=1
 
 #--------------------------------------------------------------#
-##        source each PC settings                             ##
+##        source each environment settings                    ##
 #--------------------------------------------------------------#
 [ -f ~/dotfiles/local/local.conf ] && source ~/dotfiles/local/local.conf
 
