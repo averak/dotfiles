@@ -15,6 +15,8 @@ fi
 #--------------------------------------------------------------#
 ##        autocomplete                                        ##
 #--------------------------------------------------------------#
+fpath=(~/.zsh/completion $fpath)
+
 autoload -Uz compinit && compinit
 autoload -U +X bashcompinit && bashcompinit
 

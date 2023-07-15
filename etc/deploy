@@ -79,6 +79,14 @@ symlink $dotfiles/config/vim $HOME/.vim
 symlink $dotfiles/config/nvim $HOME/.config/nvim
 
 #--------------------------------------------------------------#
+##        JetBrains                                           ##
+#--------------------------------------------------------------#
+echo ""
+info "jetbrains"
+
+symlink $dotfiles/config/idea/.ideavimrc $HOME/.ideavimrc
+
+#--------------------------------------------------------------#
 ##        Xmodmap                                          ##
 #--------------------------------------------------------------#
 echo ""
