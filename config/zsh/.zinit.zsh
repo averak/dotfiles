@@ -15,7 +15,7 @@ zinit snippet PZTM::helper
 zinit snippet OMZP::docker-compose
 zinit snippet OMZP::aws
 zinit snippet OMZP::gcloud
-zinit snippet OMZP::yarn
+# zinit snippet OMZP::yarn
 zinit snippet OMZP::npm
 zinit snippet OMZP::node
 zinit snippet OMZP::pip
