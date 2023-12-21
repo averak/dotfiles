@@ -1,159 +1,159 @@
 gui:
-  language: 'en'
-  scrollHeight: 2
-  scrollPastBottom: true
-  sidePanelWidth: 0.3333
-  expandFocusedSidePanel: false
-  mainPanelSplitMode: "flexible"
-  theme:
-    lightTheme: false
-    activeBorderColor:
-      - magenta
-      - bold
-    inactiveBorderColor:
-      - white
-    optionsTextColor:
-      - blue
-    selectedLineBgColor:
-      - default
-    selectedRangeBgColor:
-      - blue
-  commitLength:
-    show: true
-  mouseEvents: true
-  skipUnstageLineWarning: false
-  skipStashWarning: true
+    language: 'en'
+    scrollHeight: 2
+    scrollPastBottom: true
+    sidePanelWidth: 0.3333
+    expandFocusedSidePanel: false
+    mainPanelSplitMode: "flexible"
+    theme:
+        lightTheme: false
+        activeBorderColor:
+            - magenta
+            - bold
+        inactiveBorderColor:
+            - white
+        optionsTextColor:
+            - blue
+        selectedLineBgColor:
+            - default
+        selectedRangeBgColor:
+            - blue
+    commitLength:
+        show: true
+    mouseEvents: true
+    skipDiscardChangeWarning: false
+    skipStashWarning: true
 git:
-  paging:
-    colorArg: always
-    useConfig: false
-  merging:
-    manualCommit: false
-    args: ""
-  pull:
-    mode: "merge"
-  skipHookPrefix: WIP
-  autoFetch: true
-  branchLogCmd: "git log --graph --color=always --date=short --decorate=short --pretty=format:'%Cgreen%h %Creset%cd %Cblue%cn %Cred%d %Creset%s'"
-  allBranchesLogCmd: "git log --graph --all --color=always --date=short --decorate=short --pretty=format:'%Cgreen%h %Creset%cd %Cblue%cn %Cred%d %Creset%s'"
-  overrideGpg: false
-  disableForcePushing: false
+    paging:
+        colorArg: always
+        useConfig: false
+    merging:
+        manualCommit: false
+        args: ""
+    pull:
+        mode: "merge"
+    skipHookPrefix: WIP
+    autoFetch: true
+    branchLogCmd: "git log --graph --color=always --date=short --decorate=short --pretty=format:'%Cgreen%h %Creset%cd %Cblue%cn %Cred%d %Creset%s'"
+    allBranchesLogCmd: "git log --graph --all --color=always --date=short --decorate=short --pretty=format:'%Cgreen%h %Creset%cd %Cblue%cn %Cred%d %Creset%s'"
+    overrideGpg: false
+    disableForcePushing: false
 update:
-  method: prompt
-  days: 14
+    method: prompt
+    days: 14
 reporting: "undetermined"
 confirmOnQuit: false
 quitOnTopLevelReturn: true
 disableStartupPopups: false
 notARepository: "prompt"
 keybinding:
-  universal:
-    quit: "q"
-    quit-alt1: "<c-c>"
-    return: "<esc>"
-    quitWithoutChangingDirectory: "Q"
-    togglePanel: "<tab>"
-    prevItem: "<up>"
-    nextItem: "<down>"
-    prevItem-alt: "k"
-    nextItem-alt: "t"
-    prevPage: ","
-    nextPage: "."
-    gotoTop: "<"
-    gotoBottom: ">"
-    prevBlock: "<left>"
-    nextBlock: "<right>"
-    prevBlock-alt: "K"
-    nextBlock-alt: "T"
-    nextMatch: 'U'
-    prevMatch: 'O'
-    optionMenu: "x"
-    optionMenu-alt1: "?"
-    select: "<space>"
-    goInto: "<enter>"
-    confirm: "<enter>"
-    confirm-alt1: "y"
-    remove: "d"
-    new: "n"
-    edit: "e"
-    openFile: "o"
-    scrollUpMain: "<pgup>"
-    scrollDownMain: "<pgdown>"
-    scrollUpMain-alt2: "<c-u>"
-    scrollDownMain-alt2: "<c-d>"
-    executeCustomCommand: ":"
-    createRebaseOptionsMenu: "m"
-    pushFiles: "P"
-    pullFiles: "p"
-    refresh: "R"
-    createPatchOptionsMenu: "<c-p>"
-    nextTab: "N"
-    prevTab: "H"
-    nextScreenMode: "+"
-    prevScreenMode: "_"
-    undo: "u"
-    redo: "<c-r>"
-    filteringMenu: "<c-s>"
-    diffingMenu: "W"
-    diffingMenu-alt: "<c-e>"
-    copyToClipboard: "<c-o>"
-    submitEditorText: "<enter>"
-    appendNewline: "<tab>"
-  status:
-    checkForUpdate: "U"
-    recentRepos: "<enter>"
-  files:
-    commitChanges: "c"
-    commitChangesWithoutHook: "w"
-    amendLastCommit: "A"
-    commitChangesWithEditor: "C"
-    ignoreFile: "i"
-    refreshFiles: "r"
-    stashAllChanges: "s"
-    viewStashOptions: "S"
-    toggleStagedAll: "a"
-    viewResetOptions: "D"
-    fetch: "f"
-  branches:
-    createPullRequest: "o"
-    checkoutBranchByName: "w"
-    forceCheckoutBranch: "F"
-    rebaseBranch: "r"
-    mergeIntoCurrentBranch: "M"
-    viewGitFlowOptions: "i"
-    fastForward: "f"
-    pushTag: "P"
-    setUpstream: "U"
-    fetchRemote: "f"
-    createTag: ""
-  commits:
-    squashDown: "s"
-    renameCommit: "r"
-    renameCommitWithEditor: "R"
-    viewResetOptions: "g"
-    markCommitAsFixup: "f"
-    createFixupCommit: "F"
-    squashAboveCommits: "S"
-    amendToCommit: "A"
-    pickCommit: "p"
-    revertCommit: "d"
-    cherryPickCopy: "c"
-    cherryPickCopyRange: "C"
-    pasteCommits: "v"
-    tagCommit: "G"
-    checkoutCommit: "<space>"
-    resetCherryPick: "<c-R>"
-    copyCommitMessageToClipboard: "<c-y>"
-  stash:
-    popStash: "g"
-  commitFiles:
-    checkoutCommitFile: "c"
-  main:
-    toggleDragSelect: "v"
-    toggleDragSelect-alt: "V"
-    toggleSelectHunk: "a"
-    pickBothHunks: "b"
-  submodules:
-    init: "i"
-    update: "U"
-    bulkMenu: "b"
+    universal:
+        quit: "q"
+        quit-alt1: "<c-c>"
+        return: "<esc>"
+        quitWithoutChangingDirectory: "Q"
+        togglePanel: "<tab>"
+        prevItem: "<up>"
+        nextItem: "<down>"
+        prevItem-alt: "k"
+        nextItem-alt: "t"
+        prevPage: ","
+        nextPage: "."
+        gotoTop: "<"
+        gotoBottom: ">"
+        prevBlock: "<left>"
+        nextBlock: "<right>"
+        prevBlock-alt: "K"
+        nextBlock-alt: "T"
+        nextMatch: 'U'
+        prevMatch: 'O'
+        optionMenu: "x"
+        optionMenu-alt1: "?"
+        select: "<space>"
+        goInto: "<enter>"
+        confirm: "<enter>"
+        confirm-alt1: "y"
+        remove: "d"
+        new: "n"
+        edit: "e"
+        openFile: "o"
+        scrollUpMain: "<pgup>"
+        scrollDownMain: "<pgdown>"
+        scrollUpMain-alt2: "<c-u>"
+        scrollDownMain-alt2: "<c-d>"
+        executeCustomCommand: ":"
+        createRebaseOptionsMenu: "m"
+        pushFiles: "P"
+        pullFiles: "p"
+        refresh: "R"
+        createPatchOptionsMenu: "<c-p>"
+        nextTab: "N"
+        prevTab: "H"
+        nextScreenMode: "+"
+        prevScreenMode: "_"
+        undo: "u"
+        redo: "<c-r>"
+        filteringMenu: "<c-s>"
+        diffingMenu: "W"
+        diffingMenu-alt: "<c-e>"
+        copyToClipboard: "<c-o>"
+        submitEditorText: "<enter>"
+        appendNewline: "<tab>"
+    status:
+        checkForUpdate: "U"
+        recentRepos: "<enter>"
+    files:
+        commitChanges: "c"
+        commitChangesWithoutHook: "w"
+        amendLastCommit: "A"
+        commitChangesWithEditor: "C"
+        ignoreFile: "i"
+        refreshFiles: "r"
+        stashAllChanges: "s"
+        viewStashOptions: "S"
+        toggleStagedAll: "a"
+        viewResetOptions: "D"
+        fetch: "f"
+    branches:
+        createPullRequest: "o"
+        checkoutBranchByName: "w"
+        forceCheckoutBranch: "F"
+        rebaseBranch: "r"
+        mergeIntoCurrentBranch: "M"
+        viewGitFlowOptions: "i"
+        fastForward: "f"
+        pushTag: "P"
+        setUpstream: "U"
+        fetchRemote: "f"
+        createTag: ""
+    commits:
+        squashDown: "s"
+        renameCommit: "r"
+        renameCommitWithEditor: "R"
+        viewResetOptions: "g"
+        markCommitAsFixup: "f"
+        createFixupCommit: "F"
+        squashAboveCommits: "S"
+        amendToCommit: "A"
+        pickCommit: "p"
+        revertCommit: "d"
+        cherryPickCopy: "c"
+        cherryPickCopyRange: "C"
+        pasteCommits: "v"
+        tagCommit: "G"
+        checkoutCommit: "<space>"
+        resetCherryPick: "<c-R>"
+        copyCommitMessageToClipboard: "<c-y>"
+    stash:
+        popStash: "g"
+    commitFiles:
+        checkoutCommitFile: "c"
+    main:
+        toggleDragSelect: "v"
+        toggleDragSelect-alt: "V"
+        toggleSelectHunk: "a"
+        pickBothHunks: "b"
+    submodules:
+        init: "i"
+        update: "U"
+        bulkMenu: "b"
