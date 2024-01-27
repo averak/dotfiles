@@ -135,7 +135,7 @@ command! -nargs=0 Q :q
 "--------------------------------------------------------------"
 "         dein.vim                                             "
 "--------------------------------------------------------------"
-let s:dein_dir = expand('~/.cache/dein')
+let s:dein_dir = expand('~/.cache/dein/nvim')
 let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
 if &runtimepath !~# '/dein.vim'
   if !isdirectory(s:dein_repo_dir)
