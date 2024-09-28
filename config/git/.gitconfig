@@ -22,4 +22,6 @@
 [credential]
 	helper = store
 [init]
-	defaultBranch = master
+    defaultBranch = main
+[url "git@github.com:"]
+	insteadOf = https://github.com/
