@@ -130,7 +130,7 @@ else
 fi
 
 if yesno "$(warn 'Are you sure you want to install rust packages?')"; then
-	PACKAGES="exa bat fd-find procs ripgrep starship"
+	PACKAGES="exa bat fd-find procs ripgrep starship zellij"
 	$HOME/.cargo/bin/cargo install $PACKAGES
 fi
 
