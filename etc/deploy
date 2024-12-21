@@ -87,6 +87,22 @@ info "jetbrains"
 symlink $dotfiles/config/idea/.ideavimrc $HOME/.ideavimrc
 
 #--------------------------------------------------------------#
+##        karabiner                                           ##
+#--------------------------------------------------------------#
+echo ""
+info "karabiner"
+
+symlink $dotfiles/config/karabiner $HOME/.config/karabiner
+
+#--------------------------------------------------------------#
+##        Zellij                                              ##
+#--------------------------------------------------------------#
+echo ""
+info "zellij"
+
+symlink $dotfiles/config/zellij $HOME/.config/zellij
+
+#--------------------------------------------------------------#
 ##        Xmodmap                                          ##
 #--------------------------------------------------------------#
 echo ""
