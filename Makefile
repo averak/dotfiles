@@ -3,17 +3,17 @@ export dotfiles=${HOME}/dotfiles
 clean: ## Clean config files
 	@echo '==> Start to clean your config files.'
 	@echo ''
-	bash ${dotfiles}/etc/clean
+	bash ${dotfiles}/etc/clean.sh
 
 deploy: clean ## Create symlink
 	@echo '==> Start to deploy dotfiles to home directory.'
 	@echo ''
-	bash ${dotfiles}/etc/deploy
+	bash ${dotfiles}/etc/deploy.sh
 
 init: ## Setup environment settings
 	@echo '==> Start to install app using pkg manager.'
 	@echo ''
-	bash ${dotfiles}/etc/init
+	bash ${dotfiles}/etc/init.sh
 
 update: ## Fetch changes for this repo
 	git pull origin master

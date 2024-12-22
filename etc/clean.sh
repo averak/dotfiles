@@ -1,14 +1,28 @@
 #!/usr/bin/env bash
 
 dotfiles=$HOME/dotfiles
-. $dotfiles/etc/header
+. $dotfiles/etc/header.sh
 
 echo ""
-info "Creating symbolic link..."
+info "Clean config files..."
 
-if [ ! -e "$HOME/.local/bin" ]; then
-  mkdir -p $HOME/.local/bin
+if ! yesno "$(warn 'Are you sure you want to cleanup?')"; then
+  info "Skip cleanup"
+  exit 0
 fi
+
+tmp=$dotfiles/tmp
+if [ -e $tmp ]; then
+  rm -rf $tmp
+fi
+mkdir -p $tmp
+
+clean() {
+  if [ -e $1 ]; then
+    log "mv $1 $tmp"
+    mv -f $1 $tmp
+  fi
+}
 
 #--------------------------------------------------------------#
 ##        bash                                                ##
@@ -16,8 +30,8 @@ fi
 echo ""
 info "bash"
 
-symlink $dotfiles/config/bash/.bashrc $HOME/.bashrc
-symlink $dotfiles/config/bash/.bash_profile $HOME/.bash_profile
+clean $HOME/.bashrc
+clean $HOME/.bash_profile
 
 #--------------------------------------------------------------#
 ##        zsh                                                 ##
@@ -25,9 +39,9 @@ symlink $dotfiles/config/bash/.bash_profile $HOME/.bash_profile
 echo ""
 info "zsh"
 
-symlink $dotfiles/config/zsh/.zshrc $HOME/.zshrc
-symlink $dotfiles/config/zsh/.zshenv $HOME/.zshenv
-symlink $dotfiles/config/zsh/.zprofile $HOME/.zprofile
+clean $HOME/.zshrc
+clean $HOME/.zshenv
+clean $HOME/.zprofile
 
 #--------------------------------------------------------------#
 ##        fish                                                ##
@@ -35,8 +49,7 @@ symlink $dotfiles/config/zsh/.zprofile $HOME/.zprofile
 echo ""
 info "fish"
 
-mkdir -p $HOME/.config/fish
-symlink $dotfiles/config/fish/config.fish $HOME/.config/fish/config.fish
+clean $HOME/.config/fish
 
 #--------------------------------------------------------------#
 ##        prompt                                              ##
@@ -44,8 +57,8 @@ symlink $dotfiles/config/fish/config.fish $HOME/.config/fish/config.fish
 echo ""
 info "prompt"
 
-symlink $dotfiles/config/prompt/.zpreztorc $HOME/.zpreztorc
-symlink $dotfiles/config/prompt/starship.toml $HOME/.config/starship.toml
+clean $HOME/.zpreztorc
+clean $HOME/.config/starship.toml
 
 #--------------------------------------------------------------#
 ##        git                                                 ##
@@ -53,11 +66,9 @@ symlink $dotfiles/config/prompt/starship.toml $HOME/.config/starship.toml
 echo ""
 info "git"
 
-mkdir -p $HOME/.config/git
-mkdir -p ~/.config/jesseduffield
-symlink $dotfiles/config/git/.gitconfig $HOME/.gitconfig
-symlink $dotfiles/config/git/ignore $HOME/.config/git/ignore
-symlink $dotfiles/config/git/lazygit $HOME/.config/jesseduffield/lazygit
+clean $HOME/.gitconfig
+clean $HOME/.config/git
+clean $HOME/.config/jesseduffield/lazygit
 
 #--------------------------------------------------------------#
 ##        python                                              ##
@@ -65,9 +76,9 @@ symlink $dotfiles/config/git/lazygit $HOME/.config/jesseduffield/lazygit
 echo ""
 info "python"
 
-symlink $dotfiles/config/python/flake8 $HOME/.config/flake8
-symlink $dotfiles/config/python/pep8 $HOME/.config/pep8
-symlink $dotfiles/config/python/mypy $HOME/.config/mypy
+clean $HOME/.config/flake8
+clean $HOME/.config/pep8
+clean $HOME/.config/mypy
 
 #--------------------------------------------------------------#
 ##        vim/neovim                                          ##
@@ -75,8 +86,8 @@ symlink $dotfiles/config/python/mypy $HOME/.config/mypy
 echo ""
 info "vim/neovim"
 
-symlink $dotfiles/config/vim $HOME/.vim
-symlink $dotfiles/config/nvim $HOME/.config/nvim
+clean $HOME/.vim
+clean $HOME/.config/nvim
 
 #--------------------------------------------------------------#
 ##        JetBrains                                           ##
@@ -84,15 +95,15 @@ symlink $dotfiles/config/nvim $HOME/.config/nvim
 echo ""
 info "jetbrains"
 
-symlink $dotfiles/config/idea/.ideavimrc $HOME/.ideavimrc
+clean $HOME/.ideavimrc
 
 #--------------------------------------------------------------#
-##        karabiner                                           ##
+##        Karabiner                                           ##
 #--------------------------------------------------------------#
 echo ""
 info "karabiner"
 
-symlink $dotfiles/config/karabiner $HOME/.config/karabiner
+clean $HOME/.config/karabiner
 
 #--------------------------------------------------------------#
 ##        Zellij                                              ##
@@ -100,7 +111,7 @@ symlink $dotfiles/config/karabiner $HOME/.config/karabiner
 echo ""
 info "zellij"
 
-symlink $dotfiles/config/zellij $HOME/.config/zellij
+clean $HOME/.config/zellij
 
 #--------------------------------------------------------------#
 ##        Xmodmap                                          ##
@@ -108,7 +119,7 @@ symlink $dotfiles/config/zellij $HOME/.config/zellij
 echo ""
 info "Xmodmap"
 
-symlink $dotfiles/config/Xmodmap/.Xmodmap $HOME/.Xmodmap
+clean $HOME/.Xmodmap
 
 #--------------------------------------------------------------#
 ##        tmux                                                ##
@@ -116,11 +127,6 @@ symlink $dotfiles/config/Xmodmap/.Xmodmap $HOME/.Xmodmap
 echo ""
 info "tmux"
 
-symlink $dotfiles/config/tmux/.tmux.conf $HOME/.tmux.conf
-symlink $dotfiles/config/tmux/.tmux.conf.local $HOME/.tmux.conf.local
-symlink $dotfiles/config/tmux/.tmux $HOME/.tmux
-
-if [ ! -e $HOME/.tmux/plugins/tpm ]; then
-  git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
-  $HOME/.tmux/plugins/tpm/bin/install_plugins
-fi
+clean $HOME/.tmux.conf
+clean $HOME/.tmux.conf.local
+clean $HOME/.tmux

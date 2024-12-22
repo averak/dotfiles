@@ -2,8 +2,6 @@ if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
   yes | sh -c "$(curl -fsSL https://git.io/zinit-install)"
 fi
 
-autoload -Uz compinit && compinit
-
 source "$HOME/.local/share/zinit/zinit.git/zinit.zsh"
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
@@ -11,11 +9,11 @@ autoload -Uz _zinit
 zinit snippet OMZL::git.zsh
 zinit snippet OMZP::git
 zinit snippet PZTM::helper
-# zinit snippet OMZP::docker
+zinit snippet OMZP::docker
 zinit snippet OMZP::docker-compose
 zinit snippet OMZP::aws
 zinit snippet OMZP::gcloud
-# zinit snippet OMZP::yarn
+zinit snippet OMZP::yarn
 zinit snippet OMZP::npm
 zinit snippet OMZP::node
 zinit snippet OMZP::pip
@@ -25,8 +23,11 @@ zinit snippet OMZP::terraform
 zinit snippet OMZP::kubectl
 zinit cdclear -q
 
+autoload -Uz compinit && compinit
+
 # theme
 zinit ice depth=1; zinit light romkatv/powerlevel10k
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # autocompletions
 # Plugin history-search-multi-word loaded with investigating.

@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 
-dotfiles=$HOME/dotfiles
-. $dotfiles/etc/header
+DOTFILES_DIR=$HOME/dotfiles
+. "$DOTFILES_DIR"/etc/header.sh
 
 ### Start install script
 DOTFILES_GITHUB="https://github.com/averak/dotfiles"
 
-
-dotfiles_logo="
+printf "$BOLD"
+echo   "
 ██████╗  ██████╗ ████████╗███████╗██╗██╗     ███████╗███████╗
 ██╔══██╗██╔═══██╗╚══██╔══╝██╔════╝██║██║     ██╔════╝██╔════╝
 ██║  ██║██║   ██║   ██║   █████╗  ██║██║     █████╗  ███████╗
@@ -24,10 +24,7 @@ dotfiles_logo="
 See the README for documentation.
 Licensed under the MIT license.
 "
-
-printf "${BOLD}"
-echo   "$dotfiles_logo"
-printf "${NORMAL}"
+printf "$NORMAL"
 
 log "*** ATTENTION ***"
 log "This script can change your entire setup."
@@ -45,7 +42,7 @@ fi
 echo ""
 info "Start install packages."
 
-OS=$($dotfiles/bin/os)
+OS=$($DOTFILES_DIR/bin/os)
 
 if yesno "$(warn 'Are you sure you want to install packages?')"; then
 	if [ "$(echo $OS | grep 'Darwin')" ] ; then
@@ -58,15 +55,15 @@ if yesno "$(warn 'Are you sure you want to install packages?')"; then
 		fi
 
 		info "Start install..."
-		PACKAGES="git wget curl tmux fish coreutils autoconf automake cmake ninja libtool pkg-config gettext fontconfig jq"
-		brew install $PACKAGES
+		brew install git wget curl tmux fish coreutils autoconf automake cmake ninja libtool pkg-config gettext fontconfig jq lazygit vim neovim
+		brew install --cask "google-cloud-sdk"
 
 	elif [ "$(echo $OS | grep 'Ubuntu')" ] ; then
     info "apt update"
 		sudo apt update
 
 		info "Start install..."
-		PACKAGES="git wget curl tmux fish coreutils make cmake unzip"
+		PACKAGES="git wget curl tmux fish coreutils make cmake unzip vim neovim"
 		sudo apt install -y $PACKAGES
 
 	elif [ "$(echo $OS | grep 'RedHat')" ] ; then
@@ -74,7 +71,7 @@ if yesno "$(warn 'Are you sure you want to install packages?')"; then
 		sudo yum update
 
 		info "Start install..."
-		PACKAGES="git wget curl tmux fish coreutils make cmake unzip ncurses-devel gcc"
+		PACKAGES="git wget curl tmux fish coreutils make cmake unzip ncurses-devel gcc vim neovim"
 		sudo yum install -y $PACKAGES
 
 	else
@@ -99,7 +96,7 @@ if yesno "$(warn 'Are you sure you want to install zsh?')"; then
   sudo make
   sudo make install
 
-	cd $dotfiles
+	cd $DOTFILES_DIR
   rm -rf zsh-${ZSH_VERSION}*
 fi
 
@@ -151,43 +148,6 @@ if [ ! -e $HOME/.anyenv ]; then
 else
 	info "The anyenv is already installed!!"
 fi
-
-#--------------------------------------------------------------#
-##        vim & neovim                                        ##
-#--------------------------------------------------------------#
-echo ""
-info "Start install vim & neovim."
-
-if yesno "$(warn 'Are you sure you want to install vim & neovim?')"; then
-	$dotfiles/bin/install-vim
-fi
-
-#--------------------------------------------------------------#
-##        nerd font                                           ##
-#--------------------------------------------------------------#
-echo ""
-info "Start install nerd font."
-
-if yesno "$(warn 'Are you sure you want to install nerd font?')"; then
-	# source code pro
-	wget https://github.com/adobe-fonts/source-code-pro/archive/2.010R-ro/1.030R-it.zip
-	unzip 1.030R-it.zip
-	mkdir -p $HOME/.fonts
-	cp source-code-pro-2.010R-ro-1.030R-it/OTF/*.otf $HOME/.fonts/
-	fc-cache -f -v
-
-	# nerd font
-	git clone https://github.com/ryanoasis/nerd-fonts.git
-	cd ./nerd-fonts
-	./install.sh SourceCodePro
-
-	# cleanup
-	cd $dotfiles
-	rm -rf 1.030R-it.zip
-	rm -rf source-code-pro-2.010R-ro-1.030R-it
-	rm -rf ./nerd-fonts
-fi
-
 
 log ""
 log "--------------------------------------------------------------------"
