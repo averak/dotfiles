@@ -8,6 +8,8 @@ export PATH=$PATH:$HOME/.anyenv/bin:$PATH
 export PATH=$PATH:$HOME/.fzf/bin
 
 export DOTFILES_DIR=$HOME/dotfiles
+setopt nullglob
 for file in "$DOTFILES_DIR/local/"*.sh; do
     source "$file"
 done
+unsetopt nullglob
