@@ -206,7 +206,7 @@ keybinds clear-defaults=true {
         bind "Ctrl l" {
             Clear ;
         }
-        bind "Ctrl x" {
+        bind "Ctrl X" {
             Quit ;
         }
     }
