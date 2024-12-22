@@ -23,8 +23,6 @@ zinit snippet OMZP::terraform
 zinit snippet OMZP::kubectl
 zinit cdclear -q
 
-autoload -Uz compinit && compinit
-
 # theme
 zinit ice depth=1; zinit light romkatv/powerlevel10k
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

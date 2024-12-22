@@ -1,20 +1,48 @@
 fpath=(~/.zsh/completion $fpath)
-autoload -Uz compinit && compinit
+autoload -Uz compinit && compinit -C
 autoload -U +X bashcompinit && bashcompinit
-
 autoload -Uz colors && colors
+
 setopt complete_in_word
-zstyle ':completion:*:default' menu select=1
-zstyle ':completion::complete:*' use-cache true
+zstyle ':completion:*' format '%B%F{blue}%d%f%b'
+zstyle ':completion:*' group-name ''
+zstyle ':completion:*:default' menu select=2
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
-setopt ignore_eof
+zstyle ':completion:*' completer _complete _ignored
+zstyle ':completion:*' use-cache on
+zstyle ':completion:*' cache-path ~/.zsh/cache
+
+setopt no_nomatch
+setopt prompt_subst
+setopt transient_rprompt
+setopt hist_ignore_dups
 setopt hist_ignore_all_dups
-setopt hist_ignore_space
 setopt hist_reduce_blanks
-setopt list_packed
+setopt hist_no_store
+setopt hist_verify
+setopt share_history
+setopt extended_history
+setopt append_history
 setopt auto_cd
 setopt auto_pushd
-setopt correct
+setopt auto_list
+setopt auto_menu
+setopt list_packed
+setopt list_types
+setopt no_flow_control
+setopt print_eight_bit
+setopt pushd_ignore_dups
+setopt rec_exact
+setopt autoremoveslash
+setopt complete_in_word
+setopt glob
+setopt glob_complete
+setopt extended_glob
+setopt mark_dirs
+setopt numeric_glob_sort
+setopt magic_equal_subst
+setopt always_last_prompt
 
 source $DOTFILES_DIR/config/zsh/.zinit.zsh
 
