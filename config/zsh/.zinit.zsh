@@ -29,6 +29,7 @@ autoload -Uz compinit && compinit
 zinit ice depth=1; zinit light romkatv/powerlevel10k
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
+
 # autocompletions
 # Plugin history-search-multi-word loaded with investigating.
 zinit load zdharma-continuum/history-search-multi-word
@@ -45,3 +46,5 @@ zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
 bindkey "^[[A" up-line-or-beginning-search
 bindkey "^[[B" down-line-or-beginning-search
+
+[[ -d .cache/zinit/completions ]] || mkdir -p .cache/zinit/completions
