@@ -73,14 +73,14 @@ keybinds clear-defaults=true {
             SwitchToMode "normal";
         }
 
-        bind "Tab" "right" {
+        bind "n"  "right" "Tab" {
             GoToNextTab ;
         }
-        bind "Shift Tab" "left" {
+        bind "h" "left" "Shift Tab"{
             GoToPreviousTab ;
         }
 
-        bind "n" {
+        bind "v" {
             NewTab ;
             SwitchToMode "normal";
         }
