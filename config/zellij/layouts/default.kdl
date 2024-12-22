@@ -1,0 +1,13 @@
+layout {
+    pane split_direction="vertical" size="70%" {
+        pane {
+            pane command="htop" size="30%"
+            pane command="lazygit"
+        }
+        pane focus=true
+    }
+    pane split_direction="vertical" {
+        pane
+        pane
+    }
+}
