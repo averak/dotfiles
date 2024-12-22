@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-dotfiles=$HOME/dotfiles
+dotfiles=$(pwd)
 . $dotfiles/etc/header.sh
 
 echo ""

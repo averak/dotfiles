@@ -13,11 +13,12 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os: [ ubuntu-latest, macos-latest, centos-latest]
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Install dotfiles
+    - uses: actions/checkout@v4
+    - name: run install
       run: |
-        git clone https://github.com/averak/dotfiles $HOME/dotfiles
-        cd $HOME/dotfiles
         yes | make install

@@ -1,4 +1,4 @@
-export dotfiles=${HOME}/dotfiles
+export dotfiles=$(shell pwd)
 
 clean: ## Clean config files
 	@echo '==> Start to clean your config files.'
@@ -15,10 +15,7 @@ init: ## Setup environment settings
 	@echo ''
 	bash ${dotfiles}/etc/init.sh
 
-update: ## Fetch changes for this repo
-	git pull origin master
-
-install: update init clean deploy
+install: init clean deploy
 	@exec $$SHELL
 
 test:
