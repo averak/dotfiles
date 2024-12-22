@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-dotfiles=$HOME/dotfiles
-. $dotfiles/etc/header.sh
+DOTFILES_DIR=$HOME/dotfiles
+. $DOTFILES_DIR/etc/header.sh
 
 echo ""
 info "Creating symbolic link..."
@@ -16,8 +16,8 @@ fi
 echo ""
 info "bash"
 
-symlink $dotfiles/config/bash/.bashrc $HOME/.bashrc
-symlink $dotfiles/config/bash/.bash_profile $HOME/.bash_profile
+symlink $DOTFILES_DIR/config/bash/.bashrc $HOME/.bashrc
+symlink $DOTFILES_DIR/config/bash/.bash_profile $HOME/.bash_profile
 
 #--------------------------------------------------------------#
 ##        zsh                                                 ##
@@ -25,18 +25,9 @@ symlink $dotfiles/config/bash/.bash_profile $HOME/.bash_profile
 echo ""
 info "zsh"
 
-symlink $dotfiles/config/zsh/.zshrc $HOME/.zshrc
-symlink $dotfiles/config/zsh/.zshenv $HOME/.zshenv
-symlink $dotfiles/config/zsh/.zprofile $HOME/.zprofile
-
-#--------------------------------------------------------------#
-##        fish                                                ##
-#--------------------------------------------------------------#
-echo ""
-info "fish"
-
-mkdir -p $HOME/.config/fish
-symlink $dotfiles/config/fish/config.fish $HOME/.config/fish/config.fish
+symlink $DOTFILES_DIR/config/zsh/.zshrc $HOME/.zshrc
+symlink $DOTFILES_DIR/config/zsh/.zshenv $HOME/.zshenv
+symlink $DOTFILES_DIR/config/zsh/.zprofile $HOME/.zprofile
 
 #--------------------------------------------------------------#
 ##        prompt                                              ##
@@ -44,8 +35,8 @@ symlink $dotfiles/config/fish/config.fish $HOME/.config/fish/config.fish
 echo ""
 info "prompt"
 
-symlink $dotfiles/config/prompt/.zpreztorc $HOME/.zpreztorc
-symlink $dotfiles/config/prompt/starship.toml $HOME/.config/starship.toml
+symlink $DOTFILES_DIR/config/prompt/.zpreztorc $HOME/.zpreztorc
+symlink $DOTFILES_DIR/config/prompt/starship.toml $HOME/.config/starship.toml
 
 #--------------------------------------------------------------#
 ##        git                                                 ##
@@ -55,9 +46,9 @@ info "git"
 
 mkdir -p $HOME/.config/git
 mkdir -p ~/.config/jesseduffield
-symlink $dotfiles/config/git/.gitconfig $HOME/.gitconfig
-symlink $dotfiles/config/git/ignore $HOME/.config/git/ignore
-symlink $dotfiles/config/git/lazygit $HOME/.config/jesseduffield/lazygit
+symlink $DOTFILES_DIR/config/git/.gitconfig $HOME/.gitconfig
+symlink $DOTFILES_DIR/config/git/ignore $HOME/.config/git/ignore
+symlink $DOTFILES_DIR/config/git/lazygit $HOME/.config/jesseduffield/lazygit
 
 #--------------------------------------------------------------#
 ##        python                                              ##
@@ -65,9 +56,9 @@ symlink $dotfiles/config/git/lazygit $HOME/.config/jesseduffield/lazygit
 echo ""
 info "python"
 
-symlink $dotfiles/config/python/flake8 $HOME/.config/flake8
-symlink $dotfiles/config/python/pep8 $HOME/.config/pep8
-symlink $dotfiles/config/python/mypy $HOME/.config/mypy
+symlink $DOTFILES_DIR/config/python/flake8 $HOME/.config/flake8
+symlink $DOTFILES_DIR/config/python/pep8 $HOME/.config/pep8
+symlink $DOTFILES_DIR/config/python/mypy $HOME/.config/mypy
 
 #--------------------------------------------------------------#
 ##        vim/neovim                                          ##
@@ -75,8 +66,8 @@ symlink $dotfiles/config/python/mypy $HOME/.config/mypy
 echo ""
 info "vim/neovim"
 
-symlink $dotfiles/config/vim $HOME/.vim
-symlink $dotfiles/config/nvim $HOME/.config/nvim
+symlink $DOTFILES_DIR/config/vim $HOME/.vim
+symlink $DOTFILES_DIR/config/nvim $HOME/.config/nvim
 
 #--------------------------------------------------------------#
 ##        JetBrains                                           ##
@@ -84,7 +75,7 @@ symlink $dotfiles/config/nvim $HOME/.config/nvim
 echo ""
 info "jetbrains"
 
-symlink $dotfiles/config/idea/.ideavimrc $HOME/.ideavimrc
+symlink $DOTFILES_DIR/config/idea/.ideavimrc $HOME/.ideavimrc
 
 #--------------------------------------------------------------#
 ##        karabiner                                           ##
@@ -92,7 +83,7 @@ symlink $dotfiles/config/idea/.ideavimrc $HOME/.ideavimrc
 echo ""
 info "karabiner"
 
-symlink $dotfiles/config/karabiner $HOME/.config/karabiner
+symlink $DOTFILES_DIR/config/karabiner $HOME/.config/karabiner
 
 #--------------------------------------------------------------#
 ##        Zellij                                              ##
@@ -100,7 +91,7 @@ symlink $dotfiles/config/karabiner $HOME/.config/karabiner
 echo ""
 info "zellij"
 
-symlink $dotfiles/config/zellij $HOME/.config/zellij
+symlink $DOTFILES_DIR/config/zellij $HOME/.config/zellij
 
 #--------------------------------------------------------------#
 ##        Xmodmap                                          ##
@@ -108,7 +99,7 @@ symlink $dotfiles/config/zellij $HOME/.config/zellij
 echo ""
 info "Xmodmap"
 
-symlink $dotfiles/config/Xmodmap/.Xmodmap $HOME/.Xmodmap
+symlink $DOTFILES_DIR/config/Xmodmap/.Xmodmap $HOME/.Xmodmap
 
 #--------------------------------------------------------------#
 ##        tmux                                                ##
@@ -116,11 +107,13 @@ symlink $dotfiles/config/Xmodmap/.Xmodmap $HOME/.Xmodmap
 echo ""
 info "tmux"
 
-symlink $dotfiles/config/tmux/.tmux.conf $HOME/.tmux.conf
-symlink $dotfiles/config/tmux/.tmux.conf.local $HOME/.tmux.conf.local
-symlink $dotfiles/config/tmux/.tmux $HOME/.tmux
+symlink $DOTFILES_DIR/config/tmux/.tmux.conf $HOME/.tmux.conf
+symlink $DOTFILES_DIR/config/tmux/.tmux.conf.local $HOME/.tmux.conf.local
+symlink $DOTFILES_DIR/config/tmux/.tmux $HOME/.tmux
 
 if [ ! -e $HOME/.tmux/plugins/tpm ]; then
   git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
-  $HOME/.tmux/plugins/tpm/bin/install_plugins
+  if [ -e $HOME/.tmux/plugins/tpm/bin/install_plugins ]; then
+    $HOME/.tmux/plugins/tpm/bin/install_plugins
+  fi
 fi

@@ -1,60 +1,54 @@
-#      __               __
-#     / /_  ____ ______/ /_
-#    / __ \/ __ `/ ___/ __ \
-#   / /_/ / /_/ (__  ) / / /
-#  /_.___/\__,_/____/_/ /_/
-
-
-#--------------------------------------------------------------#
-##        source starship                                     ##
-#--------------------------------------------------------------#
 eval "$(starship init bash)"
 export BASH_SILENCE_DEPRECATION_WARNING=1
 
 #--------------------------------------------------------------#
-##        source each environment settings                    ##
+##        aliases                                             ##
 #--------------------------------------------------------------#
-[ -f ~/dotfiles/local/local.conf ] && source ~/dotfiles/local/local.conf
 
-#--------------------------------------------------------------#
-##        set 256color                                        ##
-#--------------------------------------------------------------#
-TERM=xterm-256color
-
-#--------------------------------------------------------------#
-##        fzf settings                                        ##
-#--------------------------------------------------------------#
-export PATH="$PATH:$HOME/.fzf/bin"
-export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git"'
-export FZF_DEFAULT_OPTS='--height 40% --reverse --preview "bat --theme=TwoDark --style=numbers --color=always --line-range :200 {}"'
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
-
-#--------------------------------------------------------------#
-##        alias                                               ##
-#--------------------------------------------------------------#
 alias l='exa --icons'
 alias ls='l'
 alias la='l -a'
 alias ll='l -l'
+alias lg='lazygit'
+
+# typo correction
 alias sl='ls'
 alias dc='cd'
-alias c='clear'
-# editor
-alias vi='vim'
-alias cot="open -a CotEditor"
-alias edit="open -a textedit"
-# git
-alias gs='git status --short --branch'
-alias gg='git graph'
-alias ga='git add -A'
-alias gc='git commit -m'
-alias gps='git push'
-alias gp='git pull'
-alias gf='git fetch'
-alias gm='git merge'
-alias gr='git reset'
-alias gd='git diff'
-alias gco='git checkout'
-alias gsw='git switch'
-alias gb='git branch'
-alias lg='lazygit'
+
+#--------------------------------------------------------------#
+##        any tools                                           ##
+#--------------------------------------------------------------#
+
+if [ -e "$HOME/.anyenv" ]; then
+    export ANYENV_ROOT="$HOME/.anyenv"
+    eval "$(anyenv init -)"
+fi
+
+if [[ -x "$(command -v docker)" ]]; then
+    source <(docker completion bash)
+fi;
+
+if [[ -x "$(command -v zellij)" ]]; then
+    # https://github.com/zellij-org/zellij/issues/1933
+    . <( zellij setup --generate-completion bash | sed -Ee 's/^(_(zellij) ).*/compdef \1\2/' )
+fi;
+
+if [[ -x "$(command -v gcloud)" ]]; then
+    GCLOUD_SDK_PATH=$(gcloud info --format="value(installation.sdk_root)")
+    source "$GCLOUD_SDK_PATH/path.bash.inc"
+    source "$GCLOUD_SDK_PATH/completion.bash.inc"
+fi;
+
+if [[ -x "$(command -v fzf)" ]]; then
+    export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git"'
+    export FZF_DEFAULT_OPTS='--height 40% --reverse --preview "bat --theme=TwoDark --style=numbers --color=always --line-range :200 {}"'
+    [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+fi;
+
+if [[ -x "$(command -v kubectl)" ]]; then
+    source <(kubectl completion bash)
+fi;
+
+if [[ -x "$(command -v terraform)" ]]; then
+    complete -C "$(which terraform)" terraform
+fi

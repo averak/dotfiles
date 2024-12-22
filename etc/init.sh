@@ -55,7 +55,7 @@ if yesno "$(warn 'Are you sure you want to install packages?')"; then
 		fi
 
 		info "Start install..."
-		brew install git wget curl tmux fish coreutils autoconf automake cmake ninja libtool pkg-config gettext fontconfig jq lazygit vim neovim
+		brew install git wget curl tmux coreutils autoconf automake cmake ninja libtool pkg-config gettext fontconfig jq lazygit vim neovim
 		brew install --cask "google-cloud-sdk"
 
 	elif [ "$(echo $OS | grep 'Ubuntu')" ] ; then
@@ -63,7 +63,7 @@ if yesno "$(warn 'Are you sure you want to install packages?')"; then
 		sudo apt update
 
 		info "Start install..."
-		PACKAGES="git wget curl tmux fish coreutils make cmake unzip vim neovim"
+		PACKAGES="git wget curl tmux coreutils make cmake unzip vim neovim"
 		sudo apt install -y $PACKAGES
 
 	elif [ "$(echo $OS | grep 'RedHat')" ] ; then
@@ -71,7 +71,7 @@ if yesno "$(warn 'Are you sure you want to install packages?')"; then
 		sudo yum update
 
 		info "Start install..."
-		PACKAGES="git wget curl tmux fish coreutils make cmake unzip ncurses-devel gcc vim neovim"
+		PACKAGES="git wget curl tmux coreutils make cmake unzip ncurses-devel gcc vim neovim"
 		sudo yum install -y $PACKAGES
 
 	else
