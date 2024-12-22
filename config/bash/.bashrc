@@ -19,9 +19,9 @@ alias dc='cd'
 ##        any tools                                           ##
 #--------------------------------------------------------------#
 
-if [ -e "$HOME/.anyenv" ]; then
-    export ANYENV_ROOT="$HOME/.anyenv"
-    eval "$(anyenv init -)"
+if [ -e "$HOME/.asdf" ]; then
+    . $HOME/.asdf/asdf.sh
+    source $HOME/.asdf/internal/completions/asdf.zsh
 fi
 
 if [[ -x "$(command -v docker)" ]]; then
@@ -42,7 +42,6 @@ fi;
 if [[ -x "$(command -v fzf)" ]]; then
     export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git"'
     export FZF_DEFAULT_OPTS='--height 40% --reverse --preview "bat --theme=TwoDark --style=numbers --color=always --line-range :200 {}"'
-    [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 fi;
 
 if [[ -x "$(command -v kubectl)" ]]; then

@@ -4,7 +4,7 @@ autoload -U +X bashcompinit && bashcompinit
 autoload -Uz colors && colors
 
 setopt complete_in_word
-zstyle ':completion:*' format '%B%F{blue}%d%f%b'
+zstyle ':completion:*' format '%B%F{green}%d%f%b'
 zstyle ':completion:*' group-name ''
 zstyle ':completion:*:default' menu select=2
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
@@ -78,9 +78,9 @@ fi
 ##        any tools                                           ##
 #--------------------------------------------------------------#
 
-if [ -e "$HOME/.anyenv" ]; then
-    export ANYENV_ROOT="$HOME/.anyenv"
-    eval "$(anyenv init -)"
+if [ -e "$HOME/.asdf" ]; then
+    . $HOME/.asdf/asdf.sh
+    source $HOME/.asdf/internal/completions/asdf.zsh
 fi
 
 if [[ -x "$(command -v docker)" ]]; then
@@ -101,7 +101,6 @@ fi;
 if [[ -x "$(command -v fzf)" ]]; then
     export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git"'
     export FZF_DEFAULT_OPTS='--height 40% --reverse --preview "bat --theme=TwoDark --style=numbers --color=always --line-range :200 {}"'
-    [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 fi;
 
 if [[ -x "$(command -v kubectl)" ]]; then

@@ -81,72 +81,35 @@ if yesno "$(warn 'Are you sure you want to install packages?')"; then
 fi
 
 #--------------------------------------------------------------#
-##        zsh                                                 ##
+##        asdf                                                ##
 #--------------------------------------------------------------#
 echo ""
-info "Start install zsh."
+info "Start install asdf."
 
-if yesno "$(warn 'Are you sure you want to install zsh?')"; then
-	ZSH_VERSION=5.8
-  wget https://sourceforge.net/projects/zsh/files/zsh/${ZSH_VERSION}/zsh-${ZSH_VERSION}.tar.xz/download -O zsh-${ZSH_VERSION}.tar.xz
-  tar xvf zsh-${ZSH_VERSION}.tar.xz
+if [ ! -e $HOME/.asdf ]; then
+  git clone https://github.com/asdf-vm/asdf.git ~/.asdf
+  . ~/.asdf/asdf.sh
 
-  cd zsh-${ZSH_VERSION}
-  ./configure --enable-multibyte
-  sudo make
-  sudo make install
+  asdf plugin-add rust
+  asdf install rust latest
+  asdf global rust latest
 
-	cd $DOTFILES_DIR
-  rm -rf zsh-${ZSH_VERSION}*
-fi
-
-#--------------------------------------------------------------#
-##        fzf                                                 ##
-#--------------------------------------------------------------#
-echo ""
-info "Start install fzf."
-
-
-if [ ! -e $HOME/.fzf ]; then
-  git clone https://github.com/junegunn/fzf $HOME/.fzf
-  $HOME/.fzf/install
+  asdf plugin-add fzf
+  asdf install fzf latest
+  asdf global fzf latest
 else
-	info "The fzf is already installed!!"
+  info "The asdf is already installed!!"
 fi
 
 #--------------------------------------------------------------#
 ##        rust                                                ##
 #--------------------------------------------------------------#
 echo ""
-info "Start install rust."
-
-if [ ! -e $HOME/.cargo ]; then
-  curl https://sh.rustup.rs -sSf | sh
-else
-	info "The rust is already installed!!"
-fi
+info "Start install rust packages."
 
 if yesno "$(warn 'Are you sure you want to install rust packages?')"; then
-	PACKAGES="exa bat fd-find procs ripgrep starship zellij"
-	$HOME/.cargo/bin/cargo install $PACKAGES
-fi
-
-#--------------------------------------------------------------#
-##        anyenv                                              ##
-#--------------------------------------------------------------#
-echo ""
-info "Start install anyenv."
-
-if [ ! -e $HOME/.anyenv ]; then
-  git clone https://github.com/anyenv/anyenv $HOME/.anyenv
-  mkdir -p $HOME/.anyenv/plugins
-  git clone https://github.com/znz/anyenv-update.git $HOME/.anyenv/plugins/anyenv-update
-  $HOME/.anyenv/bin/anyenv install --init
-
-	$HOME/.anyenv/bin/anyenv install jenv
-	$HOME/.anyenv/envs/jenv/bin/jenv enable-plugin export
-else
-	info "The anyenv is already installed!!"
+	cargo install exa ripgrep starship zellij
+	asdf reshim
 fi
 
 log ""
