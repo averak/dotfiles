@@ -3,6 +3,7 @@ export TERM=xterm-256color
 export PATH=$PATH:/opt/homebrew/bin
 export PATH=$PATH:$HOME/dotfiles/bin
 export PATH=$PATH:$HOME/.local/bin
+export PATH=$PATH:$HOME/.cargo/bin
 
 export DOTFILES_DIR=$HOME/dotfiles
 setopt nullglob

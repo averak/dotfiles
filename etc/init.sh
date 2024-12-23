@@ -63,7 +63,7 @@ if yesno "$(warn 'Are you sure you want to install packages?')"; then
 		sudo apt update
 
 		info "Start install..."
-		PACKAGES="git wget curl tmux coreutils make cmake unzip vim neovim"
+		PACKAGES="git wget curl tmux coreutils libssl-dev pkg-config make cmake unzip vim neovim"
 		sudo apt install -y $PACKAGES
 
 	elif [ "$(echo $OS | grep 'RedHat')" ] ; then

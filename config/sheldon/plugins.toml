@@ -1,34 +1,29 @@
 shell = "zsh"
 
-apply = ["defer"]
+apply = ["source"]
 
 [plugins.zsh-defer]
 github = "romkatv/zsh-defer"
-apply = ["source"]
+
+[plugins.compinit]
+inline = "autoload -Uz compinit && zsh-defer compinit"
 
 [plugins.zsh-autosuggestions]
 github = "zsh-users/zsh-autosuggestions"
 use = ["{{ name }}.zsh"]
+apply = ["defer"]
 
 [plugins.zsh-syntax-highlighting]
 github = "zsh-users/zsh-syntax-highlighting"
+apply = ["defer"]
 
 [plugins.enhancd]
 github = "b4b4r07/enhancd"
 use = ["init.sh"]
+apply = ["defer"]
 
 [plugins.powerlevel10k]
 github = "romkatv/powerlevel10k"
-apply = ["source"]
-
-[plugins.oh-my-zsh]
-github = "ohmyzsh/ohmyzsh"
-use = [
-    "plugins/mise/mise.plugin.zsh",
-    "plugins/npm/npm.plugin.zsh",
-    "plugins/aws/aws.plugin.zsh",
-    "plugins/gcloud/gcloud.plugin.zsh",
-]
 
 [plugins.zsh-mise]
 github = "wintermi/zsh-mise"
@@ -36,9 +31,17 @@ github = "wintermi/zsh-mise"
 [plugins.zsh-kubectl-completion]
 github = "nnao45/zsh-kubectl-completion"
 
+[plugins.oh-my-zsh]
+github = "ohmyzsh/ohmyzsh"
+use = [
+    "plugins/npm/npm.plugin.zsh",
+    "plugins/aws/aws.plugin.zsh",
+    "plugins/gcloud/gcloud.plugin.zsh",
+]
+
 [plugins.oh-my-zsh-fpath]
-# fpath を設定しない oh-my-zsh プラグインがあるため、手動で追加する。
 inline = """
+# fpath を設定しない oh-my-zsh プラグインがあるため、手動で追加する。
 fpath=($fpath ~/.local/share/sheldon/repos/github.com/ohmyzsh/ohmyzsh/plugins/docker/completions)
 fpath=($fpath ~/.local/share/sheldon/repos/github.com/ohmyzsh/ohmyzsh/plugins/terraform)
 fpath=($fpath ~/.local/share/sheldon/repos/github.com/ohmyzsh/ohmyzsh/plugins/golang)

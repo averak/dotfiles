@@ -14,10 +14,8 @@ if [[ -x "$(command -v gcloud)" ]]; then
     source "$GCLOUD_SDK_PATH/path.zsh.inc"
 fi;
 
-if [[ -x "$(command -v fzf)" ]]; then
-    export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git"'
-    export FZF_DEFAULT_OPTS='--height 40% --reverse --preview "bat --theme=TwoDark --style=numbers --color=always --line-range :200 {}"'
-fi;
+export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git"'
+export FZF_DEFAULT_OPTS='--height 40% --reverse --preview "bat --theme=TwoDark --style=numbers --color=always --line-range :200 {}"'
 
 #--------------------------------------------------------------#
 ##        aliases                                             ##

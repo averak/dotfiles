@@ -39,6 +39,8 @@ setopt numeric_glob_sort
 setopt magic_equal_subst
 setopt always_last_prompt
 
+autoload -Uz compinit && compinit -C
+autoload -U +X bashcompinit && bashcompinit
 autoload -U up-line-or-beginning-search
 autoload -U down-line-or-beginning-search
 zle -N up-line-or-beginning-search
@@ -47,32 +49,22 @@ bindkey "^[[A" up-line-or-beginning-search
 bindkey "^[[B" down-line-or-beginning-search
 
 #--------------------------------------------------------------#
-##        zsh plugins                                         ##
+##        any tools                                           ##
 #--------------------------------------------------------------#
 
 if [[ -x "$(command -v sheldon)" ]]; then
     eval "$(sheldon source)"
 fi;
 
-autoload -Uz compinit && compinit
-autoload -U +X bashcompinit && bashcompinit
-compinit -C
-
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-#--------------------------------------------------------------#
-##        any tools                                           ##
-#--------------------------------------------------------------#
-
 if [[ -x "$(command -v zellij)" ]]; then
     # https://github.com/zellij-org/zellij/issues/1933
-    . <( zellij setup --generate-completion zsh | sed -Ee 's/^(_(zellij) ).*/compdef \1\2/' )
+    source <( zellij setup --generate-completion zsh | sed -Ee 's/^(_(zellij) ).*/compdef \1\2/' )
 fi;
 
-if [[ -x "$(command -v fzf)" ]]; then
-    export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git"'
-    export FZF_DEFAULT_OPTS='--height 40% --reverse --preview "bat --theme=TwoDark --style=numbers --color=always --line-range :200 {}"'
-fi;
+export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git"'
+export FZF_DEFAULT_OPTS='--height 40% --reverse --preview "bat --theme=TwoDark --style=numbers --color=always --line-range :200 {}"'
+
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 #--------------------------------------------------------------#
 ##        aliases                                             ##
