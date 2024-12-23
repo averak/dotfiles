@@ -55,8 +55,8 @@ if yesno "$(warn 'Are you sure you want to install packages?')"; then
 		fi
 
 		info "Start install..."
-		brew install git wget curl tmux coreutils autoconf automake cmake ninja libtool pkg-config gettext fontconfig jq lazygit vim neovim
-		brew install --cask "google-cloud-sdk"
+		brew install git wget curl tmux coreutils autoconf automake cmake ninja libtool pkg-config gettext fontconfig usage jq lazygit vim neovim
+		brew install --cask google-cloud-sdk
 
 	elif [ "$(echo $OS | grep 'Ubuntu')" ] ; then
     info "apt update"
@@ -81,38 +81,25 @@ if yesno "$(warn 'Are you sure you want to install packages?')"; then
 fi
 
 #--------------------------------------------------------------#
-##        asdf                                                ##
+##        mise                                                ##
 #--------------------------------------------------------------#
 echo ""
-info "Start install asdf."
+info "Start install mise."
 
-if [ ! -e $HOME/.asdf ]; then
-  git clone https://github.com/asdf-vm/asdf.git ~/.asdf
-  . ~/.asdf/asdf.sh
-
-  asdf plugin-add rust
-  asdf install rust latest
-  asdf global rust latest
-
-  asdf plugin-add fzf
-  asdf install fzf latest
-  asdf global fzf latest
+# if mise command not found
+if ! has mise; then
+  curl https://mise.run | sh
+  mise use -g fzf@latest
+  mise use -g rust@latest
 else
-  info "The asdf is already installed!!"
+  info "The mise is already installed!!"
 fi
 
 #--------------------------------------------------------------#
 ##        rust                                                ##
 #--------------------------------------------------------------#
 echo ""
-info "Start install rust."
-
-# asdf 経由でインストールすると非常に重くなったので、直接インストールする。
-if [ ! -e $HOME/.cargo ]; then
-  curl https://sh.rustup.rs -sSf | sh
-else
-	info "The rust is already installed!!"
-fi
+info "Start install rust packages."
 
 if yesno "$(warn 'Are you sure you want to install rust packages?')"; then
 	$HOME/.cargo/bin/cargo install exa ripgrep procs fd-find starship zellij

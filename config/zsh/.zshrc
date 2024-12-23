@@ -78,10 +78,10 @@ fi
 ##        any tools                                           ##
 #--------------------------------------------------------------#
 
-if [ -e "$HOME/.asdf" ]; then
-    . $HOME/.asdf/asdf.sh
-    source $HOME/.asdf/internal/completions/asdf.zsh
-fi
+if [[ -x "$(command -v mise)" ]]; then
+    eval "$(mise activate zsh)"
+    source <(mise completion --usage zsh)
+fi;
 
 if [[ -x "$(command -v docker)" ]]; then
     source <(docker completion zsh)

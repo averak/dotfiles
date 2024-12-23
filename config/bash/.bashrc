@@ -19,10 +19,10 @@ alias dc='cd'
 ##        any tools                                           ##
 #--------------------------------------------------------------#
 
-if [ -e "$HOME/.asdf" ]; then
-    . $HOME/.asdf/asdf.sh
-    source $HOME/.asdf/internal/completions/asdf.zsh
-fi
+if [[ -x "$(command -v mise)" ]]; then
+    eval "$(mise activate bash)"
+    source <(mise completion --usage bash)
+fi;
 
 if [[ -x "$(command -v docker)" ]]; then
     source <(docker completion bash)
