@@ -1,0 +1,49 @@
+shell = "zsh"
+
+apply = ["defer"]
+
+[plugins.zsh-defer]
+github = "romkatv/zsh-defer"
+apply = ["source"]
+
+[plugins.zsh-autosuggestions]
+github = "zsh-users/zsh-autosuggestions"
+use = ["{{ name }}.zsh"]
+
+[plugins.zsh-syntax-highlighting]
+github = "zsh-users/zsh-syntax-highlighting"
+
+[plugins.enhancd]
+github = "b4b4r07/enhancd"
+use = ["init.sh"]
+
+[plugins.powerlevel10k]
+github = "romkatv/powerlevel10k"
+apply = ["source"]
+
+[plugins.oh-my-zsh]
+github = "ohmyzsh/ohmyzsh"
+use = [
+    "plugins/mise/mise.plugin.zsh",
+    "plugins/npm/npm.plugin.zsh",
+    "plugins/aws/aws.plugin.zsh",
+    "plugins/gcloud/gcloud.plugin.zsh",
+]
+
+[plugins.zsh-mise]
+github = "wintermi/zsh-mise"
+
+[plugins.zsh-kubectl-completion]
+github = "nnao45/zsh-kubectl-completion"
+
+[plugins.oh-my-zsh-fpath]
+# fpath を設定しない oh-my-zsh プラグインがあるため、手動で追加する。
+inline = """
+fpath=($fpath ~/.local/share/sheldon/repos/github.com/ohmyzsh/ohmyzsh/plugins/docker/completions)
+fpath=($fpath ~/.local/share/sheldon/repos/github.com/ohmyzsh/ohmyzsh/plugins/terraform)
+fpath=($fpath ~/.local/share/sheldon/repos/github.com/ohmyzsh/ohmyzsh/plugins/golang)
+"""
+
+[templates]
+defer = "{{ hooks?.pre | nl }}{% for file in files %}zsh-defer source \"{{ file }}\"\n{% endfor %}{{ hooks?.post | nl }}"
+fpath = 'fpath=( "{{ dir }}" $fpath )'

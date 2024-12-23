@@ -30,12 +30,19 @@ symlink $DOTFILES_DIR/config/zsh/.zshenv $HOME/.zshenv
 symlink $DOTFILES_DIR/config/zsh/.zprofile $HOME/.zprofile
 
 #--------------------------------------------------------------#
+##        sheldon                                             ##
+#--------------------------------------------------------------#
+echo ""
+info "sheldon"
+
+symlink $DOTFILES_DIR/config/sheldon $HOME/.config/sheldon
+
+#--------------------------------------------------------------#
 ##        prompt                                              ##
 #--------------------------------------------------------------#
 echo ""
 info "prompt"
 
-symlink $DOTFILES_DIR/config/prompt/.zpreztorc $HOME/.zpreztorc
 symlink $DOTFILES_DIR/config/prompt/starship.toml $HOME/.config/starship.toml
 
 #--------------------------------------------------------------#
