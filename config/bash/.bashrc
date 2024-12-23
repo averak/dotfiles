@@ -2,20 +2,6 @@ eval "$(starship init bash)"
 export BASH_SILENCE_DEPRECATION_WARNING=1
 
 #--------------------------------------------------------------#
-##        aliases                                             ##
-#--------------------------------------------------------------#
-
-alias l='exa --icons'
-alias ls='l'
-alias la='l -a'
-alias ll='l -l'
-alias lg='lazygit'
-
-# typo correction
-alias sl='ls'
-alias dc='cd'
-
-#--------------------------------------------------------------#
 ##        any tools                                           ##
 #--------------------------------------------------------------#
 
@@ -51,3 +37,19 @@ fi;
 if [[ -x "$(command -v terraform)" ]]; then
     complete -C "$(which terraform)" terraform
 fi
+
+#--------------------------------------------------------------#
+##        aliases                                             ##
+#--------------------------------------------------------------#
+
+if [[ -x "$(command -v exa)" ]]; then
+    alias ls='exa'
+fi;
+alias l='ls'
+alias la='l -a'
+alias ll='l -l'
+alias lg='lazygit'
+
+# typo correction
+alias sl='ls'
+alias dc='cd'

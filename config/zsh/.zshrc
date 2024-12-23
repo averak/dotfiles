@@ -47,34 +47,6 @@ setopt always_last_prompt
 source $DOTFILES_DIR/config/zsh/.zinit.zsh
 
 #--------------------------------------------------------------#
-##        aliases                                             ##
-#--------------------------------------------------------------#
-
-alias l='exa --icons'
-alias ls='l'
-alias la='l -a'
-alias ll='l -l'
-alias lg='lazygit'
-alias -g L='| less'
-alias -g G='| grep'
-
-# typo correction
-alias sl='ls'
-alias dc='cd'
-
-# clipboard
-if which pbcopy >/dev/null 2>&1 ; then
-    # Mac
-    alias -g C='| pbcopy'
-elif which xsel >/dev/null 2>&1 ; then
-    # Linux
-    alias -g C='| xsel --input --clipboard'
-elif which putclip >/dev/null 2>&1 ; then
-    # Cygwin
-     alias -g C='| putclip'
-fi
-
-#--------------------------------------------------------------#
 ##        any tools                                           ##
 #--------------------------------------------------------------#
 
@@ -109,4 +81,34 @@ fi;
 
 if [[ -x "$(command -v terraform)" ]]; then
     complete -C "$(which terraform)" terraform
+fi
+
+#--------------------------------------------------------------#
+##        aliases                                             ##
+#--------------------------------------------------------------#
+
+if [[ -x "$(command -v exa)" ]]; then
+    alias ls='exa'
+fi;
+alias l='ls'
+alias la='l -a'
+alias ll='l -l'
+alias lg='lazygit'
+alias -g L='| less'
+alias -g G='| grep'
+
+# typo correction
+alias sl='ls'
+alias dc='cd'
+
+# clipboard
+if which pbcopy >/dev/null 2>&1 ; then
+    # Mac
+    alias -g C='| pbcopy'
+elif which xsel >/dev/null 2>&1 ; then
+    # Linux
+    alias -g C='| xsel --input --clipboard'
+elif which putclip >/dev/null 2>&1 ; then
+    # Cygwin
+     alias -g C='| putclip'
 fi
