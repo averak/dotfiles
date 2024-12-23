@@ -105,11 +105,17 @@ fi
 ##        rust                                                ##
 #--------------------------------------------------------------#
 echo ""
-info "Start install rust packages."
+info "Start install rust."
+
+# asdf 経由でインストールすると非常に重くなったので、直接インストールする。
+if [ ! -e $HOME/.cargo ]; then
+  curl https://sh.rustup.rs -sSf | sh
+else
+	info "The rust is already installed!!"
+fi
 
 if yesno "$(warn 'Are you sure you want to install rust packages?')"; then
-	cargo install exa ripgrep starship zellij
-	asdf reshim
+	$HOME/.cargo/bin/cargo install exa ripgrep procs fd-find starship zellij
 fi
 
 log ""
