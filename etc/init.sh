@@ -91,7 +91,6 @@ if ! has mise; then
   curl https://mise.run | sh
   mise use -g fzf@latest
   mise use -g rust@latest
-  mise use -g sheldon@latest
   mise use -g starship@latest
   mise use -g zellij@latest
 else
@@ -105,7 +104,7 @@ echo ""
 info "Start install rust packages."
 
 if yesno "$(warn 'Are you sure you want to install rust packages?')"; then
-	$HOME/.cargo/bin/cargo install exa
+	$HOME/.cargo/bin/cargo install exa sheldon
 fi
 
 log ""
