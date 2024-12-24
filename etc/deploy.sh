@@ -55,7 +55,7 @@ mkdir -p $HOME/.config/git
 mkdir -p ~/.config/jesseduffield
 symlink $DOTFILES_DIR/config/git/.gitconfig $HOME/.gitconfig
 symlink $DOTFILES_DIR/config/git/ignore $HOME/.config/git/ignore
-symlink $DOTFILES_DIR/config/git/lazygit $HOME/.config/jesseduffield/lazygit
+symlink $DOTFILES_DIR/config/lazygit $HOME/.config/jesseduffield/lazygit
 
 #--------------------------------------------------------------#
 ##        python                                              ##

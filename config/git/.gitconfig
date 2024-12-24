@@ -25,3 +25,7 @@
     defaultBranch = main
 [url "git@github.com:"]
 	insteadOf = https://github.com/
+[url "git@github.dena.jp:"]
+	insteadOf = https://github.dena.jp
+[includeIf "gitdir:~/workspace/github.dena.jp/"]
+    path = ~/dotfiles/config/git/github.dena.jp/.gitconfig
