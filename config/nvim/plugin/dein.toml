@@ -266,3 +266,5 @@ repo = 'vim-jp/autofmt'
 [[plugins]]
 repo = 'andymass/vim-matchup'
 
+[[plugins]]
+repo = 'airblade/vim-gitgutter'
