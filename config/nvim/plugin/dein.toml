@@ -224,25 +224,12 @@ nmap ga <Plug>(EasyAlign)
 '''
 
 [[plugins]]
-repo = 'twitvim/twitvim'
-hook_add = '''
-:command Tpost PosttoTwitter
-:command Tread FriendsTwitter
-:command Tswitch SwitchLoginTwitter
-'''
-
-[[plugins]]
 repo = 'easymotion/vim-easymotion'
 hook_add = '''
 map  <Leader>w <Plug>(easymotion-bd-w)
 map <Leader>k <Plug>(easymotion-bd-f)
 map <Leader>l <Plug>(easymotion-bd-jk)
 '''
-
-[[plugins]]
-repo = "OmniSharp/omnisharp-vim"
-on_ft = ["cs"]
-build = "xbuild server/OmniSharp.sln"
 
 [[plugins]]
 repo = 'Shougo/vimproc.vim'

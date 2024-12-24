@@ -41,3 +41,8 @@ let g:vimtex_view_method= 'skim'
 let g:vimtex_quickfix_latexlog = {'default': 0}
 let g:vimtex_mappings_enabled = 0
 '''
+
+[[plugins]]
+repo = "OmniSharp/omnisharp-vim"
+on_ft = ["cs"]
+build = "xbuild server/OmniSharp.sln"
