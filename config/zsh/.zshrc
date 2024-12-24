@@ -76,6 +76,8 @@ fi;
 alias l='ls'
 alias la='l -a'
 alias ll='l -l'
+alias gs='git status'
+alias gsw='git switch'
 alias lg='lazygit'
 alias -g L='| less'
 alias -g G='| grep'
