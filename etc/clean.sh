@@ -67,7 +67,7 @@ info "git"
 
 clean $HOME/.gitconfig
 clean $HOME/.config/git
-clean $HOME/.config/jesseduffield/lazygit
+clean $HOME/.config/lazygit
 
 #--------------------------------------------------------------#
 ##        python                                              ##
