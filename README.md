@@ -40,3 +40,7 @@ You need to add `zsh` to the list of available shells. (required sudo)
 echo $(which zsh) >> /etc/shells
 chsh -s $(which zsh) $USER
 ```
+
+### Customize
+
+If you want to customize the configuration, you can add .sh files to the [./local](./local) directory.
