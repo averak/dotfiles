@@ -1,12 +1,12 @@
 keybinds clear-defaults=true {
     locked {
-        bind "Ctrl p" {
+        bind "Ctrl L" {
             SwitchToMode "normal";
         }
     }
 
     pane {
-        bind "Ctrl g" {
+        bind "Ctrl b" {
             SwitchToMode "normal";
         }
 
@@ -69,7 +69,7 @@ keybinds clear-defaults=true {
     }
 
     tab {
-        bind "Ctrl b" {
+        bind "Ctrl B" {
             SwitchToMode "normal";
         }
 
@@ -110,16 +110,16 @@ keybinds clear-defaults=true {
         bind "+" "=" {
             Resize "Increase";
         }
-        bind "left" {
+        bind "h" "left" {
             Resize "Increase left";
         }
-        bind "down" {
+        bind "t" "down" {
             Resize "Increase down";
         }
-        bind "up" {
+        bind "k" "up" {
             Resize "Increase up";
         }
-        bind "right" {
+        bind "n" "right" {
             Resize "Increase right";
         }
     }
@@ -200,7 +200,7 @@ keybinds clear-defaults=true {
     }
 
     shared_except "locked" {
-        bind "Ctrl p" {
+        bind "Ctrl L" {
             SwitchToMode "locked";
         }
         bind "Ctrl l" {
@@ -230,13 +230,13 @@ keybinds clear-defaults=true {
     }
 
     shared_except "locked" "tab" {
-        bind "Ctrl b" {
+        bind "Ctrl B" {
             SwitchToMode "tab";
         }
     }
 
     shared_except "locked" "pane" {
-        bind "Ctrl g" {
+        bind "Ctrl b" {
             SwitchToMode "pane";
         }
     }
