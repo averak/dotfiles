@@ -15,10 +15,10 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        os: [ ubuntu-latest, macos-latest, centos-latest]
+        os: [ ubuntu-latest, macos-latest, centos-latest ]
 
     steps:
-    - uses: actions/checkout@v4
-    - name: run install
-      run: |
-        yes | make install
+      - uses: actions/checkout@v4
+      - name: run install
+        run: |
+          make

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-export _DOTFILES_DIR=$HOME/dotfiles
+_DOTFILES_DIR=$(pwd)
 . "$_DOTFILES_DIR"/etc/_utils.sh
 
 if ! _confirm "[Q] Are you sure you want to overwrite your dotfiles?"; then

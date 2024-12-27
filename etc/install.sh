@@ -4,7 +4,7 @@
 ##        utils                                               ##
 #--------------------------------------------------------------#
 
-export _DOTFILES_DIR=$HOME/dotfiles
+_DOTFILES_DIR=$(pwd)
 . "$_DOTFILES_DIR"/etc/_utils.sh
 
 # os detection
