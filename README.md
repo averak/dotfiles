@@ -1,7 +1,6 @@
 # Dotfiles
 
-[![](https://github.com/averak/dotfiles/workflows/build/badge.svg)](https://github.com/averak/dotfiles/actions)
-[![](https://github.com/averak/dotfiles/workflows/vint/badge.svg)](https://github.com/averak/dotfiles/actions)
+![CI](https://github.com/averak/dotfiles/workflows/CI/badge.svg)
 
 A collection of configuration files and setup scripts to quickly set up and maintain a development environment.
 
@@ -15,22 +14,21 @@ A collection of configuration files and setup scripts to quickly set up and main
 
 First, clone this repository.
 
-```sh
+```shell
 git clone git@github.com:averak/dotfiles.git $HOME/dotfiles
 cd $HOME/dotfiles
 ```
 
 And then, install essential tools. (required sudo)
 
-```sh
-make install
+```shell
+make
 ```
 
-Incidentally, `make install` will perform the following tasks.
+Incidentally, `make` will perform the following tasks.
 
-- `make update` - update dotfiles
-- `make deploy` - deploy dotfiles to your env
-- `make init` - init some settings
+- `make install` - install essential tools
+- `make symlink` - create symbolic links for dotfiles
 
 If you want to know details, just execute `make help`.
 

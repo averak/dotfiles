@@ -6,12 +6,12 @@ export BASH_SILENCE_DEPRECATION_WARNING=1
 #--------------------------------------------------------------#
 
 if [[ -x "$(command -v mise)" ]]; then
-    eval "$(mise activate zsh)"
+    eval "$(mise activate bash)"
 fi;
 
 if [[ -x "$(command -v gcloud)" ]]; then
     GCLOUD_SDK_PATH=$(gcloud info --format="value(installation.sdk_root)")
-    source "$GCLOUD_SDK_PATH/path.zsh.inc"
+    source "$GCLOUD_SDK_PATH/path.bash.inc"
 fi;
 
 export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git"'

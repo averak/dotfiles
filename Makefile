@@ -1,26 +1,27 @@
-export dotfiles=$(shell pwd)
+export DOTFILES_DIR=$(shell pwd)
 
-clean: ## Clean config files
-	@echo '==> Start to clean your config files.'
-	@echo ''
-	bash ${dotfiles}/etc/clean.sh
+.PHONY: all
+all: install symlink
 
-deploy: clean ## Create symlink
-	@echo '==> Start to deploy dotfiles to home directory.'
-	@echo ''
-	bash ${dotfiles}/etc/deploy.sh
-
-init: ## Setup environment settings
+.PHONY: install
+install: ## Install essential tools
 	@echo '==> Start to install app using pkg manager.'
-	@echo ''
-	bash ${dotfiles}/etc/init.sh
+	@bash ${DOTFILES_DIR}/etc/install.sh
 
-install: init clean deploy
-	@exec $$SHELL
+.PHONY: symlink
+symlink: ## Create symlink for dotfiles
+	@echo '==> Start to create symbolic links for dotfiles.'
+	@bash ${DOTFILES_DIR}/etc/symlink.sh
 
+.PHONY: test
 test:
-	@echo ${dotfiles}
+	@echo ${DOTFILES_DIR}
 
+clean-backup: ## Remove backup files
+	@echo '==> Start to remove backup files.'
+	rm -rf ${DOTFILES_DIR}/tmp/backup
+
+.PHONY: help
 help: ## Self-documented Makefile
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) \
 		| sort \
