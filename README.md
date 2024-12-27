@@ -1,7 +1,5 @@
 # Dotfiles
 
-![CI](https://github.com/averak/dotfiles/workflows/CI/badge.svg)
-
 A collection of configuration files and setup scripts to quickly set up and maintain a development environment.
 
 ## Compatibility
