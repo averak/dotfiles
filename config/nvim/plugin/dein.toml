@@ -7,16 +7,16 @@ hook_add = '''
 
 ## -----*----- Color Scheme -----*----- ##
 [[plugins]]
-repo='morhetz/gruvbox'
-[[plugins]]
-repo = 'whatyouhide/vim-gotham'
-[[plugins]]
-repo = 'cocopon/iceberg.vim'
+repo = 'w0ng/vim-hybrid'
 hook_add = '''
-colorscheme iceberg
+colorscheme hybrid
 '''
-[[plugins]]
-repo = 'averak/laserwave.vim'
+#[[plugins]]
+#repo='morhetz/gruvbox'
+#[[plugins]]
+#repo = 'cocopon/iceberg.vim'
+#[[plugins]]
+#repo = 'averak/laserwave.vim'
 
 ## -----*----- NERDTree -----*----- ##
 [[plugins]]
