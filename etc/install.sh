@@ -65,7 +65,7 @@ if _confirm "[Q] Are you sure you want to install essential packages?"; then
 
     _log_info "Start install..."
     brew install git wget curl tmux coreutils autoconf automake cmake ninja libtool pkg-config gettext fontconfig usage jq lazygit vim neovim
-    brew install --cask google-cloud-sdk
+    brew install --cask google-cloud-sdk ghostty font-jetbrains-mono
 
   elif _is_debian; then
     _log_info "apt update"

@@ -48,6 +48,9 @@ _symlink "$_DOTFILES_DIR"/config/sheldon "$HOME"/.config/sheldon
 # prompt
 _symlink "$_DOTFILES_DIR"/config/prompt/starship.toml "$HOME"/.config/starship.toml
 
+# ghostty
+_symlink "$_DOTFILES_DIR"/config/ghostty "$HOME"/.config/ghostty
+
 # git
 _symlink "$_DOTFILES_DIR"/config/git/.gitconfig "$HOME"/.gitconfig
 _symlink "$_DOTFILES_DIR"/config/git/ignore "$HOME"/.config/git/ignore
@@ -63,7 +66,7 @@ _symlink "$_DOTFILES_DIR"/config/python/pep8 "$HOME"/.config/pep8
 _symlink "$_DOTFILES_DIR"/config/python/mypy "$HOME"/.config/mypy
 
 # jetbrains
-_symlink "$_DOTFILES_DIR"/config/jetbrains/ideavimrc "$HOME"/.ideavimrc
+_symlink "$_DOTFILES_DIR"/config/jetbrains/.ideavimrc "$HOME"/.ideavimrc
 
 # karabiner
 _symlink "$_DOTFILES_DIR"/config/karabiner "$HOME"/.config/karabiner
