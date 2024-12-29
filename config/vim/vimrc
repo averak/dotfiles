@@ -1,10 +1,3 @@
-"                   _
-"           _   __ (_)____ ___   _____ _____
-"          | | / // // __ `__ \ / ___// ___/
-"          | |/ // // / / / / // /   / /__
-"          |___//_//_/ /_/ /_//_/    \___/
-
-
 "--------------------------------------------------------------"
 "         base settings                                        "
 "--------------------------------------------------------------"
@@ -131,44 +124,3 @@ nnoremap T n
 " absorb type
 command! -nargs=0 W :w
 command! -nargs=0 Q :q
-
-
-"--------------------------------------------------------------"
-"         dein.vim                                             "
-"--------------------------------------------------------------"
-let s:dein_dir = expand('~/.cache/dein/vim')
-let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
-if &runtimepath !~# '/dein.vim'
-  if !isdirectory(s:dein_repo_dir)
-    execute '!git clone https://github.com/Shougo/dein.vim' s:dein_repo_dir
-  endif
-  execute 'set runtimepath^=' . fnamemodify(s:dein_repo_dir, ':p')
-endif
-
-if dein#load_state(s:dein_dir)
-  call dein#begin(s:dein_dir)
-
-  let s:toml = fnamemodify(expand('<sfile>'), ':h').'/plugin/dein.toml'
-  let s:lazy_toml = fnamemodify(expand('<sfile>'), ':h').'/plugin/dein_lazy.toml'
-
-   " load toml files
-  call dein#load_toml(s:toml,      {'lazy': 0})
-  call dein#load_toml(s:lazy_toml, {'lazy': 1})
-
-  call dein#end()
-  call dein#save_state()
-endif
-
-" install plugins
-if dein#check_install()
-  call dein#install()
-endif
-
-
-"--------------------------------------------------------------"
-"         local conf                                           "
-"--------------------------------------------------------------"
-let s:local_conf = fnamemodify(expand('<sfile>'), ':h').'/local.conf'
-if filereadable(s:local_conf)
-	exec 'source '. s:local_conf
-endif
