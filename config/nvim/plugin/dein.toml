@@ -255,3 +255,6 @@ repo = 'andymass/vim-matchup'
 
 [[plugins]]
 repo = 'airblade/vim-gitgutter'
+
+[[plugins]]
+repo = 'github/copilot.vim'
