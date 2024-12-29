@@ -1,8 +1,6 @@
 root = true
 
 [*]
+max_line_length = off
 end_of_line = lf
 insert_final_newline = true
-
-[*.md]
-max_line_length = off

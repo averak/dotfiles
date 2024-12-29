@@ -108,7 +108,7 @@ fi
 #--------------------------------------------------------------#
 
 if _confirm "[Q] Are you sure you want to install rust packages?"; then
-  "$HOME"/.cargo/bin/cargo install exa sheldon
+  "$HOME"/.cargo/bin/cargo install exa sheldon typos-lsp
 fi
 
 #--------------------------------------------------------------#

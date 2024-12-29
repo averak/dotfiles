@@ -36,7 +36,7 @@ set laststatus=2
 set modeline
 set modelines=10
 set wildmenu
-set clipboard=unnamed
+set clipboard=unnamedplus
 set title
 set titleold="Terminal"
 set titlestring=%F
