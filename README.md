@@ -39,6 +39,7 @@ If you want to customize the configuration, you can add .sh files to the [./loca
 ## Tools
 
 Configuration files for tools that are no longer in use are still retained.
+
 The tools that are actually used are as follows.
 
 | Tool                                                        | configuration                            | Category             |
