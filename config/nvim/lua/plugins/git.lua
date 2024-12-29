@@ -12,11 +12,4 @@ return {
             { "<leader>lg", ":LazyGit<CR>", desc = "LazyGit" },
         },
     },
-    {
-        "aspeddro/gitui.nvim",
-        lazy = true,
-        keys = {
-            { "<leader>gu", ":lua require('gitui').open()<CR>", desc = "GitUI" },
-        },
-    },
 }
