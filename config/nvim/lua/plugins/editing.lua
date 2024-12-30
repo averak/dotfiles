@@ -41,7 +41,13 @@ return {
         "thinca/vim-quickrun",
         lazy = true,
         keys = {
-            { "<Leader>go", ":QuickRun<CR>", desc = "QuickRun" },
+            {
+                "<leader>go",
+                function()
+                    vim.cmd(":QuickRun")
+                end,
+                desc = "QuickRun",
+            },
         },
     },
     {
@@ -59,9 +65,20 @@ return {
         end,
     },
     {
-        "numToStr/Comment.nvim",
+        'numToStr/Comment.nvim',
         lazy = true,
         event = { "InsertEnter" },
-        config = true,
-    }
+        config = function()
+            require('Comment').setup({
+                toggler = {
+                    line = 'cc',
+                    block = 'cb',
+                },
+                opleader = {
+                    line = 'cc',
+                    block = 'cb',
+                },
+            })
+        end
+    },
 }

@@ -7,7 +7,13 @@ return {
         "kdheepak/lazygit.nvim",
         lazy = true,
         keys = {
-            { "<leader>lg", ":LazyGit<CR>", desc = "LazyGit" },
+            {
+                "<leader>lg",
+                function()
+                    vim.cmd("LazyGit")
+                end,
+                desc = "LazyGit",
+            },
         },
     },
 }

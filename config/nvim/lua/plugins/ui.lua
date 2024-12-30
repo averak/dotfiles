@@ -40,11 +40,20 @@ return {
     },
     {
         "folke/noice.nvim",
-        lazy = true,
-        event = "VeryLazy",
         dependencies = {
             "MunifTanjim/nui.nvim",
             "rcarriga/nvim-notify",
+        },
+        lazy = true,
+        event = "VeryLazy",
+        keys = {
+            {
+                "X",
+                function()
+                    require("notify").dismiss()
+                end,
+                desc = "Dismiss notify",
+            },
         },
         config = function()
             require("noice").setup({
@@ -79,21 +88,4 @@ return {
         event = { "BufNewFile", "BufReadPre" },
         config = true,
     },
-    {
-        'numToStr/Comment.nvim',
-        lazy = true,
-        event = { "InsertEnter" },
-        config = function()
-            require('Comment').setup({
-                toggler = {
-                    line = 'cc',
-                    block = 'cb',
-                },
-                opleader = {
-                    line = 'cc',
-                    block = 'cb',
-                },
-            })
-        end
-    }
 }

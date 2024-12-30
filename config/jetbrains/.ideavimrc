@@ -1,3 +1,49 @@
+"--------------------------------------------------------------"
+"         base settings                                        "
+"--------------------------------------------------------------"
+set encoding=utf-8
+scriptencoding utf-8
+set fileencodings=utf-8,sjis,cp932,euc-jp
+
+set shiftwidth=4
+set tabstop=4
+set softtabstop=0
+set autoindent
+
+set hlsearch
+set incsearch
+set ignorecase
+set smartcase
+
+set nobackup
+set noswapfile
+
+set splitright
+set splitbelow
+
+set ruler
+set number
+set cursorline
+set scrolloff=3
+set laststatus=2
+
+set clipboard=unnamed
+
+" その他の設定
+set title
+let &titleold = "Terminal"
+set titlestring=%F
+set mouse=a
+set whichwrap=h,l
+set hidden
+set virtualedit=onemore
+set ttimeoutlen=10
+set gcr=a:blinkon0
+
+
+"--------------------------------------------------------------"
+"         key binds                                            "
+"--------------------------------------------------------------"
 " prefix
 let mapleader="\<Space>"
 
@@ -82,3 +128,7 @@ nnoremap K :action QuickJavaDoc<CR>
 " コメントアウト
 map cc :action CommentByLineComment<CR>
 map cb :action CommentByBlockComment<CR>
+
+" テスト
+" ファイル全体もテスト実行したいが、action が見当たらなかったので未設定。
+nnoremap tt :action RunClass<CR>
