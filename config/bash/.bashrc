@@ -24,6 +24,7 @@ export FZF_DEFAULT_OPTS='--height 40% --reverse --preview "bat --theme=TwoDark -
 if [[ -x "$(command -v exa)" ]]; then
     alias ls='exa --icons'
 fi;
+alias c='clear'
 alias l='ls'
 alias la='l -a'
 alias ll='l -l'
