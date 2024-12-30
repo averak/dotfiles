@@ -40,6 +40,7 @@ return {
     },
     {
         "folke/noice.nvim",
+        lazy = true,
         event = "VeryLazy",
         dependencies = {
             "MunifTanjim/nui.nvim",
@@ -71,5 +72,28 @@ return {
                 },
             })
         end,
+    },
+    {
+        "petertriho/nvim-scrollbar",
+        lazy = true,
+        event = { "BufNewFile", "BufReadPre" },
+        config = true,
+    },
+    {
+        'numToStr/Comment.nvim',
+        lazy = true,
+        event = { "InsertEnter" },
+        config = function()
+            require('Comment').setup({
+                toggler = {
+                    line = 'cc',
+                    block = 'cb',
+                },
+                opleader = {
+                    line = 'cc',
+                    block = 'cb',
+                },
+            })
+        end
     }
 }

@@ -79,3 +79,6 @@ nnoremap U :action FindUsages<CR>
 nnoremap R :action RenameElement<CR>
 nnoremap K :action QuickJavaDoc<CR>
 
+" コメントアウト
+map cc :action CommentByLineComment<CR>
+map cb :action CommentByBlockComment<CR>

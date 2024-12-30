@@ -16,14 +16,16 @@ return {
         event = { "BufReadPost", "BufNewFile" },
     },
     {
-        -- 括弧の片側を入力すると、対応する括弧が自動で挿入される。
-        "cohama/lexima.vim",
+        -- 括弧やクォートなどの片側を入力すると、対応するものも自動で入力される。
+        "windwp/nvim-autopairs",
         lazy = true,
         event = { "InsertEnter" },
+        config = true,
     },
     {
         "alvan/vim-closetag",
         lazy = true,
+        event = { "InsertEnter" },
         ft = { "html", "xhtml", "phtml", "jsx", "tsx" },
         config = function()
             vim.g.closetag_filenames = '*.html,*.xhtml,*.phtml,*.jsx,*.tsx'
@@ -44,6 +46,8 @@ return {
     },
     {
         "bronson/vim-trailing-whitespace",
+        lazy = true,
+        event = { "BufReadPost", "BufNewFile" },
     },
     {
         "LunarVim/bigfile.nvim",
@@ -53,5 +57,11 @@ return {
                 filesize = 1,
             }
         end,
+    },
+    {
+        "numToStr/Comment.nvim",
+        lazy = true,
+        event = { "InsertEnter" },
+        config = true,
     }
 }
