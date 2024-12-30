@@ -45,4 +45,14 @@ return {
     {
         "bronson/vim-trailing-whitespace",
     },
+    {
+        "LunarVim/bigfile.nvim",
+        lazy = true,
+        config = function()
+            require("bigfile").setup {
+                -- 1 MiB 以上のファイルを開いた場合に、いくつかの機能を無効化する。
+                filesize = 1,
+            }
+        end,
+    }
 }
