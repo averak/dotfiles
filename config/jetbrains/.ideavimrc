@@ -131,4 +131,8 @@ map cb :action CommentByBlockComment<CR>
 
 " テスト
 " ファイル全体もテスト実行したいが、action が見当たらなかったので未設定。
-nnoremap tt :action RunClass<CR>
+nnoremap <Leader>tt :action RunClass<CR>
+
+" デバッガ
+nnoremap <Leader>b :action ToggleLineBreakpoint<CR>
+nnoremap <Leader>bq :action Debugger.RemoveAllBreakpoints<CR>

@@ -36,6 +36,13 @@ return {
                 end,
                 desc = "Toggle test summary",
             },
+            {
+                "<leader>td",
+                function()
+                    require("neotest").run.run({ strategy = "dap" })
+                end,
+                desc = "Debug test in cursor",
+            },
         },
         config = function()
             require('nvim-treesitter.configs').setup({
@@ -60,6 +67,7 @@ return {
                         output = "o",
                         run = "r",
                         stop = "x",
+                        debug = "d",
                         attach = "a",
                         jumpto = "B",
                         help = "?",
@@ -76,7 +84,6 @@ return {
                         debug_marked = "_",
                         next_failed = "_",
                         target = "_",
-                        debug = "_",
                     },
                 },
             })
