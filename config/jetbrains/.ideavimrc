@@ -1,49 +1,3 @@
-"--------------------------------------------------------------"
-"         base settings                                        "
-"--------------------------------------------------------------"
-set encoding=utf-8
-scriptencoding utf-8
-set fileencodings=utf-8,sjis,cp932,euc-jp
-set ttyfast
-set splitright
-set splitbelow
-set backspace=indent,eol,start
-set shiftwidth=4
-set tabstop=4
-set softtabstop=0
-set hidden
-set virtualedit=onemore
-set hlsearch
-set incsearch
-set ignorecase
-set smartcase
-set nobackup
-set noswapfile
-set helplang=ja,en
-set ruler
-set number
-set ttimeoutlen=10
-set gcr=a:blinkon0
-set scrolloff=3
-set laststatus=2
-set modeline
-set modelines=10
-set wildmenu
-set clipboard=unnamed
-set title
-set titleold="Terminal"
-set titlestring=%F
-set cursorline
-set autoindent
-set autoread
-set mouse=a
-set whichwrap=h,l
-filetype on
-syntax on
-
-"--------------------------------------------------------------"
-"         key binds                                            "
-"--------------------------------------------------------------"
 " prefix
 let mapleader="\<Space>"
 
@@ -108,3 +62,20 @@ set easymotion
 map <Leader>w <Plug>(easymotion-bd-w)
 map <Leader>k <Plug>(easymotion-bd-f)
 map <Leader>l <Plug>(easymotion-bd-jk)
+
+" 同じタブグループ内での移動
+nnoremap <Tab> :action NextTab<CR>
+nnoremap <S-Tab> :action PreviousTab<CR>
+
+" ファイル操作
+nnoremap O :action SearchEverywhere<CR>
+nnoremap F :action FindInPath<CR>
+
+" リファクタリング
+nnoremap B :action GotoDeclaration<CR>
+nnoremap D :action GotoTypeDeclaration<CR>
+nnoremap I :action GotoImplementation<CR>
+nnoremap U :action FindUsages<CR>
+nnoremap R :action RenameElement<CR>
+nnoremap K :action QuickJavaDoc<CR>
+
