@@ -38,7 +38,13 @@ return {
             },
         },
         config = function()
-            require("dapui").setup()
+            require("dapui").setup({
+                mappings = {
+                    -- 干渉するキーは、無効化する。
+                    -- 必要な機能なら、適宜別のキーを割り当てること。
+                    toggle = "<Nop>",
+                },
+            })
             require('dap-go').setup()
             require("mason-nvim-dap").setup({
                 ensure_installed = {

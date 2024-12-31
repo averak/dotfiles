@@ -72,18 +72,18 @@ return {
                         jumpto = "B",
                         help = "?",
 
-                        -- 使わないものには `_` を指定する。
+                        -- 使わないものには Nop を割り当てる。
                         -- 使えるとベターなのかもしれないが、使いこなすのが難しそうなのでシンプルな設定にしておく。
-                        watch = "_",
-                        clear_marked = "_",
-                        run_marked = "_",
-                        mark = "_",
-                        short = "_",
-                        expand_all = "_",
-                        clear_target = "_",
-                        debug_marked = "_",
-                        next_failed = "_",
-                        target = "_",
+                        watch = "<Nop>",
+                        clear_marked = "<Nop>",
+                        run_marked = "<Nop>",
+                        mark = "<Nop>",
+                        short = "<Nop>",
+                        expand_all = "<Nop>",
+                        clear_target = "<Nop>",
+                        debug_marked = "<Nop>",
+                        next_failed = "<Nop>",
+                        target = "<Nop>",
                     },
                 },
             })

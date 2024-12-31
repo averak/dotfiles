@@ -54,7 +54,8 @@ map k k
 map n l
 
 " undo / redo
-nnoremap U <C-r>
+nnoremap u u
+nnoremap r <C-r>
 
 " go / return to word
 noremap W b
@@ -96,9 +97,8 @@ nnoremap H 0
 vnoremap H 0
 
 " search
-nnoremap /  /\v
-nnoremap K N
-nnoremap T n
+nnoremap > N
+nnoremap E n
 
 " absorb type
 command! -nargs=0 W :w

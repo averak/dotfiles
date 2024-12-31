@@ -38,13 +38,20 @@ return {
         end,
     },
     {
+        "williamboman/mason.nvim",
+        lazy = true,
+        cmd = {
+            "Mason",
+        },
+        config = true,
+    },
+    {
         "neovim/nvim-lspconfig",
         dependencies = {
             "williamboman/mason.nvim",
             "jay-babu/mason-lspconfig.nvim",
         },
         config = function()
-            require("mason").setup()
             require('mason-lspconfig').setup({
                 ensure_installed = {
                     "gopls",
