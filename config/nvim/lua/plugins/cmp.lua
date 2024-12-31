@@ -49,7 +49,7 @@ return {
         "neovim/nvim-lspconfig",
         dependencies = {
             "williamboman/mason.nvim",
-            "jay-babu/mason-lspconfig.nvim",
+            "williamboman/mason-lspconfig.nvim",
         },
         config = function()
             require('mason-lspconfig').setup({

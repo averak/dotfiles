@@ -94,10 +94,4 @@ return {
             })
         end,
     },
-    {
-        "petertriho/nvim-scrollbar",
-        lazy = true,
-        event = { "BufNewFile", "BufReadPre" },
-        config = true,
-    },
 }
