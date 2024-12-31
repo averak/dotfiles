@@ -134,5 +134,5 @@ map cb :action CommentByBlockComment<CR>
 nnoremap <Leader>tt :action RunClass<CR>
 
 " デバッガ
-nnoremap <Leader>b :action ToggleLineBreakpoint<CR>
-nnoremap <Leader>bq :action Debugger.RemoveAllBreakpoints<CR>
+nnoremap ,b :action ToggleLineBreakpoint<CR>
+nnoremap ,B :action Debugger.RemoveAllBreakpoints<CR>

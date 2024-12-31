@@ -9,28 +9,28 @@ return {
         },
         keys = {
             {
-                "<leader>du",
-                function()
-                    require("dapui").toggle()
-                end,
-                desc = "Debug open ui",
-            },
-            {
-                "<leader>b",
+                ",b",
                 function()
                     require("dap").toggle_breakpoint()
                 end,
                 desc = "Debug toggle breakpoint",
             },
             {
-                "<leader>bq",
+                ",B",
                 function()
                     require("dap").clear_breakpoints()
                 end,
                 desc = "Debug clear breakpoints",
             },
             {
-                "<leader>dk",
+                ",e",
+                function()
+                    require("dapui").toggle()
+                end,
+                desc = "Debug open ui",
+            },
+            {
+                ",K",
                 function()
                     require("dap.ui.widgets").hover()
                 end,

@@ -33,7 +33,7 @@ return {
                 desc = "Telescope live grep",
             },
             {
-                "<leader>th",
+                ",h",
                 function()
                     require("telescope.builtin").help_tags()
                 end,

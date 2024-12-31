@@ -89,7 +89,7 @@ return {
         ft = { "markdown" },
         keys = {
             {
-                "<C-p>",
+                "<leader>mp",
                 function()
                     vim.cmd(":MarkdownPreview")
                 end,

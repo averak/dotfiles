@@ -59,3 +59,5 @@ vim.api.nvim_set_keymap('n', 'E', 'n', { noremap = true, silent = true })
 -- absorb type
 vim.api.nvim_command('command! -nargs=0 W :w')
 vim.api.nvim_command('command! -nargs=0 Q :q')
+
+vim.opt.runtimepath:append("~/.config/nvim")
