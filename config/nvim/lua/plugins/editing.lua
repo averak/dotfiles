@@ -83,4 +83,19 @@ return {
             })
         end
     },
+    {
+        "iamcco/markdown-preview.nvim",
+        lazy = true,
+        ft = { "markdown" },
+        keys = {
+            {
+                "<C-p>",
+                function()
+                    vim.cmd(":MarkdownPreview")
+                end,
+                desc = "Markdown preview",
+            },
+        },
+        build = function() vim.fn["mkdp#util#install"]() end,
+    },
 }

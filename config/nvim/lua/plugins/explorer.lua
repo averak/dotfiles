@@ -3,10 +3,42 @@ return {
         "nvim-telescope/telescope.nvim",
         dependencies = { "nvim-lua/plenary.nvim" },
         lazy = true,
+        opts = {
+            pickers = {
+                find_files = {
+                    find_command = {
+                        "rg",
+                        "--files",
+                        "--ignore",
+                        "--hidden",
+                        "-g",
+                        "!**/.git/*",
+                    },
+                },
+            },
+        },
         keys = {
-            { "O",          ":Telescope find_files<CR>", desc = "Telescope find files" },
-            { "F",          ":Telescope live_grep<CR>",  desc = "Telescope live grep" },
-            { "<leader>th", ":Telescope help_tags<CR>",  desc = "Telescope help tags" },
+            {
+                "O",
+                function()
+                    require("telescope.builtin").find_files()
+                end,
+                desc = "Telescope find files",
+            },
+            {
+                "F",
+                function()
+                    require('telescope.builtin').live_grep()
+                end,
+                desc = "Telescope live grep",
+            },
+            {
+                "<leader>th",
+                function()
+                    require("telescope.builtin").help_tags()
+                end,
+                desc = "Telescope help tags",
+            },
         },
     },
     {

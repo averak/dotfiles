@@ -14,26 +14,38 @@ return {
                             path = 1
                         }
                     },
-                    lualine_x = { 'encoding', 'fileformat', 'filetype' },
-                    lualine_y = { 'progress' },
-                    lualine_z = { 'location' }
+                    lualine_x = {
+                        'encoding',
+                        'fileformat',
+                        'filetype',
+                    },
+                    lualine_y = {
+                        {
+                            'searchcount',
+                            maxcount = 999,
+                            timeout = 500,
+                        },
+                        'progress',
+                    },
+                    lualine_z = {
+                        'location',
+                    }
                 },
                 tabline = {
-                    lualine_a = { 'buffers' },
-                    lualine_b = {
+                    lualine_a = {
                         {
                             'tabs',
-                            mode = 2
+                            mode = 0
                         }
                     },
-                    lualine_c = {
+                    lualine_b = {
                         {
-                            function()
-                                -- 現在のバッファのファイルパスを表示
-                                return vim.fn.expand('%:~:.')
-                            end
-                        }
-                    }
+
+                            'buffers',
+                            mode = 2,
+                            show_filename_only = false,
+                        },
+                    },
                 },
             })
         end,
