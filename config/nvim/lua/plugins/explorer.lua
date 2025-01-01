@@ -36,7 +36,7 @@ return {
                 desc = "Telescope live grep",
             },
             {
-                ",h",
+                ",,",
                 function()
                     require("telescope.builtin").help_tags()
                 end,
