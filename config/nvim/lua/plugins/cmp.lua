@@ -96,6 +96,9 @@ return {
                 sources = {
                     -- https://github.com/nvimtools/none-ls.nvim/blob/main/doc/BUILTINS.md
                     null_ls.builtins.diagnostics.codespell,
+                    null_ls.builtins.diagnostics.todo_comments,
+                    null_ls.builtins.diagnostics.trail_space,
+
                     null_ls.builtins.formatting.prettier,
                     null_ls.builtins.formatting.gofumpt,
                     null_ls.builtins.formatting.goimports,

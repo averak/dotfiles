@@ -51,11 +51,6 @@ return {
         },
     },
     {
-        "bronson/vim-trailing-whitespace",
-        lazy = true,
-        event = { "BufReadPost", "BufNewFile" },
-    },
-    {
         "LunarVim/bigfile.nvim",
         lazy = true,
         event = { "BufReadPost", "BufNewFile" },
