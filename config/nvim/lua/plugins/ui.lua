@@ -31,24 +31,12 @@ return {
                         'location',
                     }
                 },
-                tabline = {
-                    lualine_a = {
-                        {
-                            'tabs',
-                            mode = 0
-                        }
-                    },
-                    lualine_b = {
-                        {
-
-                            'buffers',
-                            mode = 2,
-                            show_filename_only = false,
-                        },
-                    },
-                },
             })
         end,
+    },
+    {
+        "akinsho/bufferline.nvim",
+        config = true,
     },
     {
         "folke/noice.nvim",
