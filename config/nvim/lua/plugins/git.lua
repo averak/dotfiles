@@ -22,19 +22,6 @@ return {
         config = true,
     },
     {
-        "kdheepak/lazygit.nvim",
-        lazy = true,
-        keys = {
-            {
-                "<leader>lg",
-                function()
-                    vim.cmd("LazyGit")
-                end,
-                desc = "LazyGit",
-            },
-        },
-    },
-    {
         "aspeddro/gitui.nvim",
         lazy = true,
         keys = {
