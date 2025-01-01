@@ -34,4 +34,17 @@ return {
             },
         },
     },
+    {
+        "aspeddro/gitui.nvim",
+        lazy = true,
+        keys = {
+            {
+                "<leader>gu",
+                function()
+                    require("gitui").open()
+                end,
+                desc = "Gitui",
+            },
+        },
+    },
 }

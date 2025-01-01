@@ -81,6 +81,7 @@ alias gs='git status'
 alias gsw='git switch'
 alias gg='git graph'
 alias lg='lazygit'
+alias gu='gitui'
 alias -g L='| less'
 alias -g G='| grep'
 

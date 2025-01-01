@@ -13,7 +13,7 @@ layout {
         pane split_direction="vertical" size="70%" {
             pane {
                 pane command="htop" size="25%"
-                pane command="lazygit"
+                pane command="gitui"
             }
             pane focus=true
         }

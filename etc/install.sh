@@ -101,6 +101,7 @@ if _confirm "[Q] Are you sure you want to install mise?"; then
   mise use -g rust@latest
   mise use -g starship@latest
   mise use -g zellij@latest
+  mise use -g gitui@latest
 fi
 
 #--------------------------------------------------------------#
