@@ -69,6 +69,7 @@ return {
             vim.keymap.set("n", "U", vim.lsp.buf.references, { noremap = true, silent = true })
             vim.keymap.set("n", "R", vim.lsp.buf.rename, { noremap = true, silent = true })
             vim.keymap.set("n", "K", vim.lsp.buf.hover, { noremap = true, silent = true })
+            vim.keymap.set("n", "<A-CR>", vim.lsp.buf.code_action, { noremap = true, silent = true })
         end,
     },
     {
@@ -86,6 +87,7 @@ return {
                     "gofumpt",
                     "goimports",
                     "golangci_lint",
+                    "gotests",
                     "buf",
                     "stylua",
                 },
@@ -103,6 +105,7 @@ return {
                     null_ls.builtins.formatting.gofumpt,
                     null_ls.builtins.formatting.goimports,
                     null_ls.builtins.diagnostics.golangci_lint,
+                    null_ls.builtins.code_actions.gotests,
                     null_ls.builtins.diagnostics.buf,
                     null_ls.builtins.formatting.buf,
                     null_ls.builtins.formatting.stylua,
