@@ -2,6 +2,7 @@ theme = MaterialDarker
 font-family = "JetBrains Mono NL"
 font-style = Medium
 font-size = 13
+font-feature = -dlig
 window-padding-balance = true
 window-theme = ghostty
 macos-titlebar-style = transparent
