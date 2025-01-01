@@ -22,13 +22,13 @@ return {
         config = true,
     },
     {
-        "aspeddro/gitui.nvim",
+        "mikinovation/nvim-gitui",
         lazy = true,
         keys = {
             {
                 "<leader>gu",
                 function()
-                    require("gitui").open()
+                    require("nvim-gitui").open_gitui()
                 end,
                 desc = "Gitui",
             },
