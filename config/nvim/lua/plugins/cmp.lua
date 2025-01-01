@@ -55,7 +55,6 @@ return {
             require('mason-lspconfig').setup({
                 ensure_installed = {
                     "gopls",
-                    "typos-lsp",
                 },
             })
             require('mason-lspconfig').setup_handlers {
@@ -82,6 +81,7 @@ return {
             require("mason").setup()
             require('mason-null-ls').setup({
                 ensure_installed = {
+                    "codespell",
                     "prettier",
                     "gofumpt",
                     "goimports",
@@ -95,6 +95,7 @@ return {
             null_ls.setup({
                 sources = {
                     -- https://github.com/nvimtools/none-ls.nvim/blob/main/doc/BUILTINS.md
+                    null_ls.builtins.diagnostics.codespell,
                     null_ls.builtins.formatting.prettier,
                     null_ls.builtins.formatting.gofumpt,
                     null_ls.builtins.formatting.goimports,
