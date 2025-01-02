@@ -86,6 +86,7 @@ return {
             require("mason").setup()
             require('mason-null-ls').setup({
                 ensure_installed = {
+                    "gitsigns",
                     "codespell",
                     "prettier",
                     "gofumpt",
@@ -101,6 +102,7 @@ return {
             null_ls.setup({
                 sources = {
                     -- https://github.com/nvimtools/none-ls.nvim/blob/main/doc/BUILTINS.md
+                    null_ls.builtins.code_actions.gitsigns,
                     null_ls.builtins.diagnostics.codespell,
                     null_ls.builtins.diagnostics.todo_comments,
                     null_ls.builtins.diagnostics.trail_space,
