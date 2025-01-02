@@ -51,6 +51,8 @@ return {
             "williamboman/mason.nvim",
             "williamboman/mason-lspconfig.nvim",
         },
+        lazy = true,
+        event = { "BufReadPost", "BufNewFile" },
         config = function()
             require('mason-lspconfig').setup({
                 ensure_installed = {
@@ -69,7 +71,7 @@ return {
             vim.keymap.set("n", "U", vim.lsp.buf.references, { noremap = true, silent = true })
             vim.keymap.set("n", "R", vim.lsp.buf.rename, { noremap = true, silent = true })
             vim.keymap.set("n", "K", vim.lsp.buf.hover, { noremap = true, silent = true })
-            vim.keymap.set("n", "<A-CR>", vim.lsp.buf.code_action, { noremap = true, silent = true })
+            vim.keymap.set("n", "<M-CR>", vim.lsp.buf.code_action, { noremap = true, silent = true })
         end,
     },
     {
@@ -78,6 +80,8 @@ return {
             "williamboman/mason.nvim",
             "jay-babu/mason-null-ls.nvim",
         },
+        lazy = true,
+        event = { "BufReadPost", "BufNewFile" },
         config = function()
             require("mason").setup()
             require('mason-null-ls').setup({
@@ -105,7 +109,6 @@ return {
                     null_ls.builtins.formatting.gofumpt,
                     null_ls.builtins.formatting.goimports,
                     null_ls.builtins.diagnostics.golangci_lint,
-                    null_ls.builtins.code_actions.gotests,
                     null_ls.builtins.diagnostics.buf,
                     null_ls.builtins.formatting.buf,
                     null_ls.builtins.formatting.stylua,
