@@ -126,8 +126,10 @@ nnoremap R :action RenameElement<CR>
 nnoremap K :action QuickJavaDoc<CR>
 
 " コメントアウト
-map cc :action CommentByLineComment<CR>
-map cb :action CommentByBlockComment<CR>
+nnoremap <M-/> :action CommentByLineComment<CR>
+xnoremap <M-/> :action CommentByLineComment<CR>
+nnoremap <M-S-/> :action CommentByBlockComment<CR>
+xnoremap <M-S-/> :action CommentByBlockComment<CR>
 
 " テスト
 " ファイル全体もテスト実行したいが、action が見当たらなかったので未設定。

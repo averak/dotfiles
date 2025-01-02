@@ -67,13 +67,15 @@ return {
         event = { "InsertEnter" },
         config = function()
             require('Comment').setup({
+                -- line comment: Alt + /
+                -- block comment: Alt + Shift + /
                 toggler = {
-                    line = 'cc',
-                    block = 'cb',
+                    line = '÷',
+                    block = '¿',
                 },
                 opleader = {
-                    line = 'cc',
-                    block = 'cb',
+                    line = '÷',
+                    block = '¿',
                 },
             })
         end
