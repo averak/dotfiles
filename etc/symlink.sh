@@ -55,6 +55,7 @@ _symlink "$_DOTFILES_DIR"/config/ghostty "$HOME"/.config/ghostty
 _symlink "$_DOTFILES_DIR"/config/git/.gitconfig "$HOME"/.gitconfig
 _symlink "$_DOTFILES_DIR"/config/git/ignore "$HOME"/.config/git/ignore
 _symlink "$_DOTFILES_DIR"/config/gitui "$HOME"/.config/gitui
+_symlink "$_DOTFILES_DIR"/config/lazygit "$HOME"/.config/lazygit
 
 # vim / neovim
 _symlink "$_DOTFILES_DIR"/config/vim "$HOME"/.vim

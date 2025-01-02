@@ -32,6 +32,7 @@ alias gs='git status'
 alias gsw='git switch'
 alias gg='git graph'
 alias gu='gitui'
+alias lg='lazygit'
 
 # typo correction
 alias sl='ls'

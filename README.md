@@ -49,5 +49,6 @@ The tools that are actually used are as follows.
 | [neovim](https://github.com/neovim/neovim)                  | [./config/nvim](./config/nvim)           | Text Editor          |
 | [zellij](https://github.com/zellij-org/zellij)              | [./config/zellij](./config/zellij)       | Terminal Multiplexer |
 | [ghostty](https://github.com/ghostty-org/ghostty)           | [./config/ghostty](./config/ghostty)     | Terminal Emulator    |
+| [lazygit](https://github.com/jesseduffield/lazygit)         | [./config/lazygit](./config/lazygit)     | Git Terminal UI      |
 | [gitui](https://github.com/extrawurst/gitui)                | [./config/gitui](./config/gitui)         | Git Terminal UI      |
 | [karabiner](https://github.com/pqrs-org/Karabiner-Elements) | [./config/karabiner](./config/karabiner) | Keyboard Customizer  |
