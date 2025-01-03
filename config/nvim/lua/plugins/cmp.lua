@@ -13,6 +13,9 @@ return {
 					},
 				},
 				panel = { enabled = false },
+				filetypes = {
+					["*"] = true,
+				},
 			})
 		end,
 	},
