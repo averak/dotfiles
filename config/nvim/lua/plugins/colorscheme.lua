@@ -1,8 +1,8 @@
 return {
-    {
-        "w0ng/vim-hybrid",
-        config = function()
-            vim.cmd([[colorscheme hybrid]])
-        end,
-    },
+	{
+		"w0ng/vim-hybrid",
+		config = function()
+			vim.cmd([[colorscheme hybrid]])
+		end,
+	},
 }
