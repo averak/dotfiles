@@ -1,8 +1,20 @@
 return {
 	{
-		"github/copilot.vim",
+		"zbirenbaum/copilot.lua",
 		lazy = true,
-		event = { "BufReadPost", "BufNewFile" },
+		event = { "InsertEnter" },
+		config = function()
+			require("copilot").setup({
+				suggestion = {
+					enabled = true,
+					auto_trigger = true,
+					keymap = {
+						accept = "<Tab>",
+					},
+				},
+				panel = { enabled = false },
+			})
+		end,
 	},
 	{
 		"hrsh7th/nvim-cmp",
@@ -13,6 +25,7 @@ return {
 			"hrsh7th/cmp-cmdline",
 			"saadparwaiz1/cmp_luasnip",
 			"L3MON4D3/LuaSnip",
+			"onsails/lspkind-nvim",
 		},
 		lazy = true,
 		event = { "InsertEnter" },
@@ -34,6 +47,11 @@ return {
 					{ name = "path" },
 					{ name = "luasnip" },
 				}),
+				formatting = {
+					format = require("lspkind").cmp_format({
+						preset = "codicons",
+					}),
+				},
 			})
 		end,
 	},
