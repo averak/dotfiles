@@ -2,6 +2,8 @@ return {
 	{
 		"nvim-lualine/lualine.nvim",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
+		lazy = true,
+		event = { "VeryLazy" },
 		config = function()
 			require("lualine").setup({
 				options = { theme = "material" },
@@ -36,6 +38,8 @@ return {
 	},
 	{
 		"akinsho/bufferline.nvim",
+		lazy = true,
+		event = { "BufWinEnter", "BufReadPre" },
 		config = true,
 	},
 	{
