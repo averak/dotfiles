@@ -6,32 +6,22 @@ return {
 			"nvim-telescope/telescope-ui-select.nvim",
 		},
 		lazy = true,
-		opts = {
-			pickers = {
-				find_files = {
-					find_command = {
-						"rg",
-						"--files",
-						"--ignore",
-						"--hidden",
-						"-g",
-						"!**/.git/*",
-					},
-				},
-			},
-		},
 		keys = {
 			{
 				"O",
 				function()
-					require("telescope.builtin").find_files()
+					require("telescope.builtin").find_files({
+						find_command = { "rg", "--files", "--hidden", "--ignore", "--glob", "!**/.git/*" },
+					})
 				end,
 				desc = "Telescope find files",
 			},
 			{
 				"F",
 				function()
-					require("telescope.builtin").live_grep()
+					require("telescope.builtin").live_grep({
+						additional_args = { "--hidden", "--ignore", "--glob", "!**/.git/*" },
+					})
 				end,
 				desc = "Telescope live grep",
 			},

@@ -111,6 +111,8 @@ return {
 					null_ls.builtins.diagnostics.buf,
 					null_ls.builtins.formatting.buf,
 					null_ls.builtins.formatting.stylua,
+					null_ls.builtins.diagnostics.yamllint,
+					null_ls.builtins.diagnostics.actionlint,
 				},
 			})
 			require("mason-null-ls").setup({
