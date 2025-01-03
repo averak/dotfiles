@@ -102,7 +102,7 @@ return {
 		lazy = true,
 		keys = {
 			{
-				",xx",
+				",x",
 				"<cmd>Trouble diagnostics toggle<cr>",
 				desc = "Trouble",
 			},
