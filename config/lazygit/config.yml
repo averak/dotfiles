@@ -1,5 +1,5 @@
 gui:
-  language: 'en'
+  language: "en"
   scrollHeight: 2
   scrollPastBottom: true
   sidePanelWidth: 0.3333
@@ -24,6 +24,8 @@ gui:
   skipDiscardChangeWarning: false
   skipStashWarning: true
 git:
+  log:
+    order: default
   paging:
     colorArg: always
     useConfig: false
@@ -65,8 +67,8 @@ keybinding:
     nextBlock: "<right>"
     prevBlock-alt: "K"
     nextBlock-alt: "T"
-    nextMatch: 'U'
-    prevMatch: 'O'
+    nextMatch: "U"
+    prevMatch: "O"
     optionMenu: "x"
     optionMenu-alt1: "?"
     select: "<space>"
