@@ -103,6 +103,7 @@ return {
 					null_ls.builtins.diagnostics.codespell,
 					null_ls.builtins.diagnostics.todo_comments,
 					null_ls.builtins.diagnostics.trail_space,
+					null_ls.builtins.hover.printenv,
 
 					null_ls.builtins.formatting.prettier,
 					null_ls.builtins.formatting.gofumpt,
@@ -112,6 +113,7 @@ return {
 					null_ls.builtins.formatting.buf,
 					null_ls.builtins.formatting.stylua,
 					null_ls.builtins.diagnostics.yamllint,
+					null_ls.builtins.formatting.yamlfmt,
 					null_ls.builtins.diagnostics.actionlint,
 				},
 			})
