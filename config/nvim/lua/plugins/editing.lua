@@ -5,7 +5,10 @@ return {
 		event = { "BufNewFile", "BufReadPre" },
 		config = function()
 			require("nvim-treesitter.configs").setup({
+				-- 必要な parser を全て列挙するのは面倒なので、全てインストールする。
+				-- install に失敗する && 使わない parser がある場合は、ignore_install に指定すること。
 				ensure_installed = "all",
+				ignore_install = { "norg" },
 				highlight = {
 					enable = true,
 				},
