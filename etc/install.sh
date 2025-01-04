@@ -64,7 +64,7 @@ if _confirm "[Q] Are you sure you want to install essential packages?"; then
     brew update
 
     _log_info "Start install..."
-    brew install git wget curl tmux coreutils autoconf automake cmake ninja libtool pkg-config gettext fontconfig usage jq luarocks lazygit vim neovim
+    brew install git wget curl tmux gcc coreutils autoconf automake cmake ninja libtool pkg-config gettext fontconfig usage jq luarocks lazygit vim neovim
     brew install --cask google-cloud-sdk ghostty font-jetbrains-mono karabiner-elements
 
   elif _is_debian; then
