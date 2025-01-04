@@ -4,33 +4,33 @@ _DOTFILES_DIR=$(pwd)
 . "$_DOTFILES_DIR"/etc/_utils.sh
 
 if ! _confirm "[Q] Are you sure you want to overwrite your dotfiles?"; then
-  _log_warn "Symlinking canceled, nothing to do."
-  exit 0
+	_log_warn "Symlinking canceled, nothing to do."
+	exit 0
 fi
 
 _BACKUP_DIR=$_DOTFILES_DIR/tmp/backup/$(date "+%Y%m%d%H%M%S")
 if [ -e "$_BACKUP_DIR" ]; then
-  rm -rf "$_BACKUP_DIR"
+	rm -rf "$_BACKUP_DIR"
 else
-  mkdir -p "$_BACKUP_DIR"
+	mkdir -p "$_BACKUP_DIR"
 fi
 
 _symlink() {
-  _source=$1
-  _target=$2
+	_source=$1
+	_target=$2
 
-  if [ -e "$_target" ]; then
-    _log_info "backup \"$_target\" to \"$_BACKUP_DIR/$(basename "$_target")\""
-    mv -f "$_target" "$_BACKUP_DIR/$(basename "$_target")"
-  fi
+	if [ -e "$_target" ]; then
+		_log_info "backup \"$_target\" to \"$_BACKUP_DIR/$(basename "$_target")\""
+		mv -f "$_target" "$_BACKUP_DIR/$(basename "$_target")"
+	fi
 
-  _dir=$(dirname "$_target")
-  if [ ! -e "$_dir" ]; then
-    mkdir -p "$_dir"
-  fi
+	_dir=$(dirname "$_target")
+	if [ ! -e "$_dir" ]; then
+		mkdir -p "$_dir"
+	fi
 
-  _log_info "ln -sf \"$_source\" \"$_target\""
-  ln -sf "$_source" "$_target"
+	_log_info "ln -sf \"$_source\" \"$_target\""
+	ln -sf "$_source" "$_target"
 }
 
 # bash

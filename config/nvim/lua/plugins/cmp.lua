@@ -105,6 +105,7 @@ return {
 					null_ls.builtins.diagnostics.trail_space,
 					null_ls.builtins.hover.printenv,
 
+					null_ls.builtins.formatting.shfmt,
 					null_ls.builtins.formatting.prettier,
 					null_ls.builtins.formatting.gofumpt,
 					null_ls.builtins.formatting.goimports,
