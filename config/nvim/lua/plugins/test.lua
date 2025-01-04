@@ -5,7 +5,6 @@ return {
 			"nvim-neotest/nvim-nio",
 			"nvim-lua/plenary.nvim",
 			"antoinemadec/FixCursorHold.nvim",
-			"nvim-treesitter/nvim-treesitter",
 
 			-- https://github.com/nvim-neotest/neotest?tab=readme-ov-file#supported-runners
 			"nvim-neotest/neotest-go",
@@ -45,17 +44,6 @@ return {
 			},
 		},
 		config = function()
-			require("nvim-treesitter.configs").setup({
-				ensure_installed = { "go", "lua", "vim", "regex" },
-				highlight = {
-					enable = true,
-				},
-				indent = {
-					enable = true,
-				},
-				additional_vim_regex_highlighting = false,
-			})
-
 			require("neotest").setup({
 				adapters = {
 					require("neotest-go")({
