@@ -13,5 +13,9 @@ export PATH=$PATH:$HOME/.cargo/bin
 
 export DOTFILES_DIR=$HOME/dotfiles
 for file in "$DOTFILES_DIR/local/"*.sh; do
-    source "$file"
+	source "$file"
 done
+
+if command -v aqua &>/dev/null; then
+	export PATH="$(aqua root-dir)/bin:$PATH"
+fi

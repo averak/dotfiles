@@ -10,3 +10,7 @@ for file in "$DOTFILES_DIR/local/"*.sh; do
     source "$file"
 done
 unsetopt nullglob
+
+if command -v aqua &> /dev/null; then
+  export PATH="$(aqua root-dir)/bin:$PATH"
+fi
