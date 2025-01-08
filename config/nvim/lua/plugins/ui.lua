@@ -86,4 +86,14 @@ return {
 			})
 		end,
 	},
+	{
+		"MeanderingProgrammer/render-markdown.nvim",
+		lazy = true,
+		-- avante.nvim でも利用する。
+		ft = { "markdown", "Avante" },
+		opts = {
+			file_types = { "markdown", "Avante" },
+		},
+		config = true,
+	},
 }

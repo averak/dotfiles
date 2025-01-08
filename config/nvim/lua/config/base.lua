@@ -21,7 +21,7 @@ vim.opt.ruler = true
 vim.opt.number = true
 vim.opt.cursorline = true
 vim.opt.scrolloff = 3
-vim.opt.laststatus = 2
+vim.opt.laststatus = 3
 
 vim.opt.clipboard = "unnamed"
 
