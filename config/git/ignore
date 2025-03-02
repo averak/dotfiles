@@ -43,7 +43,7 @@ Temporary Items
 .history/
 
 #--------------------------------------------------------------#
-##        JeBrains                                               ##
+##        JeBrains                                            ##
 #--------------------------------------------------------------#
 # User-specific stuff
 .idea
@@ -52,6 +52,8 @@ Temporary Items
 .idea/**/usage.statistics.xml
 .idea/**/dictionaries
 .idea/**/shelf
+
+.noai
 
 # Generated files
 .idea/**/contentModel.xml
