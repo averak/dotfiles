@@ -43,7 +43,7 @@ Configuration files for tools that are no longer in use are still retained.
 The tools that are actually used are as follows.
 
 | Tool                                                        | configuration                            | Category             |
-|-------------------------------------------------------------|------------------------------------------|----------------------|
+| ----------------------------------------------------------- | ---------------------------------------- | -------------------- |
 | [zsh](https://github.com/zsh-users/zsh)                     | [./config/zsh](./config/zsh)             | Shell                |
 | [sheldon](https://github.com/rossmacarthur/sheldon)         | [./config/sheldon](./config/sheldon)     | Shell Plugin Manager |
 | [neovim](https://github.com/neovim/neovim)                  | [./config/nvim](./config/nvim)           | Text Editor          |
