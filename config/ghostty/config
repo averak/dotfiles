@@ -1,4 +1,4 @@
-theme = MaterialDarker
+theme = Material Darker
 font-family = "JetBrains Mono NL"
 font-style = Medium
 font-size = 13
@@ -9,3 +9,4 @@ macos-titlebar-style = transparent
 cursor-style = block
 shell-integration = detect
 shell-integration-features = no-cursor
+keybind = shift+enter=text:\n
