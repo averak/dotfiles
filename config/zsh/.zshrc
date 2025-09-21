@@ -38,6 +38,7 @@ setopt mark_dirs
 setopt numeric_glob_sort
 setopt magic_equal_subst
 setopt always_last_prompt
+setopt interactivecomments
 
 autoload -Uz compinit && compinit -C
 autoload -U +X bashcompinit && bashcompinit
