@@ -1,4 +1,16 @@
 {
+  "mcpServers": {
+    "Context7": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@upstash/context7-mcp@latest"
+      ]
+    }
+  },
+  "general": {
+    "preferredEditor": "neovim"
+  },
   "tools": {
     "core": [
       "LSTool",
@@ -14,13 +26,11 @@
       "ShellTool(git status)",
       "ShellTool(git diff)",
       "ShellTool(git log)",
-      "ShellTool(pwd)",
-      "ShellTool(dotnet run)",
-      "ShellTool(dotnet build)",
-      "ShellTool(dotnet test)",
-      "ShellTool(npm run lint)",
-      "ShellTool(npm run test:)"
-    ]
+      "ShellTool(pwd)"
+    ],
+    "shell": {
+      "enableInteractiveShell": true
+    }
   },
   "context": {
     "fileFiltering": {
