@@ -20,7 +20,7 @@ _symlink() {
 	_target=$2
 
 	if [ -e "$_target" ]; then
-		_log_info "backup \"$_target\" to \"$_BACKUP_DIR/$(basename "$_target")\""
+		_log_info "backup '$_target' to '$_BACKUP_DIR/$(basename "$_target")'"
 		mv -f "$_target" "$_BACKUP_DIR/$(basename "$_target")"
 	fi
 
@@ -29,7 +29,7 @@ _symlink() {
 		mkdir -p "$_dir"
 	fi
 
-	_log_info "ln -sf \"$_source\" \"$_target\""
+	_log_info "ln -sf '$_source' '$_target'"
 	ln -sf "$_source" "$_target"
 }
 
@@ -46,7 +46,7 @@ _symlink "$_DOTFILES_DIR"/config/zsh/.zprofile "$HOME"/.zprofile
 _symlink "$_DOTFILES_DIR"/config/sheldon "$HOME"/.config/sheldon
 
 # prompt
-_symlink "$_DOTFILES_DIR"/config/prompt/starship.toml "$HOME"/.config/starship.toml
+_symlink "$_DOTFILES_DIR"/config/starship/starship.toml "$HOME"/.config/starship.toml
 
 # ghostty
 _symlink "$_DOTFILES_DIR"/config/ghostty "$HOME"/.config/ghostty
@@ -75,8 +75,11 @@ _symlink "$_DOTFILES_DIR"/config/karabiner "$HOME"/.config/karabiner
 # zellij
 _symlink "$_DOTFILES_DIR"/config/zellij "$HOME"/.config/zellij
 
+# gemini
+_symlink "$_DOTFILES_DIR"/config/gemini/settings.json "$HOME"/.gemini/settings.json
+
 # xmodmap
-_symlink "$_DOTFILES_DIR"/config/xmodmap "$HOME"/.Xmodmap
+_symlink "$_DOTFILES_DIR"/config/Xmodmap/.Xmodmap "$HOME"/.Xmodmap
 
 # tmux
 _symlink "$_DOTFILES_DIR"/config/tmux/.tmux.conf "$HOME"/.tmux.conf

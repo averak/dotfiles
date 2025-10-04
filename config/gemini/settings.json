@@ -1,0 +1,41 @@
+{
+  "tools": {
+    "core": [
+      "LSTool",
+      "ReadFileTool",
+      "WriteFileTool",
+      "GrepTool",
+      "GlobTool",
+      "EditTool",
+      "ReadManyFilesTool",
+      "MemoryTool",
+      "WebFetchTool",
+      "WebSearchTool",
+      "ShellTool(git status)",
+      "ShellTool(git diff)",
+      "ShellTool(git log)",
+      "ShellTool(pwd)",
+      "ShellTool(dotnet run)",
+      "ShellTool(dotnet build)",
+      "ShellTool(dotnet test)",
+      "ShellTool(npm run lint)",
+      "ShellTool(npm run test:)"
+    ]
+  },
+  "context": {
+    "fileFiltering": {
+      "respectGitIgnore": true
+    }
+  },
+  "security": {
+    "auth": {
+      "selectedType": "oauth-personal"
+    }
+  },
+  "ui": {
+    "theme": "Atom One"
+  },
+  "privacy": {
+    "usageStatisticsEnabled": false
+  }
+}
