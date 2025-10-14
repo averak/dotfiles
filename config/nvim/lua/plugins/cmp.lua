@@ -77,7 +77,7 @@ return {
             })
             require("mason-lspconfig").setup_handlers({
                 function(server_name)
-                    require("lspconfig")[server_name].setup({})
+                    vim.lsp.config(server_name, {})
                 end,
             })
 
@@ -99,8 +99,8 @@ return {
                     null_ls.builtins.diagnostics.buf,
                     null_ls.builtins.formatting.buf,
                     null_ls.builtins.formatting.stylua,
-                    null_ls.builtins.diagnostics.yamllint,
                     null_ls.builtins.formatting.yamlfmt,
+                    null_ls.builtins.diagnostics.yamllint,
                     null_ls.builtins.diagnostics.actionlint,
                 },
             })
