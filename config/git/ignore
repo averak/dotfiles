@@ -126,3 +126,5 @@ nohup.out
 
 # class file
 *.class
+
+**/.claude/settings.local.json
