@@ -29,3 +29,5 @@
 	insteadOf = https://github.dena.jp
 [includeIf "gitdir:~/workspace/github.dena.jp/"]
     path = ~/dotfiles/config/git/github.dena.jp/.gitconfig
+[url "git@github.dena.jp:swet"]
+	insteadof = https://github.com/swet-dena
