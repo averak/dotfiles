@@ -4,6 +4,7 @@ export PATH=$PATH:/opt/homebrew/bin
 export PATH=$PATH:/opt/metasploit-framework/bin
 export PATH=$PATH:$HOME/.local/bin
 export PATH=$PATH:$HOME/.cargo/bin
+export PATH=$PATH:$HOME/.antigravity/antigravity/bin
 
 export DOTFILES_DIR=$HOME/dotfiles
 setopt nullglob
