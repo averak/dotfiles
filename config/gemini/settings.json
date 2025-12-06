@@ -2,38 +2,16 @@
   "mcpServers": {
     "Context7": {
       "command": "npx",
-      "args": [
-        "-y",
-        "@upstash/context7-mcp@latest"
-      ]
+      "args": ["-y", "@upstash/context7-mcp@latest"]
     }
   },
   "general": {
-    "preferredEditor": "neovim"
+    "preferredEditor": "neovim",
+    "previewFeatures": true
   },
   "tools": {
-    "core": [
-      "LSTool",
-      "ReadFileTool",
-      "WriteFileTool",
-      "GrepTool",
-      "GlobTool",
-      "EditTool",
-      "ReadManyFilesTool",
-      "MemoryTool",
-      "WebFetchTool",
-      "WebSearchTool",
-      "ShellTool(git)",
-      "ShellTool(pwd)",
-      "ShellTool(mise)",
-      "ShellTool(npm)"
-    ],
-    "allowed": [
-      "ShellTool(git status)",
-      "ShellTool(git diff)",
-      "ShellTool(git log)",
-      "ShellTool(pwd)"
-    ],
+    "core": ["LSTool", "ReadFileTool", "WriteFileTool", "GrepTool", "GlobTool", "EditTool", "ReadManyFilesTool", "MemoryTool", "WebFetchTool", "WebSearchTool", "ShellTool(git)", "ShellTool(pwd)", "ShellTool(mise)", "ShellTool(npm)"],
+    "allowed": ["ShellTool(git status)", "ShellTool(git diff)", "ShellTool(git log)", "ShellTool(pwd)"],
     "shell": {
       "enableInteractiveShell": true
     }
