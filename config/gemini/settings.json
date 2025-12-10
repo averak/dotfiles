@@ -2,10 +2,7 @@
   "mcpServers": {
     "Context7": {
       "command": "npx",
-      "args": [
-        "-y",
-        "@upstash/context7-mcp@latest"
-      ]
+      "args": ["-y", "@upstash/context7-mcp@latest"]
     }
   },
   "general": {
@@ -13,7 +10,7 @@
     "previewFeatures": true
   },
   "tools": {
-    "core": ["LSTool", "ReadFileTool", "WriteFileTool", "GrepTool", "GlobTool", "EditTool", "ReadManyFilesTool", "MemoryTool", "WebFetchTool", "WebSearchTool", "ShellTool(git)", "ShellTool(pwd)", "ShellTool(mise)", "ShellTool(npm)"],
+    "core": ["LSTool", "ReadFileTool", "WriteFileTool", "GrepTool", "GlobTool", "EditTool", "ReadManyFilesTool", "MemoryTool", "WebFetchTool", "WebSearchTool", "WriteTodosTool", "ShellTool(git)", "ShellTool(pwd)", "ShellTool(mise)", "ShellTool(npm)"],
     "allowed": ["ShellTool(git status)", "ShellTool(git diff)", "ShellTool(git log)", "ShellTool(pwd)"],
     "shell": {
       "enableInteractiveShell": true
