@@ -12,9 +12,14 @@ layout {
     tab {
         pane split_direction="vertical" size="70%" {
             pane
+            pane
             pane focus=true
         }
         pane split_direction="vertical" {
+            pane split_direction="horizontal" {
+                pane
+                pane
+            }
             pane
             pane
         }
