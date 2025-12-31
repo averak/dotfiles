@@ -52,3 +52,4 @@ The tools that are actually used are as follows.
 | [lazygit](https://github.com/jesseduffield/lazygit)         | [./config/lazygit](./config/lazygit)     | Git Terminal UI      |
 | [gitui](https://github.com/extrawurst/gitui)                | [./config/gitui](./config/gitui)         | Git Terminal UI      |
 | [karabiner](https://github.com/pqrs-org/Karabiner-Elements) | [./config/karabiner](./config/karabiner) | Keyboard Customizer  |
+| [BetterTouchTool](https://folivora.ai)                      | [./config/bettertouchtool](./config/bettertouchtool) | Input Automation |
