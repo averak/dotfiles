@@ -7,7 +7,13 @@
   },
   "general": {
     "preferredEditor": "neovim",
-    "previewFeatures": true
+    "previewFeatures": true,
+    "checkpointing": {
+      "enabled": true
+    }
+  },
+  "experimental": {
+    "skills": true
   },
   "tools": {
     "core": ["LSTool", "ReadFileTool", "WriteFileTool", "GrepTool", "GlobTool", "EditTool", "ReadManyFilesTool", "MemoryTool", "WebFetchTool", "WebSearchTool", "WriteTodosTool", "ShellTool(git)", "ShellTool(pwd)", "ShellTool(mise)", "ShellTool(npm)"],
