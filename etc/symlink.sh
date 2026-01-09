@@ -75,8 +75,11 @@ _symlink "$_DOTFILES_DIR"/config/karabiner "$HOME"/.config/karabiner
 # zellij
 _symlink "$_DOTFILES_DIR"/config/zellij "$HOME"/.config/zellij
 
-# gemini
+# gemini-cli
 _symlink "$_DOTFILES_DIR"/config/gemini/settings.json "$HOME"/.gemini/settings.json
+
+# claude code
+_symlink "$_DOTFILES_DIR"/config/claude/settings.json "$HOME"/.claude/settings.json
 
 # xmodmap
 _symlink "$_DOTFILES_DIR"/config/Xmodmap/.Xmodmap "$HOME"/.Xmodmap
