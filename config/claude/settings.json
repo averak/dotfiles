@@ -69,7 +69,9 @@
     "command": "~/.claude/ccline/ccline",
     "padding": 0
   },
-  "enabledPlugins": {},
+  "enabledPlugins": {
+    "feature-dev@claude-plugins-official": true
+  },
   "language": "japanese",
   "sandbox": {
     "enabled": true,
