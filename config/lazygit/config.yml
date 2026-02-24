@@ -26,9 +26,9 @@ gui:
 git:
   log:
     order: default
-  paging:
-    colorArg: always
-    useConfig: false
+  pagers:
+    - colorArg: always
+      useConfig: false
   merging:
     manualCommit: false
     args: ""
