@@ -4,26 +4,24 @@ return {
 		lazy = true,
 		event = { "BufNewFile", "BufReadPre" },
 		config = function()
-			require("nvim-treesitter.configs").setup({
+			require("nvim-treesitter").setup({
 				-- 必要な parser を全て列挙するのは面倒なので、全てインストールする。
 				-- install に失敗する && 使わない parser がある場合は、ignore_install に指定すること。
+				-- Neovim 本体が同梱するパーサー (vim, vimdoc 等) は、Neovim のバージョンに
+				-- 合わせたクエリファイルとセットで提供されている。nvim-treesitter が異なる
+				-- バージョンのパーサーで上書きすると不整合が起きるため、除外する。
+				-- ref: https://github.com/neovim/neovim/issues/34113
 				ensure_installed = "all",
-				ignore_install = { "norg" },
-				highlight = {
-					enable = true,
-				},
-				indent = {
-					enable = true,
-				},
-				additional_vim_regex_highlighting = false,
+				ignore_install = { "norg", "vim", "vimdoc" },
 			})
+			vim.treesitter.language.register("markdown", "mdx")
 		end,
 	},
 	{
 		"nvim-treesitter/nvim-treesitter-context",
 		event = { "BufNewFile", "BufReadPre" },
 		config = function()
-			require("nvim-treesitter.configs").setup({
+			require("treesitter-context").setup({
 				enable = true,
 				multiwindow = false,
 				max_lines = 0,
