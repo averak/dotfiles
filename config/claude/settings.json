@@ -82,5 +82,6 @@
       ],
       "allowLocalBinding": true
     }
-  }
+  },
+  "effortLevel": "high"
 }
