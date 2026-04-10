@@ -11,6 +11,8 @@ keybinds clear-defaults=true {
         bind "f" { ToggleFocusFullscreen; SwitchToMode "normal"; }
         bind "h" { MoveFocus "left"; }
         bind "k" { MoveFocus "up"; }
+        bind "l" { NextSwapLayout; }
+        bind "L" { PreviousSwapLayout; }
         bind "n" { MoveFocus "right"; }
         bind "r" { SwitchToMode "renamepane"; PaneNameInput 0; }
         bind "s" { NewPane "down"; SwitchToMode "normal"; }
