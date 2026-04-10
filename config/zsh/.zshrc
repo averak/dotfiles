@@ -67,6 +67,10 @@ export FZF_DEFAULT_OPTS='--height 40% --reverse --preview "bat --theme=TwoDark -
 
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
+TRAPWINCH() {
+  zle && zle reset-prompt
+}
+
 #--------------------------------------------------------------#
 ##        aliases                                             ##
 #--------------------------------------------------------------#
