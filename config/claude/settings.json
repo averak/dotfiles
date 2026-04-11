@@ -1,43 +1,7 @@
 {
   "permissions": {
-    "allow": [
-      "Bash(mise run:*)",
-      "Bash(git status:*)",
-      "Bash(git diff:*)",
-      "Bash(git log:*)",
-      "Bash(git show:*)",
-      "Bash(git branch:*)",
-      "Bash(git rev-parse:*)",
-      "Bash(git remote -v:*)",
-      "Bash(git ls-files:*)",
-      "Bash(git describe:*)",
-      "Bash(git config -l:*)",
-      "Bash(git stash list:*)",
-      "Bash(git tag:*)",
-      "Bash(cat:*)",
-      "Bash(head:*)",
-      "Bash(tail:*)",
-      "Bash(wc:*)",
-      "Bash(find:*)",
-      "Bash(grep:*)",
-      "Bash(rg:*)",
-      "Bash(ls:*)",
-      "Bash(tree:*)",
-      "WebFetch(domain:github.com)"
-    ],
-    "deny": [
-      "Read(./.env)",
-      "Read(./.env.*)",
-      "Read(./secrets/**)",
-      "Read(~/.ssh/**)",
-      "Read(~/.aws/**)",
-      "Read(~/.gnupg/**)",
-      "Bash(curl:*)",
-      "Bash(wget:*)",
-      "Bash(rm -rf:*)",
-      "Bash(sudo:*)",
-      "Bash(chmod 777:*)"
-    ],
+    "allow": ["Bash(mise run:*)", "Bash(git status:*)", "Bash(git diff:*)", "Bash(git log:*)", "Bash(git show:*)", "Bash(git branch:*)", "Bash(git rev-parse:*)", "Bash(git remote -v:*)", "Bash(git ls-files:*)", "Bash(git describe:*)", "Bash(git config -l:*)", "Bash(git stash list:*)", "Bash(git tag:*)", "Bash(cat:*)", "Bash(head:*)", "Bash(tail:*)", "Bash(wc:*)", "Bash(find:*)", "Bash(grep:*)", "Bash(rg:*)", "Bash(ls:*)", "Bash(tree:*)", "WebFetch(domain:github.com)"],
+    "deny": ["Read(./.env)", "Read(./.env.*)", "Read(./secrets/**)", "Read(~/.ssh/**)", "Read(~/.aws/**)", "Read(~/.gnupg/**)", "Bash(rm -rf:*)", "Bash(sudo:*)", "Bash(chmod 777:*)"],
     "ask": [],
     "defaultMode": "acceptEdits"
   },
@@ -70,16 +34,23 @@
     "padding": 0
   },
   "enabledPlugins": {
-    "feature-dev@claude-plugins-official": true
+    "feature-dev@claude-plugins-official": true,
+    "pyright-lsp@claude-plugins-official": true
+  },
+  "extraKnownMarketplaces": {
+    "openai-codex": {
+      "source": {
+        "source": "github",
+        "repo": "openai/codex-plugin-cc"
+      }
+    }
   },
   "language": "japanese",
   "sandbox": {
     "enabled": true,
     "autoAllowBashIfSandboxed": true,
     "network": {
-      "allowUnixSockets": [
-        "/var/run/docker.sock"
-      ],
+      "allowUnixSockets": ["/var/run/docker.sock"],
       "allowLocalBinding": true
     }
   },
