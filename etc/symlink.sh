@@ -81,9 +81,6 @@ _symlink "$_DOTFILES_DIR"/config/gemini/settings.json "$HOME"/.gemini/settings.j
 # claude code
 _symlink "$_DOTFILES_DIR"/config/claude/settings.json "$HOME"/.claude/settings.json
 
-# github copilot cli
-_symlink "$_DOTFILES_DIR"/config/copilot/copilot-instructions.md "$HOME"/.copilot/copilot-instructions.md
-
 # xmodmap
 _symlink "$_DOTFILES_DIR"/config/Xmodmap/.Xmodmap "$HOME"/.Xmodmap
 
