@@ -1,9 +1,10 @@
 {
   "permissions": {
-    "allow": ["Bash(mise run:*)", "Bash(git status:*)", "Bash(git diff:*)", "Bash(git log:*)", "Bash(git show:*)", "Bash(git branch:*)", "Bash(git rev-parse:*)", "Bash(git remote -v:*)", "Bash(git ls-files:*)", "Bash(git describe:*)", "Bash(git config -l:*)", "Bash(git stash list:*)", "Bash(git tag:*)", "Bash(cat:*)", "Bash(head:*)", "Bash(tail:*)", "Bash(wc:*)", "Bash(find:*)", "Bash(grep:*)", "Bash(rg:*)", "Bash(ls:*)", "Bash(tree:*)", "WebFetch(domain:github.com)"],
+    "allow": ["Bash(mise run:*)", "Bash(git status:*)", "Bash(git diff:*)", "Bash(git log:*)", "Bash(git show:*)", "Bash(git branch:*)", "Bash(git rev-parse:*)", "Bash(git remote -v:*)", "Bash(git ls-files:*)", "Bash(git describe:*)", "Bash(git config -l:*)", "Bash(git stash list:*)", "Bash(git tag:*)", "Bash(cat:*)", "Bash(head:*)", "Bash(tail:*)", "Bash(wc:*)", "Bash(find:*)", "Bash(grep:*)", "Bash(rg:*)", "Bash(ls:*)", "Bash(tree:*)", "WebFetch(domain:github.com)", "Bash(mise run test)", "Bash(mise run fmt)", "Bash(mise run lint)", "Bash(curl:*)", "mcp__context7__*", "mcp__serena__*", "mcp__adk-docs-mcp__*", "WebFetch(domain:google.github.io)", "Bash(pdm run pytest:*)", "Bash(pdm run ruff:*)", "Bash(pdm run mypy:*)", "WebSearch", "WebFetch(domain:developers.google.com)", "WebFetch(domain:support.google.com)", "WebFetch(domain:issuetracker.google.com)", "WebFetch(domain:pypi.org)", "Bash(pdm run python:*)", "WebFetch(domain:raw.githubusercontent.com)", "Bash(python3:*)", "Bash(.venv/bin/python3:*)", "Bash(echo:*)", "WebFetch(domain:arxiv.org)", "Bash(PYTHONPATH=src pdm run python:*)", "WebFetch(domain:api.github.com)", "WebFetch(domain:registry.npmjs.org)", "WebFetch(domain:docs.cloud.google.com)", "WebFetch(domain:blog.ostorlab.co)", "WebFetch(domain:docs.strix.ai)", "WebFetch(domain:www.strix.ai)", "WebFetch(domain:blog.ogwilliam.com)", "WebFetch(domain:www.helpnetsecurity.com)", "WebFetch(domain:medium.com)", "WebFetch(domain:www.decisioncrafters.com)", "Bash(gh api:*)", "Bash(GIT_SSL_NO_VERIFY=1 gh api:*)", "WebFetch(domain:files.pythonhosted.org)", "Bash(GIT_SSL_NO_VERIFY=1 gh issue view:*)", "Bash(gh issue view:*)", "Bash(head:)", "WebFetch(domain:devengoratela.com)", "Bash(pdm:*)", "WebFetch(domain:www.ox.security)", "Bash(pip index:*)", "Bash(git pull:*)", "Bash(git add:*)", "Bash(git rebase:*)", "WebFetch(domain:developers.openai.com)", "WebFetch(domain:api.hackerone.com)", "Bash(GIT_SEQUENCE_EDITOR=\"sed -i '' -e 's/^pick 9d9defe6/fixup 9d9defe6/' -e 's/^pick 16010457/fixup 16010457/' -e '/^fixup 9d9defe6/{ h; d; }' -e '/^pick 91559ee4/{ G; }'\" git rebase:*)", "WebFetch(domain:adk.dev)", "WebFetch(domain:zenn.dev)", "Bash(git fetch:*)", "Bash(git commit:*)", "Bash(git push:*)", "Bash(gh pr:*)", "mcp__dashi__list_sessions", "WebFetch(domain:docs.docker.com)", "WebFetch(domain:console.cloud.google.com)", "WebFetch(domain:www.anthropic.com)", "WebFetch(domain:docs.claude.com)", "WebFetch(domain:xbow.com)", "WebFetch(domain:hackerone.com)", "WebFetch(domain:firebounty.com)", "WebFetch(domain:ai.google.dev)", "Bash(terraform fmt *)", "Read(//Users/tatsuya.abe/workspace/github.com/cyberprobe-ai/infra/**)", "Bash(codex --version)", "Read(//private/tmp/**)", "Bash(codex exec *)", "Bash(docker exec *)"],
     "deny": ["Read(./.env)", "Read(./.env.*)", "Read(./secrets/**)", "Read(~/.ssh/**)", "Read(~/.aws/**)", "Read(~/.gnupg/**)", "Bash(chmod 777:*)"],
-    "ask": [],
-    "defaultMode": "acceptEdits"
+    "ask": ["Bash(mise install)", "Bash(docker compose:*)"],
+    "defaultMode": "auto",
+    "additionalDirectories": ["~/workspace/github.com/layer8-ai", "~/workspace/github.com/cyberprobe-ai"]
   },
   "hooks": {
     "Notification": [
@@ -55,5 +56,6 @@
       "allowLocalBinding": true
     }
   },
-  "effortLevel": "high"
+  "effortLevel": "high",
+  "skipAutoPermissionPrompt": true
 }
