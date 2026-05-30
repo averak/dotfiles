@@ -29,4 +29,5 @@
 ## PR
 
 - 作業 branch には勝手に push してよい。
+  sandbox が有効な場合、push のみ sandbox を無効化して実行してよい。
 - `gh pr create --assignee @me` で自分を assignee にする。
