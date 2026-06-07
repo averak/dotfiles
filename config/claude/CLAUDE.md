@@ -29,5 +29,8 @@
 ## PR
 
 - 作業 branch には勝手に push してよい。
-  sandbox が有効な場合、push のみ sandbox を無効化して実行してよい。
 - `gh pr create --assignee @me` で自分を assignee にする。
+
+## Sandbox
+
+* ユーザからの指示を完遂するのに sandbox 無効化が必要な場合は、そのツール実行時のみ sandbox を無効化すること。
