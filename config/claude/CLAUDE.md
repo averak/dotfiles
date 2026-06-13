@@ -34,3 +34,18 @@
 ## Sandbox
 
 * ユーザからの指示を完遂するのに sandbox 無効化が必要な場合は、そのツール実行時のみ sandbox を無効化すること。
+
+## 調査・提案資料
+
+ユーザからのテキストではなく HTML 形式での説明を求められた場合、下記要点に従って作成せよ。
+
+- **自己完結 HTML で書く**。図はインライン SVG、スタイルはインライン CSS で、外部 CDN (mermaid 等) に依存しない。sandbox / offline でもブラウザで開けるようにするため。
+- **human-readable な図・表で伝える**。複雑な機序は文章の羅列ではなく、読み手が直観的に掴める図・表に落とす (記法の予備知識を要する表現は避ける)。
+- **コード参照は permanent link で張る**。branch 名や `HEAD` のような流動的なポインタは避け、URL単体で常に同じコード・行範囲を参照できる不変の識別子（commit hash や tag 等）を埋めること。
+    - **URL形式:** `https://<github-domain>/<org>/<repo>/blob/<immutable-ref>/<path>#L<start>-L<end>`
+    - リンク範囲は示したい箇所に合わせる。関数全体でも、関数内の一部の行範囲 (`#L<start>-L<end>`) でもよい。
+    - 識別子 (関数名・テーブル名) そのものをリンクテキストにするとフレンドリー。
+- **A4 印刷に対応させる** (`@page` / `print-color-adjust: exact`)。
+- **出力先:** `~/tmp/docs/<repo-name>/<YYYYMMDD>_<topic>.html`
+
+※ `<github-domain>`, `<org>`, `<repo>`, `<project-root>` は、現在作業中のプロジェクト環境に合わせて適宜置き換えること。
