@@ -25,8 +25,15 @@ apply = ["defer"]
 [plugins.powerlevel10k]
 github = "romkatv/powerlevel10k"
 
-[plugins.zsh-mise]
-github = "wintermi/zsh-mise"
+[plugins.mise]
+inline = '''
+if [[ -x "$(command -v mise)" ]]; then
+    eval "$(mise activate zsh)"
+    # 補完は dotfiles に vendoring した _mise を使う (差し替えの理由はファイル冒頭参照)。
+    # compinit は compinit プラグインが zsh-defer で後追い実行するため、fpath 追加で拾われる。
+    fpath=(~/dotfiles/config/zsh/completions $fpath)
+fi
+'''
 
 [plugins.zsh-kubectl-completion]
 github = "nnao45/zsh-kubectl-completion"
