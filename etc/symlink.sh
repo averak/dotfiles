@@ -82,6 +82,9 @@ _symlink "$_DOTFILES_DIR"/config/gemini/settings.json "$HOME"/.gemini/settings.j
 _symlink "$_DOTFILES_DIR"/config/claude/settings.json "$HOME"/.claude/settings.json
 _symlink "$_DOTFILES_DIR"/config/claude/CLAUDE.md "$HOME"/.claude/CLAUDE.md
 
+# codex
+_symlink "$_DOTFILES_DIR"/config/codex/AGENTS.md "$HOME"/.codex/AGENTS.md
+
 # xmodmap
 _symlink "$_DOTFILES_DIR"/config/Xmodmap/.Xmodmap "$HOME"/.Xmodmap
 
