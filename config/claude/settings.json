@@ -114,7 +114,6 @@
       "~/workspace/github.com/cyberprobe-ai"
     ]
   },
-  "model": "opus[1m]",
   "hooks": {
     "Notification": [
       {
@@ -170,5 +169,6 @@
   "effortLevel": "high",
   "tui": "fullscreen",
   "agentPushNotifEnabled": true,
-  "skipAutoPermissionPrompt": true
+  "skipAutoPermissionPrompt": true,
+  "model": "opus[1m]"
 }
