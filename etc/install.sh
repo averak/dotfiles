@@ -102,6 +102,8 @@ if _confirm "[Q] Are you sure you want to install mise?"; then
 	mise use -g starship@latest
 	mise use -g zellij@latest
 	mise use -g gitui@latest
+	# nvim-treesitter は parser のコンパイルを tree-sitter CLI に委ねており、これがないと parser を1つも導入できない。
+	mise use -g tree-sitter@latest
 fi
 
 #--------------------------------------------------------------#

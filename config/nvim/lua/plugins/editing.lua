@@ -1,20 +1,59 @@
 return {
 	{
 		"nvim-treesitter/nvim-treesitter",
-		lazy = true,
-		event = { "BufNewFile", "BufReadPre" },
+		-- master branch は archive 済みで、Neovim 0.12 では query の directive が動かない。
+		branch = "main",
+		-- main branch は lazy-load を想定していない。
+		lazy = false,
+		build = ":TSUpdate",
 		config = function()
-			require("nvim-treesitter").setup({
-				-- 必要な parser を全て列挙するのは面倒なので、全てインストールする。
-				-- install に失敗する && 使わない parser がある場合は、ignore_install に指定すること。
-				-- Neovim 本体が同梱するパーサー (vim, vimdoc 等) は、Neovim のバージョンに
-				-- 合わせたクエリファイルとセットで提供されている。nvim-treesitter が異なる
-				-- バージョンのパーサーで上書きすると不整合が起きるため、除外する。
-				-- ref: https://github.com/neovim/neovim/issues/34113
-				ensure_installed = "all",
-				ignore_install = { "norg", "vim", "vimdoc" },
-			})
+			local treesitter = require("nvim-treesitter")
+			treesitter.setup()
 			vim.treesitter.language.register("markdown", "mdx")
+
+			---@type table<string, boolean>?
+			local available
+
+			-- 必要な parser を全て列挙するのは面倒なので、開いた filetype の parser をその場でインストールする。
+			-- インストールは非同期なので、初回に開いた buffer だけは完了後に treesitter を起動し直す。
+			vim.api.nvim_create_autocmd("FileType", {
+				callback = function(args)
+					local lang = vim.treesitter.language.get_lang(args.match)
+					if not lang then
+						return
+					end
+
+					-- Neovim 本体が同梱するパーサー (markdown, lua, vim, vimdoc 等) は、Neovim のバージョンに合わせたクエリファイルとセットで提供されている。
+					-- nvim-treesitter のインストール先は runtimepath の先頭に置かれて同梱版を隠すため、パーサーが既にある言語はインストールしない。
+					-- ref: https://github.com/neovim/neovim/issues/34113
+					if vim.treesitter.language.add(lang) then
+						pcall(vim.treesitter.start, args.buf, lang)
+						return
+					end
+
+					if not available then
+						available = {}
+						for _, name in ipairs(treesitter.get_available()) do
+							available[name] = true
+						end
+					end
+					-- 対応する parser がない言語を install に渡すと警告が出るため、ここで打ち切る。
+					if not available[lang] then
+						return
+					end
+
+					treesitter.install(lang):await(function(err)
+						if err then
+							return
+						end
+						vim.schedule(function()
+							if vim.api.nvim_buf_is_valid(args.buf) then
+								pcall(vim.treesitter.start, args.buf, lang)
+							end
+						end)
+					end)
+				end,
+			})
 		end,
 	},
 	{
