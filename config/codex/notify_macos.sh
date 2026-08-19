@@ -10,4 +10,4 @@ payload=${1:-}
 message=$(printf '%s' "$payload" | jq -r '.["last-assistant-message"] // "Codex task completed"')
 project=$(basename "$PWD")
 
-exec "$(cd "$(dirname "$0")/../notify" && pwd)/macos.sh" "Codex" "$project" "$message" Purr 2
+exec "$(cd "$(dirname "$0")/../notify" && pwd)/macos.sh" "Codex" "$project" "$message" Purr 1
