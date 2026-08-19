@@ -11,7 +11,7 @@ set -euo pipefail
 title=${1:?title is required}
 subtitle=${2:-}
 message=${3:-}
-sound=${4:-Glass}
+sound=${4:-Purr}
 volume=${5:-2}
 
 # 端末を見ている間に鳴らしても意味がないので、最前面が Ghostty なら何もしない。

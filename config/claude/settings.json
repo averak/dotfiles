@@ -122,7 +122,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "~/dotfiles/config/claude/notify.sh '入力を待っています' Glass 2"
+            "command": "~/dotfiles/config/claude/notify.sh '入力を待っています' Purr 2"
           }
         ]
       }
@@ -132,7 +132,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "~/dotfiles/config/claude/notify.sh '応答が完了しました' Pop 1"
+            "command": "~/dotfiles/config/claude/notify.sh '応答が完了しました' Purr 1"
           }
         ]
       }
