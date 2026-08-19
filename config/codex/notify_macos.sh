@@ -1,7 +1,13 @@
-#!/bin/bash
+#!/usr/bin/env bash
+# Codex CLI の notify から呼ばれ、macOS のデスクトップ通知を出す。
+#
+# Codex は通知内容を JSON 文字列として第1引数に渡す。JSON には作業ディレクトリが含まれないので、
+# どのリポジトリの通知かは Codex から引き継いだカレントディレクトリで判断する。
 
-# JSONから最後のエージェント発言を抽出
-LAST_MESSAGE=$(echo "$1" | jq -r '.["last-assistant-message"] // "Codex task completed"')
+set -euo pipefail
 
-# sound name を追加することで、通知と一緒にシステム音が鳴ります
-osascript -e "display notification \"$LAST_MESSAGE\" with title \"Codex\" sound name \"Default\""
+payload=${1:-}
+message=$(printf '%s' "$payload" | jq -r '.["last-assistant-message"] // "Codex task completed"')
+project=$(basename "$PWD")
+
+exec "$(cd "$(dirname "$0")/../notify" && pwd)/macos.sh" "Codex" "$project" "$message" Glass 2

@@ -114,14 +114,15 @@
       "~/workspace/github.com/cyberprobe-ai"
     ]
   },
+  "model": "opus[1m]",
   "hooks": {
     "Notification": [
       {
-        "matcher": "permission_prompt",
+        "matcher": "permission_prompt|idle_prompt|agent_needs_input|elicitation_dialog|worker_permission_prompt",
         "hooks": [
           {
             "type": "command",
-            "command": "osascript -e 'display notification \"Action required or thinking...\" with title \"Claude Code\" sound name \"Default\"'"
+            "command": "~/dotfiles/config/claude/notify.sh '入力を待っています' Glass 2"
           }
         ]
       }
@@ -131,7 +132,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "osascript -e 'display notification \"Task completed\" with title \"Claude Code\" sound name \"Default\"'"
+            "command": "~/dotfiles/config/claude/notify.sh '応答が完了しました' Pop 1"
           }
         ]
       }
@@ -166,9 +167,8 @@
       "allowLocalBinding": true
     }
   },
-  "effortLevel": "high",
+  "effortLevel": "xhigh",
   "tui": "fullscreen",
   "agentPushNotifEnabled": true,
-  "skipAutoPermissionPrompt": true,
-  "model": "opus[1m]"
+  "skipAutoPermissionPrompt": true
 }
