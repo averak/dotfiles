@@ -2,36 +2,15 @@
 
 _DOTFILES_DIR=$(pwd)
 . "$_DOTFILES_DIR"/etc/_utils.sh
+. "$_DOTFILES_DIR"/etc/_symlink.sh
 
 if ! _confirm "[Q] Are you sure you want to overwrite your dotfiles?"; then
 	_log_warn "Symlinking canceled, nothing to do."
 	exit 0
 fi
 
-_BACKUP_DIR=$_DOTFILES_DIR/tmp/backup/$(date "+%Y%m%d%H%M%S")
-if [ -e "$_BACKUP_DIR" ]; then
-	rm -rf "$_BACKUP_DIR"
-else
-	mkdir -p "$_BACKUP_DIR"
-fi
-
-_symlink() {
-	_source=$1
-	_target=$2
-
-	if [ -e "$_target" ]; then
-		_log_info "backup '$_target' to '$_BACKUP_DIR/$(basename "$_target")'"
-		mv -f "$_target" "$_BACKUP_DIR/$(basename "$_target")"
-	fi
-
-	_dir=$(dirname "$_target")
-	if [ ! -e "$_dir" ]; then
-		mkdir -p "$_dir"
-	fi
-
-	_log_info "ln -sf '$_source' '$_target'"
-	ln -sf "$_source" "$_target"
-}
+mkdir -p "$_DOTFILES_DIR/tmp/backup" || exit 1
+_BACKUP_DIR=$(mktemp -d "$_DOTFILES_DIR/tmp/backup/$(date "+%Y%m%d%H%M%S").XXXXXX") || exit 1
 
 # bash
 _symlink "$_DOTFILES_DIR"/config/bash/.bashrc "$HOME"/.bashrc
@@ -84,6 +63,14 @@ _symlink "$_DOTFILES_DIR"/config/claude/CLAUDE.md "$HOME"/.claude/CLAUDE.md
 
 # codex
 _symlink "$_DOTFILES_DIR"/config/codex/AGENTS.md "$HOME"/.codex/AGENTS.md
+
+# shared agent skills
+for _skill_dir in "$_DOTFILES_DIR"/config/skills/*; do
+	[ -f "$_skill_dir/SKILL.md" ] || continue
+	_skill_name=$(basename "$_skill_dir")
+	_symlink "$_skill_dir" "$HOME/.claude/skills/$_skill_name" || exit 1
+	_symlink "$_skill_dir" "$HOME/.agents/skills/$_skill_name" || exit 1
+done
 
 # xmodmap
 _symlink "$_DOTFILES_DIR"/config/Xmodmap/.Xmodmap "$HOME"/.Xmodmap

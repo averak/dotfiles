@@ -1,0 +1,6 @@
+interface:
+  display_name: "Long-running task"
+  short_description: "長時間タスクを安定して遂行するための作業フローを有効化する"
+
+policy:
+  allow_implicit_invocation: true
